@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11"></meta>
+	<title>探索 | Lifestep</title>
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-modal.css" rel="stylesheet" />
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/explore.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="navbar-wrapper">
+        <div class="navbar navbar-default navbar-fixed-top" id="navbar-top" role="navigation">
+            <div class="container-fluid top-bar back-top">
+                <div class="navbar-header">
+                            <ul class="nav navbar-nav back-top">
+                            <li><a class="sidebar-toggle btn" role="tab" id="sidebar-btn"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a></li>
+                            <li><a class="navbar-brand" title="Lifestep" href="javascript:;"> 
+                                <img alt="logo" src="./images/logo5.png" height="32px"></a></li>
+                            <li class="nav-guide"><a id="page-name">精选</a></li>       
+                            </div>
+                        <div class="navbar-collapse collapse back-top">
+<div class="col-xs-5">
+        <form class="custom-search" method="" action="" role="search">
+        <div class="input">
+            <input type="text" class="form-control" placeholder="搜索 Lifestep" name="search-term" id="search-term"><button class="submit" id="search-btn"><i class="material-icons">search</i></button></div>
+        </form>
+        </div>
+                            <ul class="nav navbar-nav navbar-right">
+                            <li id="zhuye"><a href="javascript:;" title="主页"><i class="glyphicon glyphicon-home" aria-hidden="true"></i></a>
+                            </li>
+                            <li id="tongzhi"><span class="badge badge-important">2</span><a href="javascript:;" title="通知"><i class="material-icons" aria-hidden="true">notifications</i></a>
+                            </li>
+                                
+                               <!-- <li id="tongzhi" class="dropdown"><span class="badge badge-important">2</span>
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="通知"><i class="material-icons" aria-hidden="true">notifications</i></a>
+                <ul class="dropdown-menu" id="navbar-message-box">
+                <li><div class="dropdown-band" style="margin-bottom: 4px;"><b>通知与反馈</b></div></li>
+                  <li class="high-line"><a href="javascript:;"><i class="material-icons">assistant</i>&nbsp;系统通知<span class="badge pull-right">40</span></a></li>
+                  <li class="high-line"><a href="javascript:;"><i class="material-icons">description</i>&nbsp;日志提醒<span class="badge pull-right">2</span></a></li>
+                  <li class="high-line"><a href="javascript:;"><i class="material-icons">announcement</i>&nbsp;建议反馈<span class="badge pull-right">0</span></a></li>
+                  <li class="high-line"><a href="javascript:;"><i class="material-icons">help</i>&nbsp;帮助中心<span class="label label-info pull-right">1</span></a></li>
+                </ul>
+             </li>  -->
+             <li id="sixin"><a href="javascript:;" title="私信"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                                <li id="zhanghu" class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="账户">
+                                <img src="images/avatar13.jpg" class="img-circle" alt="avatar" width="35px" height="35px">
+                                    </a>
+                                    <ul class="dropdown-menu" id="user-setting">
+                                        <li>
+                                        <div class="navbar-footer">
+                                                <div class="navbar-footer-content">
+                                                    <div class="row">
+                                                        <div class="col-xs-6" style="padding-top:5px"><b>我的账户</b>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <a href="javascript:;" class="btn btn-danger btn-sm pull-right"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>&nbsp;登出</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="navbar-content">
+                                                <div class="row">
+                                                    <div class="col-xs-5">
+                                                    <a href="javascript:;" id="change-avatar"><img src="images/avatar13.jpg" alt="Alternate Text" class="img-responsive" width="120px" height="120px" /></a>
+                                                    </div>
+                                                    <div class="col-xs-7 pull-left">
+                                                        <span>ANTIPE</span>
+                                                        <p class="text-muted small">
+                                                            example@pods.tld</p>
+                                                        <div class="divider">
+                                                        </div> 
+                                                        <a href="javascript:;" id="account-setting" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-cog" aria-hidden="true"></i>&nbsp;&nbsp;设置</a>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </li>                                       
+        <li><div class="dropdown-band"><img src="images/toys1.png">&nbsp;&nbsp;<b>在乐迹</b></div></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;发布</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><i class="fa fa-heart"></i>&nbsp;&nbsp;喜欢</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><i class="fa fa-user-plus"></i>&nbsp;&nbsp;关注</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><i class="fa fa-star"></i>&nbsp;&nbsp;收藏</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><i class="fa fa-group"></i>&nbsp;&nbsp;粉丝</a></li>
+            
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+   <!--Post-Button-->
+ <div class="post-button-anim">
+          <!--<ul id="options">
+            <li class="option">
+              <button id="text-post" class="post-button option1" type="button" title="发布文字" data-title="text-edit" data-toggle="modal" data-target="#text-edit">文</button>
+            </li>
+            <li class="option">
+              <button id="image-post" class="post-button option2" type="button" title="发布图片" data-title="image-edit" data-toggle="modal" data-target="#image-edit">图</button>
+            </li>
+            <li class="option">
+              <button id="audio-post" class="post-button option3" type="button" title="发布音频" data-title="audio-edit" data-toggle="modal" data-target="#audio-edit">音</button>
+            </li>
+            <li class="option">
+              <button id="video-post" class="post-button option4" type="button" title="发布视频" data-title="video-edit" data-toggle="modal" data-target="#video-edit">视</button>
+            </li>
+            <li class="option">
+              <button id="bio-post" class="post-button option5" type="button" title="发布传记" data-title="bio-edit" data-toggle="modal" data-target="#bio-edit">传</button>
+            </li>
+          </ul>-->
+          <button class="post-button post-button-toggle" type="button" title="编辑" data-title="text-edit" data-toggle="modal" data-target="#text-edit">  
+               <span class="posticon"><i class="glyphicon glyphicon-pencil" id="posticon-1"></i>
+                <i class="glyphicon glyphicon-plus" id="posticon-2"></i></span>
+          </button>
+        </div>
+
+<div id="wrapper">
+<!--Side-Bar-->
+        <div id="sidebar-wrapper">
+            <nav>
+                <ul class="sidebar-nav nav">
+                    <li>
+                        <a href="#home" data-toggle="tooltip" data-placement="right" title="精选"><i class="material-icons">local_florist</i>&nbsp;&nbsp;&nbsp;精选</a>
+                    </li>
+                    <li>
+                        <a href="#anch1" data-toggle="tooltip" data-placement="right" title="位置">
+                            <i class="material-icons">place</i>&nbsp;&nbsp;&nbsp;位置
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch2" data-toggle="tooltip" data-placement="right" title="新鲜事">
+                            <i class="material-icons">explore</i>&nbsp;&nbsp;&nbsp;新鲜事
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch3" data-toggle="tooltip" data-placement="right" title="广场">
+                            <i class="material-icons">extension</i>&nbsp;&nbsp;&nbsp;广场
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch4" data-toggle="tooltip" data-placement="right" title="在乐迹">
+                            <img src="images/toys1.png">&nbsp;&nbsp;&nbsp;在乐迹
+                        </a>
+                    </li>
+                    <hr>
+                    <li>
+                        <a href="#anch2" data-toggle="tooltip" data-placement="right" title="设置">
+                            <i class="material-icons">settings</i>&nbsp;&nbsp;&nbsp;设置
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch3" data-toggle="tooltip" data-placement="right" title="建议反馈">
+                            <i class="material-icons">announcement</i>&nbsp;&nbsp;&nbsp;建议反馈
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch4" data-toggle="tooltip" data-placement="right" title="帮助">
+                            <i class="material-icons">help</i>&nbsp;&nbsp;&nbsp;帮助
+                        </a>
+                    </li> 
+
+
+                    <div class="nav-brand footer"><p>
+                  <a title="关于我们" href="http://contact.lifestep.cn/">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a title="工作机会" href="http://jobs.lifestep.cn/">工作机会</a><br>  
+                    <a title="法律" href="http://legal.lifestep.cn/">法律</a>&nbsp;&nbsp;&nbsp;&nbsp;<a title="隐私" href="http://privacy.lifestep.cn/">隐私</a> 
+      
+    <br>&copy; 2017&nbsp;Lifestep &nbsp;&nbsp;</p></div>        
+    </ul>
+
+            </nav>
+
+        </div> 
+
+
+
+ <!--Main-Body-->       
+  <div id="mainbody" class="container-fluid">
+    <div class="row"> 
+    
+      <div class="posts-container col-xs-7 col-xs-offset-1">     <!--Post-Content-->
+
+      <div class="post-edit">
+      <div class="post-avatar" id=""><a href="javascript:;"><img src="./images/avatar13.jpg" alt="avatar"></a></div>
+      <div class="edit-box"></div>
+
+      </div>
+      <div style="padding-left: 14%">
+      <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a> 
+        <i class="fa fa-coffee"></i>
+        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+      </div></div>
+        <ul class="posts-list">
+            <li>
+            <div class="alert alert-post">
+                    <!-- Avatar -->
+                    <div class="user-avatar" id=""><a href="javascript:;"><img src="./images/avatar11.jpg" alt="avatar"></a></div>
+                    <!-- Post-content-box -->
+                    <div class="post-box">
+                        <div class="post-header">
+                        <div id="cell">
+                            <a href="javascript:;" class="user-name">Agustin Ortiz</a>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <div class="post-close"><span class="post-time">20 分钟前</span>
+                            <span class="dislike">不喜欢</span>
+                            <a class="panel-close close" data-dismiss="alert"><i class="fa fa-close"></i></a></div>
+                            <br>
+                            <a href="javascript:;" class="activity"><i class="fa fa-caret-right"></i>&nbsp;&nbsp;Norway Landscape</a>
+                            </div>
+                        </div>
+                        <div class="post-content col-lg-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。
+
+我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。
+
+现在想来，忽然被这凡尘里最普普通通的人们感动。哪怕生活艰辛，我们在日夜劳作里忘记了抬头看看月亮，却依然不愿怠慢，那些特殊的时刻，那个值得陪伴和纪念的良辰和爱人。</p>
+                            <p>Just created a new snippet inspired by the Svbtle Menu. Find it here: <a>http://bootsnipp.com/snippets/MaWrA</a></p></div>
+
+          
+          
+            <div class="images">
+            <img src="./images/content/content3.jpg" width="100%"/>
+            <img src="./images/content/content9.jpg" width="100%"/>
+            <img src="./images/content/content10.jpg" width="100%"/>
+            </div> 
+            </div>
+
+                        
+                        <div class="post-footer">
+                        <p class="post-tags">#&nbsp;小吃 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;春秋 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;节气</p>
+                        <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="material-icons" aria-hidden="true">favorite_border</i></a><span class="badge pull-left">6</span>
+                        <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="material-icons" aria-hidden="true">star_border</i></a><span class="badge pull-left">2</span>
+                        <span class="badge pull-right">美如画</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="material-icons" aria-hidden="true">mood</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="material-icons" style="font-size: 22px" aria-hidden="true">chat_bubble_outline</i></a>
+                        </div>
+
+                    <div id="comment-area" class="collapse">
+                    <ul class=" comments-list">
+                <li>
+                      <div class="comment-cell">
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">Febrero 13, 2016</span>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                        <div id="comment-options"><a href="javascript:;" id="comment-option1" class="comment-icon dropdown-toggle btn-default" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="javascript:;">为评论点赞</a></li>
+                  <li><a href="javascript:;">回复</a></li>
+                  <li><a href="javascript:;">举报评论</a></li>
+                  <li><a href="javascript:;">查看对话</a></li>
+                </ul>
+                        <a href="javascript:;" id="comment-option2" class="comment-icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;赞</a></div>
+                      </div>
+                    </li>
+<li>
+                      <div class="comment-cell">
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">Febrero 13, 2016</span>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                        <div id="comment-options"><a href="javascript:;" id="comment-option1" class="comment-icon dropdown-toggle btn-default" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="javascript:;">为评论点赞</a></li>
+                  <li><a href="javascript:;">回复</a></li>
+                  <li><a href="javascript:;">举报评论</a></li>
+                  <li><a href="javascript:;">查看对话</a></li>
+                </ul>
+                        <a href="javascript:;" id="comment-option2" class="comment-icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;赞</a></div>
+                      </div>
+                    </li>
+<li>
+                      <div class="comment-cell">
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar5.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">Febrero 13, 2016</span>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                        <div id="comment-options"><a href="javascript:;" id="comment-option1" class="comment-icon dropdown-toggle btn-default" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="javascript:;">为评论点赞</a></li>
+                  <li><a href="javascript:;">回复</a></li>
+                  <li><a href="javascript:;">举报评论</a></li>
+                  <li><a href="javascript:;">查看对话</a></li>
+                </ul>
+                        <a href="javascript:;" id="comment-option2" class="comment-icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;赞</a></div>
+                      </div>
+                    </li>
+<li>
+                      <div class="comment-cell">
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">Febrero 13, 2016</span>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                        <div id="comment-options"><a href="javascript:;" id="comment-option1" class="comment-icon dropdown-toggle btn-default" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="javascript:;">为评论点赞</a></li>
+                  <li><a href="javascript:;">回复</a></li>
+                  <li><a href="javascript:;">举报评论</a></li>
+                  <li><a href="javascript:;">查看对话</a></li>
+                </ul>
+                        <a href="javascript:;" id="comment-option2" class="comment-icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;赞</a></div>
+                      </div>
+                    </li>
+       </ul>
+</div>
+    <div class="comment-edit"><form>
+            <a href="javascript:;" class="col-xs-1">
+                <img class="CurrentUser-avatar pull-left" src="images/avatar13.jpg"></a>
+                <label class="add-image"><a href="javascript:void(0);" class="addimage-btn"><span class="glyphicon glyphicon-camera"></span></a><input type="file" class="file-upload" id="" name="" title="添加图片"></label>
+                    <button type="submit" class="btn btn-success"> 发布</button>
+                        <textarea class="col-xs-12" id="comment-edit-area"  placeholder="发表评论&hellip;"></textarea>
+                                 </form>
+      </div>
+      </div>
+                
+</div>
+</li>
+            <li>
+            <div class="alert alert-post">
+                    <!-- Avatar -->
+                    <div class="user-avatar"><a href="javascript:;"><img src="./images/avatar12.jpg" alt="avatar"></a></div>
+                    <!-- Post-content-box -->
+                    <div class="post-box">
+                        <div class="post-header">
+                        <div id="cell">
+                            <p class="user-name user-tag"><a href="javascript:;">Agustin Ortiz</a></p>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <div class="post-close"><span class="post-time">20 分钟前</span>
+                            <span class="dislike">不喜欢</span>
+                            <a class="panel-close close" data-dismiss="alert"><i class="fa fa-close"></i></a></div>
+                        </div>
+                        </div>
+                        <div class="post-content col-lg-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。
+
+我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。
+
+现在想来，忽然被这凡尘里最普普通通的人们感动。哪怕生活艰辛，我们在日夜劳作里忘记了抬头看看月亮，却依然不愿怠慢，那些特殊的时刻，那个值得陪伴和纪念的良辰和爱人。</p>
+                            <p>Just created a new snippet inspired by the Svbtle Menu. Find it here: <a>http://bootsnipp.com/snippets/MaWrA</a></p></div>
+                        <div id="img-2"><img class="item" src="./images/content/content15.jpg" width="100%"/></div>
+                        </div>
+                        <div class="post-footer">
+                        <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="material-icons" aria-hidden="true">favorite_border</i></a><span class="badge pull-left">6</span>
+                        <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="material-icons" aria-hidden="true">star_border</i></a><span class="badge pull-left">2</span>
+
+                        <span class="badge pull-right">蠢哭了</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="material-icons" aria-hidden="true">mood_bad</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="material-icons" style="font-size: 22px" aria-hidden="true">chat_bubble_outline</i></a>
+                        </div>
+            <div id="comment-area" class="collapse"> 
+                     <ul class=" comments-list">
+                <li>
+                      <div class="comment-cell">
+                        <a href="javascript:;" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">Febrero 13, 2016</span>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，...</p>
+                        </div>
+                        <div id="comment-options"><a href="javascript:;" id="comment-option1" class="comment-icon dropdown-toggle btn-default" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="javascript:;">为评论点赞</a></li>
+                  <li><a href="javascript:;">回复</a></li>
+                  <li><a href="javascript:;">举报评论</a></li>
+                  <li><a href="javascript:;">查看对话</a></li>
+                </ul>
+                        <a href="javascript:;" id="comment-option2" class="comment-icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;赞</a></div>
+                      </div>
+                    </li>
+<li>
+                      <div class="comment-cell">
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">Febrero 13, 2016</span>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                        <div id="comment-options"><a href="javascript:;" id="comment-option1" class="comment-icon dropdown-toggle btn-default" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="javascript:;">为评论点赞</a></li>
+                  <li><a href="javascript:;">回复</a></li>
+                  <li><a href="javascript:;">举报评论</a></li>
+                  <li><a href="javascript:;">查看对话</a></li>
+                </ul>
+                        <a href="javascript:;" id="comment-option2" class="comment-icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;赞</a></div>
+                      </div>
+                    </li>
+<li>
+                      <div class="comment-cell">
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar.png" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">Febrero 13, 2016</span>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                        <div id="comment-options"><a href="javascript:;" id="comment-option1" class="comment-icon dropdown-toggle btn-default" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="javascript:;">为评论点赞</a></li>
+                  <li><a href="javascript:;">回复</a></li>
+                  <li><a href="javascript:;">举报评论</a></li>
+                  <li><a href="javascript:;">查看对话</a></li>
+                </ul>
+                        <a href="javascript:;" id="comment-option2" class="comment-icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;赞</a></div>
+                      </div>
+                    </li>
+<li>
+                      <div class="comment-cell">
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">Febrero 13, 2016</span>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                        <div id="comment-options"><a href="javascript:;" id="comment-option1" class="comment-icon dropdown-toggle btn-default" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="javascript:;">为评论点赞</a></li>
+                  <li><a href="javascript:;">回复</a></li>
+                  <li><a href="javascript:;">举报评论</a></li>
+                  <li><a href="javascript:;">查看对话</a></li>
+                </ul>
+                        <a href="javascript:;" id="comment-option2" class="comment-icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;赞</a></div>
+                      </div>
+                    </li>
+       </ul>
+        </div>
+                
+                <div class="comment-edit"><form>
+                                    <a href="javascript:;" class="col-xs-1">
+                                    <img class="CurrentUser-avatar pull-left" src="images/avatar13.jpg"></a>
+                                    <label class="add-image"><a href="javascript:void(0);" class="addimage-btn"><span class="glyphicon glyphicon-camera"></span></a>
+<input type="file" class="file-upload" id="" name="" title="添加图片"></label>
+                                    <button type="submit" class="btn btn-success"> 发布</button>
+                                    <textarea class="col-xs-12" id="comment-edit-area"  placeholder="发表评论&hellip;"></textarea>
+                                    </form>
+                                    </div>
+                                </div>
+                                   
+                
+     </div>
+    </li>
+  </ul>
+</div>
+<!--Side-Recommendation-->
+<div class="col-xs-3">  
+<div class="side-col">
+    <div class="col-title">&nbsp;推荐关注<a href="javascript:;" id="whole" class="pull-right">更多&nbsp;<span class="fa fa-angle-right"></span></a></div>
+        <ul class="column-list">
+            <li class="recommend">
+                <a class="pull-left" href="javascript:;">
+                    <img class="user-avatar" src="./images/avatar3.jpg" alt="avatar">
+                </a>
+                <div class="recommend-body">
+                    <div class="recommend-heading">
+                        <a href="javascript:;"><h4 class="user-name">星期天</h4></a><a href="javascript:;" class="pull-right"><i class="fa fa-plus-square"></i></a>     
+                    </div>
+                        <p>二货大猩猩</p>                       
+                </div>
+            </li> 
+            <li class="recommend">
+                <a class="pull-left" href="javascript:;">
+                    <img class="user-avatar" src="./images/avatar3.png" alt="avatar">
+                </a>
+                <div class="recommend-body">
+                    <div class="recommend-heading">
+                        <a href="javascript:;"><h4 class="user-name">Ryan Haywood</h4></a><a href="javascript:;" class="pull-right"><i class="fa fa-plus-square"></i></a>     
+                    </div>
+                        <p>Relax my friend</p>                       
+                </div>
+            </li> 
+            <li class="recommend">
+                <a class="pull-left" href="javascript:;">
+                    <img class="user-avatar" src="./images/avatar8.jpg" alt="avatar">
+                </a>
+                <div class="recommend-body">
+                    <div class="recommend-heading">
+                        <a href="javascript:;"><h4 class="user-name">大军</h4></a><a href="javascript:;" class="pull-right"><i class="fa fa-plus-square"></i></a>     
+                    </div>
+                        <p>小动作</p>                       
+                </div>
+            </li> 
+            <li class="recommend">
+                <a class="pull-left" href="javascript:;">
+                    <img class="user-avatar" src="./images/avatar6.jpg" alt="avatar">
+                </a>
+                <div class="recommend-body">
+                    <div class="recommend-heading">
+                        <a href="javascript:;"><h4 class="user-name">他大哥</h4></a><a href="javascript:;" class="pull-right"><i class="fa fa-plus-square"></i></a>   
+                    </div>
+                        <p>一个勺子</p>
+                </div>
+            </li> 
+        </ul>
+		</div>
+                        
+
+                <!-- Side Remarks Search -->
+<div class="remarks-col">
+    <div class="col-title">&nbsp;点评搜索</div>
+                    <div class="remarks-button">
+                    <button id="btn-remark1" class="btn btn-default">(^ ᗨ ^)<br>太逗了</button>
+                    <button id="btn-remark2" class="btn btn-default">(⊙o⊙)<br>大吃一惊</button>
+                    <button id="btn-remark3" class="btn btn-default">(⊙_⊙;)<br>吓坏了</button>
+                    <button id="btn-remark4" class="btn btn-default">(*∩_∩*)<br>美如画</button>
+                    <button id="btn-remark5" class="btn btn-default">(╰ _ ╯)<br>岂有此理</button>
+                    <button id="btn-remark6" class="btn btn-default">(︶o︶)<br>丑到家</button>
+                    <button id="btn-remark7" class="btn btn-default"> (^ ω ^)<br>萌化了</button>
+                    <button id="btn-remark8" class="btn btn-default">(- _ -")<br>索然无味</button>
+                    <button id="btn-remark9" class="btn btn-default">(′ ェ ';)<br>蠢哭了</button>
+                    <div class="collapse"> 
+                    <button id="btn-remark10" class="btn btn-default">(+﹏+)<br>好感人</button>
+                    <button id="btn-remark11" class="btn btn-default">(￣.￣)<br>一本正经</button>
+                    <button id="btn-remark12" class="btn btn-default">(〒_〒)<br>好可怜</button>
+                    <button id="btn-remark13" class="btn btn-default">(✧◡✧)<br>正能量</button>
+                    <button id="btn-remark14" class="btn btn-default">(¯ □ ¯)<br>无话可说</button>
+                    <button id="btn-remark15" class="btn btn-default">(@_@)<br>搞不懂</button>
+                    </div>
+                    
+                    <div class="footer">
+              <button class="btn toggle-remark">展开&nbsp;<span class="glyphicon glyphicon-triangle-bottom"></span></button>
+            </div>
+            
+                    </div>
+</div>
+
+        <!-- Hot Tags Search -->
+<div class="tags-col">
+    <div class="col-title">&nbsp;热门标签<a href="#" id="whole" class="pull-right">更多&nbsp;<span class="fa fa-angle-right"></span></a></div>
+                    <ul class="list-unstyled" id="tags-list">
+                    <li><span></span>戛纳电影节</li>
+                    <li><span></span>中超恒大</li>
+                    <li><span></span>人工智能</li>
+                    <li><span></span>最近的一次冒险</li>
+                    <li><span></span>你兜里揣着啥</li>
+                    </ul>
+                
+                    
+</div>
+</div>          
+
+                
+              
+
+
+</div><!--mainbody-row-->
+</div><!--mainbody-->
+
+</div><!--Wrapper-->
+
+
+
+      <!--Text Post Window -->
+<div class="modal fade" id="text-edit" tabindex="-1" role="dialog" aria-labelledby="text-edit" aria-hidden="true">
+      <div class="modal-dialog">
+      <div class="row">
+      <div><a href="javascript:;"><img class="avatar" src="./images/avatar13.jpg" height="65px" alt="avatar"></a></div>
+      <div id="post-board">
+      <a href="javascript" class="pull-left"><h5 id="user-name">Ryan Haywood</h5></a>
+      <select id="options" class="pull-right" onchange="optionCheck()">
+      <option selected="selected" value="open">公开</option>
+      <option value="private">私有</option></select>
+      <span class="glyphicon glyphicon-globe pull-right"></span>
+      <input id="title" class="col-xs-12" placeholder="标题（可不填）"/>
+      <textarea id="text-editor" class="col-xs-12" placeholder="分享你的生活&hellip;"></textarea>
+      <div id="add" class="col-xs-12">
+      <input type="file" title="添加图片" class="file-upload" id="" name="">
+      <a href="javascript:void(0);" id="photo"><span class="glyphicon glyphicon-camera"></span></a>
+      <a href="javascript:;" title="添加链接" id="links"><span class="glyphicon glyphicon-link"></span></a>
+      <div class="btn-group" data-toggle="buttons">
+<label id="location" class="btn location-btn" data-toggle="tooltip" data-placement="top" title="当前位置可见"><input type="checkbox" name="location"><span class="glyphicon glyphicon-map-marker"></span></label></div></div>
+      <button id="post-btn" class="btn btn-primary pull-right" role="button">发布</button>
+      <button id="cancle-btn" class="btn btn-primary pull-right" data-dismiss="modal" role="button">取消</button>
+      </div>
+      </div>
+      </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+      <!--Image Post Window -->
+<div class="modal fade" id="image-edit" tabindex="-1" role="dialog" aria-labelledby="image-edit" aria-hidden="true">
+      <div class="modal-dialog">    
+<div class="row">
+<div><a href="javascript:;"><img class="avatar" src="./images/avatar5.jpg" height="65px" alt="avatar"></div>
+<div id="post-board"><a href="javascript" class="pull-left"><h5 id="user-name">Ryan Haywood</h5></a>
+<select id="options" class="pull-right" onchange="optionCheck()">
+<option selected="selected" value="open">公开</option><option value="private">私有</option></select>
+<span class="glyphicon glyphicon-globe pull-right"></span>
+<div id="add1" class="col-xs-12">
+<a href="javascript:;" id="upload-img" class="col-xs-4"><input type="file" id="" name="" title="上传图片"></a>
+<a href="javascript:;" id="gif-img" class="col-xs-4"><input type="file" id="" name="" title="上传GIF动画"></a>
+<a href="javascript:;" id="link-img" class="col-xs-4"></a>
+</div>
+<textarea id="text-editor" class="col-xs-12" placeholder="简单描述一下（限60字）"></textarea>
+<div id="footer" class="col-xs-12">
+<div class="btn-group" data-toggle="buttons">
+<label id="location" class="btn location-btn" data-toggle="tooltip" data-placement="top" title="当前位置可见"><input type="checkbox" name="location"><span class="glyphicon glyphicon-map-marker"></span></label></div>
+<button id="post-btn" class="btn btn-primary pull-right" role="button">发布</button>
+<button id="cancle-btn" class="btn btn-primary pull-right" data-dismiss="modal" role="button">取消</button></div></div></div>
+
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+
+<!--Audio Post Window -->
+<div class="modal fade" id="audio-edit" tabindex="-1" role="dialog" aria-labelledby="audio-edit" aria-hidden="true">
+      <div class="modal-dialog">    
+<div class="row">
+<div><a href="javascript:;"><img class="avatar" src="./images/avatar5.jpg" height="65px" alt="avatar"></div>
+<div id="post-board">
+<a href="javascript" class="pull-left"><h5 id="user-name">Ryan Haywood</h5></a>
+<select id="options" class="pull-right" onchange="optionCheck()">
+<option selected="selected" value="open">公开</option>
+<option value="private">私有</option>
+</select>
+<span class="glyphicon glyphicon-globe pull-right"></span>
+<div id="add1" class="col-xs-12">
+<a href="javascript:;" id="upload-audio" class="col-xs-6"><input type="file" id="" name="" title="上传音频"></a>
+<a href="javascript:;" id="link-audio" class="col-xs-6"></a>
+</div>
+<textarea id="text-editor" class="col-xs-12" placeholder="简单描述一下（限60字）"></textarea>
+<div id="footer" class="col-xs-12">
+<input type="file" class="file-upload" id="" name="" title="来张封面？">
+<a href="javascript:void(0);" id="cover"><span class="glyphicon glyphicon-picture"></span></a>
+<div class="btn-group" data-toggle="buttons">
+<label id="location" class="btn location-btn" data-toggle="tooltip" data-placement="top" title="当前位置可见"><input type="checkbox" name="location"><span class="glyphicon glyphicon-map-marker"></span></label></div>
+<button id="post-btn" class="btn btn-primary pull-right" role="button">发布</button>
+<button id="cancle-btn" class="btn btn-primary pull-right" data-dismiss="modal" role="button">取消</button>
+</div>
+</div>
+</div>
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+
+<!--Video Post Window -->
+<div class="modal fade" id="video-edit" tabindex="-1" role="dialog" aria-labelledby="video-edit" aria-hidden="true">
+      <div class="modal-dialog">  
+<div class="row">
+<div><a href="javascript:;"><img class="avatar" src="./images/avatar5.jpg" height="65px" alt="avatar"></div>
+<div id="post-board">
+<a href="javascript" class="pull-left"><h5 id="user-name">Ryan Haywood</h5></a>
+<select id="options" class="pull-right" onchange="optionCheck()">
+<option selected="selected" value="open">公开</option>
+<option value="private">私有</option>
+</select>
+<span class="glyphicon glyphicon-globe pull-right"></span>
+<div id="add1" class="col-xs-12">
+<a href="javascript:;" id="upload-video" class="col-xs-6"><input type="file" id="" name="" title="上传视频"></a>
+<a href="javascript:;" id="link-video" class="col-xs-6"></a>
+</div>
+<textarea id="text-editor" class="col-xs-12" placeholder="简单描述一下（限60字）"></textarea>
+<div id="footer" class="col-xs-12">
+<div class="btn-group" data-toggle="buttons">
+<label id="location" class="btn location-btn" data-toggle="tooltip" data-placement="top" title="当前位置可见"><input type="checkbox" name="location"><span class="glyphicon glyphicon-map-marker"></span></label></div>
+<button id="post-btn" class="btn btn-primary pull-right" role="button">发布</button>
+<button id="cancle-btn" class="btn btn-primary pull-right" data-dismiss="modal" role="button">取消</button>
+</div>
+</div>
+</div>          
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+
+                <!--Remark Window -->
+<div class="modal fade" id="remark" tabindex="-1" role="dialog" aria-labelledby="remark" aria-hidden="true">
+      <div class="modal-dialog">
+<div class="modal-body">
+                <p>你觉得这帖子怎么样？点评一下吧：</p>
+            
+                            <div class="btn-group remarkBtnGroup" data-toggle="buttons">
+                                <label class="btn remark-btn" id="option1">                               
+                                    <input type="radio" name="options">(^ ᗨ ^) 太逗了 
+                                </label>
+                                <label class="btn remark-btn" id="option2">                                   
+                                    <input type="radio" name="options">(⊙o⊙) 大吃一惊 
+                                </label>
+                                <label class="btn remark-btn" id="option3">                           
+                                    <input type="radio" name="options">(⊙_⊙;) 吓坏了
+                                </label>              
+                                 <label class="btn remark-btn" id="option4">                                 
+                                    <input type="radio" name="options">(*∩_∩*) 美如画 
+                                </label>
+                                <label class="btn remark-btn" id="option5">                                  
+                                    <input type="radio" name="options">(╰ _ ╯) 岂有此理 
+                                </label>
+                               <label class="btn remark-btn" id="option6">                                    
+                                    <input type="radio" name="options">(︶o︶) 丑到家 
+                                </label>            
+                               <label class="btn remark-btn" id="option7">                                   
+                                    <input type="radio" name="options">(^ ω ^) 萌化了 
+                                </label>
+                                <label class="btn remark-btn" id="option8">                               
+                                    <input type="radio" name="options">(- _ -") 索然无味 
+                                </label>
+                                <label class="btn remark-btn" id="option9">                           
+                                    <input type="radio" name="options">(′ ェ ';) 蠢哭了 
+                                </label>
+                                <label class="btn remark-btn" id="option10">
+                                    <input type="radio" name="options">(+﹏+) 好感人 
+                                </label>
+                                <label class="btn remark-btn" id="option11">  
+                                   <input type="radio" name="options">(￣.￣) 一本正经 
+                                </label>
+                                <label class="btn remark-btn" id="option12">                     
+                                    <input type="radio" name="options">(〒_〒) 好可怜 
+                                </label>            
+                                <label class="btn remark-btn" id="option13">
+                                    <input type="radio" name="options">(✧◡✧) 正能量 
+                                </label>
+                                <label class="btn remark-btn" id="option14">                    
+                                    <input type="radio" name="options">(¯ □ ¯) 无话可说 
+                                </label>
+                                <label class="btn remark-btn" id="option15">   
+                                    <input type="radio" name="options">(@_@) 搞不懂 
+                                </label>
+                            </div>
+        <button id="post-btn" class="btn btn-primary pull-right" role="button">提交</button>
+<button id="cancle-btn" class="btn btn-primary pull-right" data-dismiss="modal" role="button">取消</button>
+  </div>                  
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+
+                                 
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="js/jquery-1.11.3.min.js"></script> 
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript"> 
+//  资料卡 
+$(function (){   
+  $(".user-avatar,.user-name").popover({   
+      trigger:'manual',//manual 触发方式  
+      placement : 'bottom',    
+      title:'',  
+      html: 'true',   
+      content : '<div class="panel panel-default panel-card"><div class="panel-heading"><img src="./images/panel1.jpg"/><button class="btn btn-info btn-sm" role="button">关注</button></div><div class="panel-figure"><img class="img-responsive img-circle" src="./images/avatar6.jpg" /></div><div class="panel-body text-center"><h4 class="panel-header"><a href="">@Maridlcrmn</a></h4><small>A short description goes here.</small></div><div class="panel-thumbnails"><div class="row"><div class="col-xs-4"><div class="thumbnail"><img src="./images/panel3.jpg"/></div></div><div class="col-xs-4"><div class="thumbnail"><img src="./images/panel4.jpg" /></div></div><div class="col-xs-4"><div class="thumbnail"><img src="./images/panel2.jpg" /></div></div></div></div></div>',    
+      animation: true  
+  }) 
+  .on("mouseenter", function () {  
+      var _this = this;  
+      $(this).popover("show");  
+      $(this).siblings(".popover")
+  .on("mouseleave", function () {  
+      $(_this).popover('hide');  
+  });  
+})
+  .on("mouseleave", function () {  
+      var _this = this;  
+      setTimeout(function () {  
+      if (!$(".popover:hover").length) {  
+      $(_this).popover("hide")  
+      }  
+      }, 100);  
+      });    
+  });  
+</script>  
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
+<script type="text/javascript">
+//textarea自动增高
+$('textarea').each(function () {
+  this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:show;');
+}).on('input', function () {
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px';
+});
+//轮播
+$('.carousel').carousel({
+  interval: 5000
+});
+$(".carousel-control").hide();
+$(function(){
+   //鼠标滑过，左右按钮进行显示和隐藏
+   $(".carousel").hover(function(){
+     $(".carousel-control").show();
+   },function(){
+     $(".carousel-control").hide();
+   });
+   });
+
+/*Sidebar-toggle*/
+    $("#sidebar-btn").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+
+//编辑按钮
+$(document).ready(function () {
+    $('.post-button-toggle').on("click", function () {
+        $(this).toggleClass('open');
+        $('.option').toggleClass('scale-on');
+        $('.posticon').toggleClass('active');
+});
+
+/*切换标签*/
+    $('.sidebar-nav li a').on('click',function(){
+ //顶部标签名
+      $('#page-name').html($(this).attr('data-original-title'));
+    });
+
+  //回到顶部
+  $('.top-bar').on('click',function(e){
+        if ($(e.target).hasClass('back-top')) {
+          $("html,body").animate({"scrollTop":"0px"},300);
+        }
+  });
+});
+</script>
+
+<script>
+//评论
+$(document).ready(function(){
+    console.log('ready');  
+    $('.rating').click(function() {
+  $comments = $(this).parent().siblings('.collapse');
+ 
+  if ($comments.hasClass('in')) {
+    $comments.collapse('hide');
+    $(this).closest('.post-footer').removeClass('active');
+  } else {
+    $comments.collapse('show');
+    $(this).closest('.post-footer').addClass('active');
+  }
+});
+});
+</script>
+<script>
+//点评侧边栏
+$(document).ready(function(){
+    console.log('ready');
+    
+    $('.toggle-remark').click(function() {
+  $remarks = $(this).parent().siblings('.collapse');
+ 
+  if ($remarks.hasClass('in')) {
+    $remarks.collapse('hide');
+    $(this).html('展开&nbsp;<span class="glyphicon glyphicon-triangle-bottom"></span>');
+    $(this).closest('.remarks-col').removeClass('active');
+  } else {
+    $remarks.collapse('show');
+    $(this).html('收起&nbsp;<span class="glyphicon glyphicon-triangle-top"></span>');
+    $(this).closest('.remarks-col').addClass('active');
+  }
+});
+});
+
+</script>
+
+<script>
+//发表传记弹窗
+;!function(){
+$('#bio-post').on('click', function(){
+  layer.open({
+  type: 2,
+  title: ['&nbsp;&nbsp;&nbsp;现在开始书写你的人生', 'font-size:20px;color:#656565;'],
+  maxmin: true,
+  closeBtn:1,
+  shadeClose: true,
+  scrollbar: false,
+  shade: [0.9, '#7f8f9f'],
+  area: ['100%','100%'],
+  fixed: true, 
+  skin: 'layui-layer',
+  content:'file:///C:/Users/antip/Desktop/登录页/传记-编辑.html'
+  }); 
+});
+}();
+</script>
+<script type="text/javascript">
+$('.modal')
+  .on('shown', function () {
+    $('body').on('wheel.modal mousewheel.modal', function () {
+      return false;
+    });
+  })
+  .on('hidden', function () {
+    $('body').off('wheel.modal mousewheel.modal');
+  });
+</script>
+</body>
+</html>

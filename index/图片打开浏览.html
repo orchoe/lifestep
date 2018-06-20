@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style>
+body{
+  background: transparent;
+  margin:20px;
+}
+#img-open {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  background: transparent;
+}
+/**
+ *  Post Avatar
+ ---------------------------*/
+#img-open .post-avatar {
+  width: 7%;
+  position: fixed;
+  top:40px;
+  z-index: 2;
+  float: left;
+  border: 3px solid #FFF;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: rgba(51, 51, 51, 0.5) 0px 0px 8px;
+  overflow: hidden;
+}
+
+#img-open .post-avatar img {
+  width: 100%;
+  height: 100%;
+}
+/**
+ *  Post box
+ ---------------------------*/
+.post-box {
+  width: 88%;
+  float: right;
+  position: relative;
+  box-shadow: rgba(51, 51, 51, 0.5) 0px 0px 8px;
+}
+.post-box .post-header {
+  background: #FCFCFC;
+  padding: 13px 20px 11px 20px;
+  border-bottom: 1px solid #E5E5E5;
+  overflow: hidden;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+.post-box .post-header .btn-info{
+   color:#3195BA;
+   background-color: #fff;
+   border-color: #e1e1e1;
+}
+.post-box .post-header .btn-info:hover,
+.post-box .post-header .btn-info:focus{
+   background-color: #eee;
+}
+.post-box .post-footer {
+  background: #FCFCFC;
+  padding: 16px 20px 20px 10px;
+  overflow: hidden;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+.post-box .post-footer .badge{
+  margin-top: 9px;
+  color:#757575;
+  background-color:transparent;
+}
+.post-box .post-footer i{
+  font-size: 19px;
+  padding-top:8px;
+  padding-left: 8px;
+}
+.post-box .post-footer #hot-degree{
+  font-size: 13px;
+  margin-left: 8px;
+}
+.post-box .post-footer .btn-default {
+  height:34px;
+   width:34px;
+   border: none;
+   border-radius: 17px;
+  margin-left: 30px;
+  position: relative; 
+  color: #757575;
+  background-color: #EEEEEE;
+  cursor: pointer;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.post-box .post-footer .btn-default:hover,
+.post-box .post-footer .btn-default:focus{
+  box-shadow:1px 1px 2px;
+  background-color:#f5f5f5;
+}
+.post-box .post-header a:hover,
+.post-box .post-header a:focus,
+.comments-list .comment .comment-heading a:hover,
+.comments-list .comment .comment-heading a:focus{
+  text-decoration: none;
+}
+.post-box .post-name {
+  color: #2C4F82;
+  font-size: 14px;
+  font-weight: 700;
+  float: left;
+  margin-right: 10px;
+  margin-top: 6px;
+}
+.post-box .post-content a {
+  color: #5C87FF;
+}
+.post-box .post-header span {
+  float: left;
+  color: #999;
+  font-size: 13px;
+  position: relative;
+}
+.post-box .post-content {
+  background: #FFF;
+  padding: 0;
+  font-size: 15px;
+  margin-left:0;
+  color: #333333;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0 ;
+}
+.post-box .post-content .text{
+  padding:0 10px 1px 20px;
+  line-height: 1.7;
+  font-size: 16px;
+}
+.post-box .post-content img{
+   margin:0 0 20px 0;
+}
+.post-box .post-name.by-author, .post-box .post-name.by-author a {
+  color: #2C4F82;
+}
+.post-box .post-name.by-author:after {
+  content: 'autor';
+  background: #2C4F82;
+  color: #FFF;
+  font-size: 12px;
+  padding: 3px 5px;
+  font-weight: 700;
+  margin-left: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/**
+ * Comments Part
+ ---------------------------*/
+.comment-area{
+  background-color: #fff;
+  padding:1px 10px 5px 10px;
+  border-top: 1px solid #E5E5E5;
+  border-radius: 0 0 4px 4px;
+  overflow: hide;
+  margin-top: -3px;
+}
+.comments-reply{
+  margin-top:-10px;
+  margin-bottom: -10px;
+  list-style-type: none;
+}
+.comments-list .comment {
+  display: block;
+  width: 100%;
+  margin: 28px 10px 25px -22px;
+}
+.comments-list .comment .avatar {
+  border-radius: 4px;
+  margin-right: 14px;
+  width: 35px;
+  height: 35px;
+}
+.comments-list .comment .comment-heading {
+  display: block;
+  width: 100%;
+}
+.comments-list .comment .comment-heading .user {
+  color: #2C4F82;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline;
+  margin-top: 0;
+  margin-right: 5px;
+}
+.comments-list .comment .comment-heading .time {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 0;
+  display: inline;
+}
+.comment-heading .icon {
+  font-size: 13px;
+  color: #aaa;
+  margin-right: 20px;
+}
+.comment-heading .icon-r{
+  font-size: 13px;
+  color: #aaa;
+  margin-right: 0px;
+}
+.reply-list .comment-heading .icon-r{
+  margin-right: -22px;
+}
+.comments-list .comment .comment-body {
+  margin-left: 0px;
+}
+.comments-list .comment > .reply-list {
+  margin-left: 20px;
+}
+#comment-avatar {
+    width:50px;
+    height:50px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: absolute;
+ }
+#comment-edit-area:empty:before{
+  content: attr(placeholder);
+  display: block; 
+  color:#919191;/* For Firefox */
+}
+.comment-edit{
+  margin-top:-10px;
+  padding-bottom: 20px;
+  padding-left:5px;
+  padding-right: 5px;
+}
+#comment-edit-area {
+  word-break:break-all;
+  z-index: 1;
+  outline:none;
+  padding: 8px 100px 8px 60px;
+  font-size: 15px;
+}
+.comment-edit button{
+  position: absolute;
+  bottom: 20px;
+  right:20px;
+}
+.close-button {
+    position: fixed;
+    top: 40px;
+    right:40px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    background: transparent;
+    border-radius: 50%;
+    border:0;
+    outline: none ;
+    box-shadow: none ;
+}
+.close-button:hover,
+.close-button:focus,
+.close-button:active{
+  background:red;
+  
+}
+.close-button .icon-bar{
+  background-color:#ddd;
+  display:block;
+  margin-top: -3px;
+  height:3px;
+  width:23px;
+  border-radius: 1px;
+}
+#closebtn-1{
+  transform: rotate(-45deg);
+}
+#closebtn-2{
+  transform: rotate(45deg);
+}
+
+</style>
+
+</head>
+<body> 
+<button id="close-btn" class="close-button" type="button" title="关闭">  
+                <span class="icon-bar" id="closebtn-1"></span>
+                <span class="icon-bar" id="closebtn-2"></span>
+          </button>
+
+
+<div class="container-fluid ">
+    <div class="row">
+<div id="img-open" class="col-lg-10 col-lg-offset-1">
+<!-- Avatar -->
+                    <div class="post-avatar"><a href="javascript:;"><img src="./images/avatar7.jpg" alt="avatar"></a></div>
+                    <!-- Post-content-box -->
+                    <div class="post-box">
+                        <div class="post-header">
+                            <p class="post-name by-author"><a href="javascript:;">Agustin Ortiz</a></p>
+                            <span>20 分钟前</span>
+                            <a href="javascript:;" class="btn btn-info pull-right"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;<b>关注</b></a>
+                        </div>
+                        <div class="post-content col-lg-12">
+                        <div id="img-2"><img class="item" layer-src="./images/content/content2.jpg" src="./images/content/content2.jpg" width="100%"/></div>
+                      
+                        <div id="img-2"><img class="item" layer-src="./images/content/content7.jpg" src="./images/content/content7.jpg" width="100%"/></div>
+                        
+                        <div id="img-2"><img class="item" layer-src="./images/content/content12.jpg" src="./images/content/content12.jpg" width="100%"/></div>
+                        
+                            <div class="text"><p>我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。</p>
+                            </div>
+						</div>  
+                        <div class="post-footer">
+                        <a href="javascript:;" class="pull-left"><i class="fa fa-heart-o btn btn-default btn-sm" aria-hidden="true"></i></a><span class="badge pull-left">6</span>
+                        <a href="javascript:;" class="pull-left"><i class="fa fa-star-o btn btn-default btn-sm" aria-hidden="true"></i></a><span class="badge pull-left">2</span>
+                        <span class="badge pull-right">#&nbsp;太逗了</span><a href="javascript:;" class="pull-right"><i class="fa fa-meh-o btn btn-default btn-sm" aria-hidden="true"></i></a>
+                        <span class="badge pull-right">23</span><a href="javascript:;" class="pull-right rating"><i class="fa fa-comment-o btn btn-default btn-sm" aria-hidden="true"></i></a>
+                        </div>
+
+                    <div class="comment-area"> 
+                     <div class="comments-reply">
+                     <ul class="comments-list">
+                    <li class="comment">
+                        <a class="pull-left" href="javascript:;">
+                            <img class="avatar" src="./images/avatar1.jpg" alt="avatar">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <a href="javascript:;"><h4 class="user">Gavino Free</h4></a>
+                                <h5 class="time">5 分钟前</h5>
+                        <a href="javascript:;" class="icon-r pull-right"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;赞</a>
+                        <a href="javascript:;" class="icon pull-right"><i class="glyphicon glyphicon-share-alt" aria-hidden="true"></i>&nbsp;回复</a>
+                        <a href="javascript:;" class="icon pull-right"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;举报</a>
+                            </div>
+                            <p>Sure, oooooooooooooooohhhhhhhhhhhhhhhh</p>
+                        </div>
+                        <ul class="reply-list">
+                            <li class="comment">
+                                <a class="pull-left" href="javascript:;">
+                                    <img class="avatar" src="./images/avatar5.jpg" alt="avatar">
+                                </a>
+                                <div class="comment-body">
+                                    <div class="comment-heading">
+                                        <a href="javascript:;"><h4 class="user">Ryan Haywood</h4></a>
+                                        <h5 class="time">2 分钟前</h5>
+                                        <a href="javascript:;" class="icon-r pull-right"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;赞</a>
+                        <a href="javascript:;" class="icon pull-right"><i class="glyphicon glyphicon-share-alt" aria-hidden="true"></i>&nbsp;回复</a>
+                        <a href="javascript:;" class="icon pull-right"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;举报</a>
+                                    </div>
+                                    <p>Relax my friend</p>
+                                </div>
+                            </li> 
+                            <li class="comment">
+                                <a class="pull-left" href="javascript:;">
+                                    <img class="avatar" src="./images/avatar4.jpg" alt="avatar">
+                                </a>
+                                <div class="comment-body">
+                                    <div class="comment-heading">
+                                        <a href="javascript:;"><h4 class="user">Gavino Free</h4></a>
+                                        <h5 class="time">3 分钟前</h5>
+                                        <a href="javascript:;" class="icon-r pull-right"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;赞</a>
+                        <a href="javascript:;" class="icon pull-right"><i class="glyphicon glyphicon-share-alt" aria-hidden="true"></i>&nbsp;回复</a>
+                        <a href="javascript:;" class="icon pull-right"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;举报</a>
+                                    </div>
+                                    <p>Ok, cool.</p>
+                                </div>
+                            </li> 
+                        </ul>
+                    </li>
+                    <li class="comment">
+                        <a class="pull-left" href="javascript:;">
+                            <img class="avatar" src="./images/avatar9.jpg" alt="avatar">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <a href="javascript:;"><h4 class="user">格里斯</h4></a>
+                                <h5 class="time">5 分钟前</h5>
+                        <a href="javascript:;" class="icon-r pull-right"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;赞</a>
+                        <a href="javascript:;" class="icon pull-right"><i class="glyphicon glyphicon-share-alt" aria-hidden="true"></i>&nbsp;回复</a>
+                        <a href="javascript:;" class="icon pull-right"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;举报</a>
+                            </div>
+                            <p>哟哟，黑喂狗</p>
+                        </div>
+                        </li>
+                </ul>
+                </div>
+                <hr>
+                <div class="comment-edit col-ms-12"><form>
+                                    <a href="javascript:;" class="col-ms-1">
+                                    <img class="comment-avatar pull-left" src="images/avatar1.png"></a>
+                                    <button type="submit" class="btn btn-success pull-right col-ms-1"><i class="fa fa-share"></i> 发布</button>
+                                    <div class="col-ms-10" id="comment-edit-area" contentEditable="true" placeholder="发表评论&hellip;"></div>
+                                    </form>
+                                    </div>
+                </div>
+            </div>
+      
+
+
+
+</div>
+
+</div><!--mainbody-row-->
+</div><!--mainbody-->
+            
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/layer.min.js"></script>	
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+//评论
+  $(".comment-area").hide();
+  $('.rating').on('click',function(){
+    $(this).parents('.post-box').find('.comment-area').toggle();
+  });
+</script>
+<script>
+$('#close-btn').click(function(event) {
+  var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+  parent.layer.closeAll(); 
+});
+</script>
+</body>
+</html>

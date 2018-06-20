@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编辑 | Lifestep</title>
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/bio-edit.css" rel="stylesheet">
+<link href="css/wangEditor.css" rel="stylesheet" type="text/css" >
+</head>
+<body>       
+<div class="container-fluid">
+    <div class="navbar-wrapper">
+        <div class="navbar navbar-default navbar-static-top" id="navbar-top"role="navigation">
+            <div class="container-fluid top-bar back-top">
+              <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                            <ul class="nav navbar-nav back-top">
+                            <li><a class="navbar-brand" title="Lifestep" href="javascript:;" style=" margin-top:-5px;margin-left:10px">
+                                <img alt="Brand" src="./images/logo.png" width="" height="35px"></a></li>
+                            <li class="nav-guide"><a href="javascript:;" id="page-name">编辑</a></li>                         
+                        </div>
+
+                        <div class="navbar-collapse collapse back-top">
+<div class="col-xs-5">
+        <form class="custom-search" method="" action="" role="search">
+        <div class="input">
+            <input type="text" class="form-control" placeholder="搜索" name="search-term" id="search-term"></div>
+        </form>
+        </div>
+                            <ul class="nav navbar-nav navbar-right">
+                            <li><a href="javascript:;"><i class="glyphicon glyphicon-home" aria-hidden="true"></i></a>
+                            </li>
+                                <li><a href="javascript:;"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                                <li><span class="badge badge-important">2</span>
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-bell" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu" id="navbar-message-box">
+                <li><div class="dropdown-band" style="margin-bottom: 4px;"><b>消息与反馈</b></div></li>
+                  <li class="high-line"><a href="javascript:;"><span class="badge pull-right">40</span><i class="fa fa-bullhorn">&nbsp;系统通知</i></a></li>
+                  <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><i class="fa fa-file-text">&nbsp;日志提醒</i></a></li>
+                  <li class="high-line"><a href="javascript:;"><span class="badge pull-right">0</span><i class="fa fa-exclamation-triangle">&nbsp;建议反馈</i></a></li>
+                  <li class="high-line"><a href="javascript:;"><span class="label label-info pull-right">1</span><i class="fa fa-question-circle">&nbsp;帮助中心</i></a></li>
+                </ul>
+             </li>
+                                <li class="dropdown" style="margin-right: -14px"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="user-avatar pull-left" style="margin-right:6px; margin-top:-6px;">
+                                        <img src="images/avatar.png" class="img-responsive img-circle" title="John Doe" alt="John Doe" width="32px" height="32px">
+                                    </span>
+                                    <span class="user-name">
+                                        ANTIPE
+                                    </span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                        <div class="navbar-footer">
+                                                <div class="navbar-footer-content">
+                                                    <div class="row">
+                                                        <div class="col-xs-6" style="padding-top:5px"><b>我的账户</b>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <a href="javascript:;" class="btn btn-danger btn-sm pull-right"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;登出</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="navbar-content">
+                                                <div class="row">
+                                                    <div class="col-xs-5">
+                                                    <a href="javascript:;" id="change-avatar"><img src="images/avatar.png" alt="Alternate Text" class="img-responsive" width="120px" height="120px" /></a>
+                                                    </div>
+                                                    <div class="col-xs-7 pull-left">
+                                                        <span>ANTIPE</span>
+                                                        <p class="text-muted small">
+                                                            example@pods.tld</p>
+                                                        <div class="divider">
+                                                        </div> 
+                                                        <a href="javascript:;" id="account-setting" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-cog" aria-hidden="true"></i>&nbsp;&nbsp;设置</a>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </li>                                       
+        <li><div class="dropdown-band"><img src="images/推荐.png" height="24px"><b>&nbsp;&nbsp;我的&nbsp;Lifestep</b></div></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><span class="fa fa-paper-plane"></span>&nbsp;&nbsp;发布</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><span class="fa fa-heart"></span>&nbsp;&nbsp;喜欢</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><span class="fa fa-user-plus"></span>&nbsp;&nbsp;关注</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><span class="fa fa-star"></span>&nbsp;&nbsp;收藏</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;粉丝</a></li>
+            
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div id="mainbody" class="container-fluid">
+    <div class="row">
+
+    
+
+
+<div id="bio-footer" class="col-lg-10 col-lg-offset-1 text-center" >
+<p>&copy; 2017&nbsp;Lifestep &nbsp;&nbsp; <a title="帮助" href="http://help.lifestep.cn/">帮助</a>&nbsp;&nbsp;&nbsp;
+    <a title="关于我们" href="http://contact.lifestep.cn/">关于我们</a>&nbsp;&nbsp;&nbsp;
+    <a title="工作机会" href="http://jobs.lifestep.cn/">工作机会</a>&nbsp;&nbsp;&nbsp;
+    <a title="法律" href="http://legal.lifestep.cn/">法律</a>&nbsp;&nbsp;&nbsp;
+    <a title="隐私" href="http://privacy.lifestep.cn/">隐私</a></p>
+</div>
+
+
+
+
+
+
+
+
+        
+</div><!--mainbody-row-->
+</div><!--mainbody-->
+            
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>	
+<script src="js/wangEditor.js"></script>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
+<script type="text/javascript">
+    /*切换标签*/
+    $('#collapseOne li a').on('click',function(){
+      //顶部标签名
+      $('#page-name').html($(this).attr('data-original-title'));
+    });
+
+  //回到顶部
+  $('.top-bar').on('click',function(e){
+        if ($(e.target).hasClass('back-top')) {
+          $("html,body").animate({"scrollTop":"0px"},300);
+        }
+  });
+</script>
+<script type="text/javascript">
+    var editor = new wangEditor('edit-panel');
+    editor.create();
+</script>
+
+</body>
+</html>

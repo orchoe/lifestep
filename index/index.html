@@ -1,0 +1,3381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<title>探索 | Lifestep</title>
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-modal.css" rel="stylesheet">
+<link href="css/photoswipe.css" rel="stylesheet">
+<link href="css/default-skin.css" rel="stylesheet">
+<link href="css/bootstrap-select.min.css" rel="stylesheet">
+<link href="css/explore.css" rel="stylesheet">
+<style>
+figcaption {
+  display: none;
+}
+.navbar-right{
+    position:absolute;
+}
+@media (min-width: 768px) {
+.navbar-right{
+  top:2px;
+  right:0px;
+}
+.nav-search{
+  display: none !important;
+}
+}
+@media (min-width: 951px) {
+#nav-logo img{
+  height:32px;
+}
+#sidebar-btn {
+  padding:12px 11px 8px 11px;
+  margin:9px 2px 0 10px;
+  width: 42px;
+  height: 42px;
+}
+.custom-search .input input{
+    height:42px;
+    font-size: 16px;
+    padding-right:48px;
+}
+.custom-search #search-btn{
+  padding:6px 0 4px 0;
+  width:44px;
+  height:42px;
+  right:35px;
+  top:9px;
+}
+.custom-search #search-btn .iconfont{
+  font-size: 22px;
+}
+.navbar-right #nav-mes{
+  margin-right: -4px;
+  margin-top:3px;
+}
+.navbar-right #nav-noti{
+   margin-right: -4px;
+   margin-top:3px; 
+}
+.navbar-nav.navbar-right:last-child {
+    margin-right: 10px;
+}
+.navbar-right #account .dropdown-menu{
+    margin-right:15px !important;
+    margin-top: 3px;
+}
+}
+@media (max-width: 950px) {
+ .navbar-default{
+  height:52px;
+}
+.tab-wrapper{
+  top:51px;
+}
+#mainbody{
+  padding-top: 70px;
+}
+#nav-logo img{
+  height:26px;
+}
+#sidebar-btn {
+  padding:10px 8px;
+ margin:7px -4px 0 8px;
+  width: 38px;
+  height: 38px;
+}
+.nav-guide{
+  height:32px;
+  font-size:18px;
+  padding:7px 0 3px 20px;
+  margin:10px -5px 1px 8px;
+}
+.custom-search .input input{
+  height:36px;
+  font-size: 14px;
+  padding-right: 44px;
+}
+.custom-search #search-btn{
+  padding:2px 0 3px 0;
+  width:36px;
+  height:30px;
+  right:35px;
+  top:12px;
+}
+.custom-search #search-btn .iconfont{
+  font-size: 20px;
+}
+.navbar-right #nav-mes{
+  margin-right: -6px;
+}
+.navbar-right #nav-noti{
+   padding-top:-4px;
+}
+.navbar-right #account .dropdown-toggle{
+    margin-right: 24px;
+    padding:12px 8px 7px 8px;
+   
+}
+.navbar-right #account .dropdown-menu{
+    margin-right:34px !important;
+    margin-top: -5px;
+}
+}      
+@media (max-width: 767px) {
+.navbar-right li{
+    padding: 0;
+}
+.navbar-right {
+  padding: 0;
+  position: absolute;
+  top:0;
+  right:100px; 
+}
+.navbar-right #nav-noti{
+    padding: 0;
+    position: absolute;
+   top:-1px;
+  left:36px; 
+}
+.badge-important {
+    margin-top: -1px;
+    margin-left: 27px;
+}
+.navbar-right #account .dropdown-toggle{
+    padding: 0;
+    position: absolute;
+   top:-35px;
+  left:90px; 
+}
+.navbar-right #account .dropdown-menu{
+    position: absolute;
+    top:13px;
+    margin-left:-122px !important;
+    border: none;
+    background: #fff;
+   border-radius: 4px;
+    box-shadow:0px 2px 8px rgba(34,34,34,.4); 
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  background-color: #ccc;
+  border:none !important;
+}
+.navbar-default .navbar-form {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  box-shadow: none;
+}
+.navbar-default .navbar-collapse{
+  border-radius: 4px; 
+  margin-left: 7px;
+  margin-right: 7px;
+  padding: 0;
+}
+.navbar-default .navbar-collapse .navbar-nav{
+    margin-left:10px;
+    margin-right:10px;
+}
+.navbar-collapse .custom-search .input input{
+    height:34px;
+    padding-right: 46px;
+}
+.custom-search #search-btn{
+  padding:3px 0 0 0;  
+  right:21px;
+  top:2px;
+}
+.custom-search #search-btn .iconfont{
+   font-size: 20px;
+}
+}
+@media (max-width: 550px) {
+ .nav-guide{
+    display:none;
+ }
+}
+@media (max-width: 880px) {
+ .nav-hide {
+  display: none !important;
+}
+} 
+@media (min-width: 880px) {
+ .nav-show {
+  display: none !important;
+}
+} 
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" id="navbar-top" role="navigation">
+        <div class="container-fluid top-bar back-top">
+            <div class="navbar-header back-top">
+            <span class="dropdown">
+            <a class="btn pull-left" class="dropdown-toggle" data-toggle="dropdown" id="sidebar-btn"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+<ul class="dropdown-menu nav-menu">
+                    <li class="active">
+                    <a href="#home" class="tab-tgo" aria-controls="home" role="tab" data-toggle="tab" data-target="#home" title="首页"><i class="iconfont" aria-hidden="true">&#xe605;</i>&nbsp;&nbsp;&nbsp;首页</a>
+                    </li>
+                    <li>
+                        <a href="#location" class="tab-tgo" aria-controls="location" role="tab" data-toggle="tab"  data-target="#location" title="位置">
+                            <i class="iconfont" aria-hidden="true">&#xe69e;</i>&nbsp;&nbsp;&nbsp;位置
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#posts" class="tab-tgo" aria-controls="posts" role="tab" data-toggle="tab"  data-target="#posts" title="新鲜事">
+                            <i class="iconfont" aria-hidden="true">&#xe6c0;</i>&nbsp;&nbsp;&nbsp;新鲜事
+                        </a>
+                    </li>
+                    <li>
+                        <a id="topic-tgo" href="#square" class="tab-tgo" aria-controls="square" role="tab" data-toggle="tab"  data-target="#square" title="话题">
+                            <i class="iconfont" aria-hidden="true">&#xe63e;</i>&nbsp;&nbsp;&nbsp;话题
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#in-lifestep" class="tab-tgo" aria-controls="in-lifestep" role="tab" data-toggle="tab"  data-target="#in-lifestep" title="在乐迹">
+                            <i class="iconfont" aria-hidden="true">&#xe628;</i>&nbsp;&nbsp;&nbsp;在乐迹
+                        </a>
+                    </li>
+                     <div class="divider"></div>
+                    <li class="">
+                      <a href="javascript:;" class="nav-show" title="消息"><i class="iconfont" aria-hidden="true">&#xe71e;</i>&nbsp;&nbsp;&nbsp;消息</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="tab-tgo" aria-controls="setting" role="tab" data-toggle="tab"  data-target="#setting" title="设置">
+                            <i class="iconfont" aria-hidden="true">&#xe501;</i>&nbsp;&nbsp;&nbsp;设置
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" title="建议反馈" data-title="feedback" data-toggle="modal" data-target="#feedback">
+                            <i class="iconfont" aria-hidden="true">&#xe60d;</i>&nbsp;&nbsp;&nbsp;建议反馈
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="tab-tgo" aria-controls="help" role="tab" data-toggle="tab"  data-target="#help" title="帮助">
+                            <i class="iconfont" aria-hidden="true">&#xe63a;</i>&nbsp;&nbsp;&nbsp;帮助
+                        </a>
+                    </li> 
+
+                   <div class="divider"></div>
+                    <div class="nav-brand footer"><p>
+                  <a title="关于我们" href="http://contact.lifestep.cn/">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a title="工作机会" href="http://jobs.lifestep.cn/">工作机会</a><br>  
+                    <a title="法律" href="http://legal.lifestep.cn/">法律</a>&nbsp;&nbsp;&nbsp;&nbsp;<a title="隐私" href="http://privacy.lifestep.cn/">隐私</a> 
+      
+    <br>&copy; 2017&nbsp;Lifestep &nbsp;&nbsp;</p></div>        
+   </ul></span>
+
+
+
+
+
+
+            <a class="navbar-brand" id="nav-logo" title="Lifestep" href="javascript:;"><img alt="logo" src="./images/logo5.png"></a>
+            <a class="navbar-brand nav-guide" id="page-name">首页</a>      
+            </div>
+        <div class="collapse navbar-collapse back-top" id="defaultNavbar1">
+        <div class="col-sm-5 col-md-5">
+        <form class="navbar-form custom-search" method="" action="" role="search">
+        <div class="input">
+            <input type="text" class="form-control" placeholder="搜索 乐迹" name="s" id="">
+            <button type="submit" class="tab-tgo" id="search-btn" title="浏览" aria-controls="search" role="tab" data-toggle="tab"  data-target="#search"><i class="iconfont" aria-hidden="true">&#xe8ba;</i></button>
+            </div>
+        </form>
+        </div>
+        </div>
+    <ul class="nav navbar-nav navbar-right back-top">
+        <li class="nav-hide" id="nav-mes"><a href="javascript:;" title="没有消息"><i class="iconfont" aria-hidden="true" style="font-size: 26px">&#xe71d;</i></a></li>
+        <li><a href="#defaultNavbar1" class="nav-search" data-toggle="collapse" data-target="#defaultNavbar1"><i class="iconfont" aria-hidden="true">&#xe8ba;</i></a></li>
+        <li class="" id="nav-noti"><span class="badge badge-important">2</span><a href="javascript:;" title="2 条未读通知"><i class="iconfont" aria-hidden="true" style="font-size: 26px">&#xe70c;</i></a></li>
+        <li id="account" class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="ANTIPE"><img src="images/avatar13.jpg" class="img-circle" alt="avatar" width="35px" height="35px"></a>
+                                    <ul class="dropdown-menu" id="user-setting">
+                                        <li>
+                                        <div class="navbar-footer">
+                                                <div class="navbar-footer-content">
+                                                    <div class="row">
+                                                        <div class="col-xs-6" style="padding-top:5px"><b>我的账户</b>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <a href="javascript:;" class="btn btn-danger btn-sm pull-right"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>&nbsp;登出</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-content">
+                                                    <div id="dd-img"><a class="btn" id="change-avatar">更改头像</a><img src="images/avatar13.jpg" alt="Alternate img"></div>
+                                                    <div class="dropdown-account">
+                                                        <span>ANTIPE</span>
+                                                        <p class="text-muted small">
+                                                            antipe@outlook.com</p>
+                                                        <div class="divider">
+                                                        </div> 
+                                                        <a href="javascript:;" id="account-setting" class="btn btn-default" title="设置"><i class="iconfont" aria-hidden="true">&#xe8b8;</i>&nbsp;&nbsp;设置</a>
+                                                    </div>
+                                            </div>                                            
+                                        </li>                                       
+        <li><div class="dropdown-band"><img width="24px" src="images/toy2.png">&nbsp;&nbsp;<b>在乐迹</b></div></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">21</span><i class="iconfont" aria-hidden="true">&#xe760;</i>&nbsp;&nbsp;喜欢</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">106</span><i class="iconfont" aria-hidden="true">&#xe699;</i>&nbsp;&nbsp;关注</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">46</span><i class="iconfont" aria-hidden="true">&#xe698;</i>&nbsp;&nbsp;发布</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><i class="iconfont" aria-hidden="true">&#xe630;</i>&nbsp;&nbsp;话题</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">18</span><i class="iconfont" aria-hidden="true">&#xe732;</i>&nbsp;&nbsp;收藏</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">41</span><i class="iconfont" aria-hidden="true">&#xe503;</i>&nbsp;&nbsp;粉丝</a></li>
+        
+            
+                                    </ul>
+                                </li>
+                            </ul>
+                    </div>
+                </nav>
+
+            
+            
+<div class="tab-wrapper top-bar back-top" id="topic-bar">
+<ul class="nav nav-tabs tab-top">
+          <li class="active"><a href="#hot-topic" aria-controls="hot-topic" role="tab" data-toggle="tab">热门</a></li>
+          <li class=""><a href="#local-topic" aria-controls="local-topic" role="tab" data-toggle="tab">附近</a></li>
+          <li class=""><a href="#latest-topic" aria-controls="latest-topic" role="tab" data-toggle="tab">最新</a></li>
+          <a href="#apply-topic" class="apply-topic btn pull-right" aria-controls="apply-topic" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-edit"></i> 发起话题</a>
+        </ul></div>
+
+<div class="tab-wrapper top-bar back-top" id="search-bar">
+<ul class="nav nav-tabs tab-top">
+          <li class="active"><a href="#hot-topic" aria-controls="hot-topic" role="tab" data-toggle="tab">找人</a></li>
+          <li class=""><a href="#local-topic" aria-controls="local-topic" role="tab" data-toggle="tab">找话题</a></li>
+          <li class=""><a href="#local-topic" aria-controls="local-topic" role="tab" data-toggle="tab">搜标签</a></li>
+          <li class=""><a href="#latest-topic" aria-controls="latest-topic" role="tab" data-toggle="tab">搜点评</a></li>
+        </ul>
+      </div>
+
+
+
+
+   <!--Post-Button-->
+           <!--<ul id="options">
+            <li class="option">
+              <button id="text-post" class="post-button option1" type="button" title="发布文字" data-title="text-edit" data-toggle="modal" data-target="#text-edit">文</button>
+            </li>
+            <li class="option">
+              <button id="image-post" class="post-button option2" type="button" title="发布图片" data-title="image-edit" data-toggle="modal" data-target="#image-edit">图</button>
+            </li>
+            <li class="option">
+              <button id="audio-post" class="post-button option3" type="button" title="发布音频" data-title="audio-edit" data-toggle="modal" data-target="#audio-edit">音</button>
+            </li>
+            <li class="option">
+              <button id="video-post" class="post-button option4" type="button" title="发布视频" data-title="video-edit" data-toggle="modal" data-target="#video-edit">视</button>
+            </li>
+            <li class="option">
+              <button id="bio-post" class="post-button option5" type="button" title="发布传记" data-title="bio-edit" data-toggle="modal" data-target="#bio-edit">传</button>
+            </li>
+          </ul>-->
+          <button class="post-button" type="button" title="编辑" data-title="text-edit" data-toggle="modal" data-target="#text-edit">  
+               <span class="posticon"><i class="glyphicon glyphicon-pencil" id="posticon-1"></i>
+                <i class="glyphicon glyphicon-plus" id="posticon-2"></i></span>
+          </button>
+
+<div class="tab-content mainbody-tab" id="mainbody">
+
+<!--Side-Bar-->
+    <!--   <div id="sidebar-wrapper">
+            <nav>
+                <ul class="sidebar-nav nav">
+                    <li class="active">
+                    <a href="#home" class="tab-tgo" aria-controls="home" role="tab" data-toggle="tab" data-target="#home" title="首页"><i class="iconfont" aria-hidden="true">&#xe641;</i>&nbsp;&nbsp;&nbsp;首页</a>
+                    </li>
+                    <li>
+                        <a href="#location" class="tab-tgo" aria-controls="location" role="tab" data-toggle="tab"  data-target="#location" title="位置">
+                            <i class="iconfont" aria-hidden="true">&#xe650;</i>&nbsp;&nbsp;&nbsp;位置
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#posts" class="tab-tgo" aria-controls="posts" role="tab" data-toggle="tab"  data-target="#posts" title="新鲜事">
+                            <i class="iconfont" aria-hidden="true">&#xe905;</i>&nbsp;&nbsp;&nbsp;新鲜事
+                        </a>
+                    </li>
+                    <li>
+                        <a id="topic-tgo" href="#square" class="tab-tgo" aria-controls="square" role="tab" data-toggle="tab"  data-target="#square" title="话题">
+                            <i class="iconfont" aria-hidden="true">&#xeb48;</i>&nbsp;&nbsp;&nbsp;话题
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#in-lifestep" class="tab-tgo" aria-controls="in-lifestep" role="tab" data-toggle="tab"  data-target="#in-lifestep" title="在乐迹">
+                            <i class="iconfont" style="font-weight: bold" aria-hidden="true">&#xe612;</i>&nbsp;&nbsp;&nbsp;在乐迹
+                        </a>
+                    </li>
+                    <hr>
+                    <li class="nav-show">
+                      <a href="javascript:;" title="消息"><i class="iconfont" aria-hidden="true">&#xe71d;</i>&nbsp;&nbsp;&nbsp;消息</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="tab-tgo" aria-controls="setting" role="tab" data-toggle="tab"  data-target="#setting" title="设置">
+                            <i class="iconfont" aria-hidden="true">&#xe879;</i>&nbsp;&nbsp;&nbsp;设置
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" title="建议反馈" data-title="feedback" data-toggle="modal" data-target="#feedback">
+                            <i class="iconfont" aria-hidden="true">&#xe959;</i>&nbsp;&nbsp;&nbsp;建议反馈
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="tab-tgo" aria-controls="help" role="tab" data-toggle="tab"  data-target="#help" title="帮助">
+                            <i class="iconfont" aria-hidden="true">&#xe765;</i>&nbsp;&nbsp;&nbsp;帮助
+                        </a>
+                    </li> 
+
+
+                    <div class="nav-brand footer"><p>
+                  <a title="关于我们" href="http://contact.lifestep.cn/">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a title="工作机会" href="http://jobs.lifestep.cn/">工作机会</a><br>  
+                    <a title="法律" href="http://legal.lifestep.cn/">法律</a>&nbsp;&nbsp;&nbsp;&nbsp;<a title="隐私" href="http://privacy.lifestep.cn/">隐私</a> 
+      
+    <br>&copy; 2017&nbsp;Lifestep &nbsp;&nbsp;</p></div>        
+   </ul>
+  </nav>
+</div> -->
+
+
+ <!------Home---->       
+  <div class="tab-pane fade active in" id="home">
+  <div class="home-container">
+      <div class="col-md-7 col-md-offset-1">     <!--Post-Content-->
+        <ul class="post-list">
+<li>
+      <div class="edit-box">
+      <a href="javascript:;" class="avatar-hide"><img  src="./images/avatar13.jpg" alt="avatar"></a>
+      <input class="col-xs-6" type="button" value="来吧，简单说两句..." data-title="text-edit" data-toggle="modal" data-target="#text-edit"/>
+      <label><button class="btn btn-default"><i class="iconfont">&#xe62b;</i></button>
+      <input type="file" class="file-upload" id="" name="" title="添加图片"></label>
+      </div>
+      <div class="post-avatar">
+      <a href="javascript:;"><img class="img-responsive" src="./images/avatar13.jpg" alt="avatar"></a></div>
+</li>
+
+
+
+<li>
+<div class="alert-container">
+      <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a> 
+        <i class="iconfont">&#xe61a;</i>&nbsp;
+        ANTIPE，下面是为你 <b>挑选</b> 的内容，看看你like不？
+      </div></div>
+
+</li>
+
+            <li>
+            <div class="alert alert-post">
+                    <!-- Post-content-box -->
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="avatar-hide"><img  src="./images/avatar11.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <a href="javascript:;" class="user-name">Agustin Ortiz</a>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <div class="post-close"><span class="post-time">20 分钟前</span>
+                            <span class="dislike">不喜欢</span>
+                            <a class="panel-close close" data-dismiss="alert"><i class="glyphicon glyphicon-remove"></i></a></div>
+                            <br>
+                            <a href="javascript:;" class="activity"><b class="caret caret-right"></b>&nbsp;&nbsp;Norway Landscape</a>
+                            </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。
+
+我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。
+
+现在想来，忽然被这凡尘里最普普通通的人们感动。哪怕生活艰辛，我们在日夜劳作里忘记了抬头看看月亮，却依然不愿怠慢，那些特殊的时刻，那个值得陪伴和纪念的良辰和爱人。</p>
+                            <p>Just created a new snippet inspired by the Svbtle Menu. Find it here: <a href="http://bootsnipp.com">http://bootsnipp.com/snippets/MaWrA</a></p></div>
+            <div class="images">
+            <figure><a href="./images/content/content3.jpg" itemprop="contentUrl" data-size="938x580"><img src="./images/content/content3.jpg" width="100%"/></a><figcaption itemprop="caption description">Image caption  1</figcaption></figure>
+            <figure><a href="./images/content/content9.jpg" itemprop="contentUrl" data-size="880x712"><img src="./images/content/content9.jpg" width="100%"/></a><figcaption itemprop="caption description">Image caption  2</figcaption></figure>
+            <figure><a href="./images/content/content10.jpg" itemprop="contentUrl" data-size="530x795"><img src="./images/content/content10.jpg" width="100%"/></a><figcaption itemprop="caption description">Image caption  3</figcaption></figure>
+            </div> 
+            </div>
+                        <div class="post-footer">
+                        <p class="post-tags">#&nbsp;小吃 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;春秋 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;节气</p>
+                <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">美如画</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec45;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+
+                    <div id="" class="collapse comment-area">
+                    <ul class="comments-list">
+                <li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>                       
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;1036</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...
+                          </p><div class="images"><figure><a href="./images/content/content14.jpg" itemprop="contentUrl" data-size="1920x1200"><img src="./images/content/content14.jpg"/></a></figure></div>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;102</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar5.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;18</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>     
+                    </li>
+<li>
+                     
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;24</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+       </div>
+          <div class="comment-edit">
+            <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+            <form>
+            <textarea class="col-xs-12" class="comment-edit-area"  placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide"><label>
+            <button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+            <input type="file" class="file-upload" id="" name="" title="添加图片">
+            </label>
+            <button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" disabled="value"> 发布</button></div>
+            </form>
+      </div>
+      </div>
+       <!-- Avatar -->
+      <div class="avatar-show" id=""><a href="javascript:;"><img src="./images/avatar11.jpg" alt="avatar"></a></div>          
+</div>
+</li>
+
+    <li>
+            <div class="alert alert-post">
+                    <!-- Post-content-box -->
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="avatar-hide"><img  src="./images/avatar12.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <p class="user-name user-tag"><a href="javascript:;">Agustin Ortiz</a></p>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <div class="post-close"><span class="post-time">20 分钟前</span>
+                            <span class="dislike">不喜欢</span>
+                            <a class="panel-close close" data-dismiss="alert"><i class="glyphicon glyphicon-remove"></i></a></div>
+                        </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。
+
+我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。
+
+现在想来，忽然被这凡尘里最普普通通的人们感动。哪怕生活艰辛，我们在日夜劳作里忘记了抬头看看月亮，却依然不愿怠慢，那些特殊的时刻，那个值得陪伴和纪念的良辰和爱人。</p>
+                            <p>Just created a new snippet inspired by the Svbtle Menu. Find it here: <a>http://bootsnipp.com/snippets/MaWrA</a></p></div>
+                        <div class="images">
+                        <figure><a href="./images/content/content15.jpg" itemprop="contentUrl" data-size="750x498"><img src="./images/content/content15.jpg" width="100%"/></a><figcaption itemprop="caption description">Image caption  1</figcaption></figure>
+                        </div>
+                        </div>
+                        <div class="post-footer">
+                        <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">蠢哭了</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec46;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+            <div id="" class="collapse comment-area"> 
+                     <ul class=" comments-list">
+                <li>
+                        <a href="javascript:;" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;64</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;35</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar.png" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;27</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;16</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+        </div>
+                
+                <div class="comment-edit">
+                <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+                <form>
+            <textarea class="col-xs-12" class="comment-edit-area" id="cea1" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide">
+            <label><button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+<input type="file" class="file-upload" id="" name="" title="添加图片"></label>
+<button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" disabled="value"> 发布</button></div>
+            </form>
+            </div>
+        </div>
+        <!-- Avatar -->
+                    <div class="avatar-show"><a href="javascript:;"><img src="./images/avatar12.jpg" alt="avatar"></a></div>                           
+                
+     </div>
+    </li>
+  </ul>
+</div>
+<!--Side-Recommendation-->
+<div class="col-md-3">  
+<div class="side-col">
+    <div class="col-title">&nbsp;推荐关注<a href="javascript:;" class="view-all pull-right">查看全部<i class="iconfont">&#xe775;</i></a></div>
+        <ul class="column-list">
+            <li class="recommend">
+                <a class="pull-left" href="javascript:;">
+                    <img class="user-avatar" src="./images/avatar3.jpg" alt="avatar">
+                </a>
+                <div class="recommend-body">
+                    <div class="recommend-heading">
+                        <a href="javascript:;"><h4 class="recommend-name">星期天</h4></a><a href="javascript:;" class="pull-right"><i class="iconfont">&#xe63d;</i></a>     
+                    </div>
+                        <p>二货大猩猩</p>                       
+                </div>
+            </li> 
+            <li class="recommend">
+                <a class="pull-left" href="javascript:;">
+                    <img class="user-avatar" src="./images/avatar3.png" alt="avatar">
+                </a>
+                <div class="recommend-body">
+                    <div class="recommend-heading">
+                        <a href="javascript:;"><h4 class="recommend-name">Ryan Haywood</h4></a><a href="javascript:;" class="pull-right"><i class="iconfont">&#xe63d;</i></a>     
+                    </div>
+                        <p>Relax my friend</p>                       
+                </div>
+            </li> 
+            <li class="recommend">
+                <a class="pull-left" href="javascript:;">
+                    <img class="user-avatar" src="./images/avatar8.jpg" alt="avatar">
+                </a>
+                <div class="recommend-body">
+                    <div class="recommend-heading">
+                        <a href="javascript:;"><h4 class="recommend-name">大军</h4></a><a href="javascript:;" class="pull-right"><i class="iconfont">&#xe63d;</i></a>     
+                    </div>
+                        <p>小动作</p>                       
+                </div>
+            </li> 
+            <li class="recommend">
+                <a class="pull-left" href="javascript:;">
+                    <img class="user-avatar" src="./images/avatar6.jpg" alt="avatar">
+                </a>
+                <div class="recommend-body">
+                    <div class="recommend-heading">
+                        <a href="javascript:;"><h4 class="recommend-name">他大哥</h4></a><a href="javascript:;" class="pull-right"><i class="iconfont">&#xe63d;</i></a>   
+                    </div>
+                        <p>一个勺子</p>
+                </div>
+            </li> 
+        </ul>
+        <a href="#" class="find-friend">寻找好友</a>
+		</div>
+                        
+
+                <!-- Side Remarks Search -->
+<div class="remarks-col">
+    <div class="col-title">&nbsp;点评搜索</div>
+                    <div class="remarks-button">
+                    <button id="btn-remark1" class="btn btn-default">(^ ᗨ ^)<br>太逗了</button>
+                    <button id="btn-remark2" class="btn btn-default">(⊙o⊙)<br>大吃一惊</button>
+                    <button id="btn-remark3" class="btn btn-default">(⊙_⊙;)<br>吓坏了</button>
+                    <button id="btn-remark4" class="btn btn-default">(*∩_∩*)<br>美如画</button>
+                    <button id="btn-remark5" class="btn btn-default">(╰ _ ╯)<br>岂有此理</button>
+                    <button id="btn-remark6" class="btn btn-default">(︶o︶)<br>丑到家</button>
+                    <button id="btn-remark7" class="btn btn-default"> (^ ω ^)<br>萌化了</button>
+                    <button id="btn-remark8" class="btn btn-default">(- _ -")<br>索然无味</button>
+                    <button id="btn-remark9" class="btn btn-default">(′ ェ ';)<br>蠢哭了</button>
+                    <div class="collapse"> 
+                    <button id="btn-remark10" class="btn btn-default">(+﹏+)<br>好感人</button>
+                    <button id="btn-remark11" class="btn btn-default">(￣.￣)<br>一本正经</button>
+                    <button id="btn-remark12" class="btn btn-default">(〒_〒)<br>好可怜</button>
+                    <button id="btn-remark13" class="btn btn-default">(✧◡✧)<br>正能量</button>
+                    <button id="btn-remark14" class="btn btn-default">(¯ □ ¯)<br>无话可说</button>
+                    <button id="btn-remark15" class="btn btn-default">(@_@)<br>搞不懂</button>
+                    </div>
+                    <div class="footer">
+              <button class="btn toggle-remark">展开&nbsp;<span class="glyphicon glyphicon-triangle-bottom"></span></button>
+            </div>
+            </div>
+</div>
+
+        <!-- Hot Tags Search -->
+<div class="tags-col">
+    <div class="col-title">&nbsp;热门标签<a href="#" class="view-all pull-right">更多<i class="iconfont">&#xe775;</i></a></div>
+                    <ul class="list-unstyled" id="tags-list">
+                    <li><a href="#"><i class="iconfont">&#xf002e;</i>&nbsp;&nbsp;戛纳电影节</a></li>
+                    <li><a href="#"><i class="iconfont">&#xf002e;</i>&nbsp;&nbsp;中超恒大</a></li>
+                    <li><a href="#"><i class="iconfont">&#xf002e;</i>&nbsp;&nbsp;人工智能</a></li>
+                    <li><a href="#"><i class="iconfont">&#xf002e;</i>&nbsp;&nbsp;好莱坞</a></li>
+                    <li><a href="#"><i class="iconfont">&#xf002e;</i>&nbsp;&nbsp;NBA季后赛</a></li>
+                    </ul>                  
+</div>
+
+<!-- Hot Topic column-->
+<div class="topic-col">
+    <div class="col-title">&nbsp;热门话题<a href="#hot-topic" class="view-all pull-right">查看全部<i class="iconfont">&#xe775;</i></a></div>
+                    <ul class="topic-list">
+                    <li><a href="#"><img src="./images/topic5.jpg"> &nbsp;&nbsp;一起去寻宝</a></li>
+                    <li><a href="#"><img src="./images/topic2.jpg"> &nbsp;&nbsp;走出去，动起来</a></li>
+                    <li><a href="#"><img src="./images/topic3.jpg"> &nbsp;&nbsp;我的到此一游</a></li>
+                    <li><a href="#"><img src="./images/topic4.jpg"> &nbsp;&nbsp;最近的一次冒险</a></li>
+                    <li><a href="#"><img src="./images/topic1.jpg"> &nbsp;&nbsp;你兜里揣着啥</a></li>
+                    </ul>                  
+</div>
+
+</div>          
+
+</div><!--Home-container-->
+</div><!--Home-->
+
+
+
+   <!---Location-->
+<div class="tab-pane fade" id="location">
+<div class="post-container">
+    <div class="col-md-12">
+    <div class="location-bg">
+      <a href="javascript:;"><img src="./images/content/content16.jpg" alt=""></a>
+      <div class="current-location"><span class="verified"><i class="iconfont">&#xe61c;</i> &nbsp;<b>北京故宫</b> <a class="iconfont" title="已认证">&#xe627;</a></span>
+      <div class="dropdown pull-right loc-option"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical"></i></a>
+                            <ul class="dropdown-menu loc-menu">
+                            <li><a href="javascript:;">申请位置认证</a></li>
+                            <li><a href="javascript:;">定位反馈</a></li>
+                            </ul></div>
+       <a href="#" class="profile pull-right">简介</a>
+       <br>
+      <span>当前位置：<b>北京故宫</b> 附近</span>
+       
+      </div>
+  </div>
+  </div>
+  <div class="loc-topic"><div class="loc-content col-md-12"><span>附近的话题</span><a href="#local-topic" class="view-all" aria-controls="view-all" role="tab" data-toggle="tab">查看全部</a></div>
+        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-1" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta"><i class="iconfont">&#xe6c5;</i> &nbsp;360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-2" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta"><i class="iconfont">&#xe6c5;</i> &nbsp;360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-3" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta"><i class="iconfont">&#xe6c5;</i> &nbsp;360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+<div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">
+<a href="#"><div class="add-topic">
+<div class="cell">
+<i class="iconfont">&#xe602;</i><br>
+<h4>发起位置话题</h4>
+
+</div>
+</div></a>
+
+</div>
+
+
+
+
+</div>
+
+  <div class="loc-post"><div class="loc-content col-md-12"><span>附近发布的内容</span></div>
+<!--Posts-list -->
+<ul class="post-list col-lg-4 col-md-6"> 
+<li>          
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img  src="./images/avatar4.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <a href="javascript:;" class="user-name">Agustin Ortiz</a>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <div class="post-close"><span class="post-time">20 分钟前</span>
+                            <span class="dislike position">距离1000米</span>
+                            <a class="panel-close"><i class="iconfont">&#xe73a;</i></a></div>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                            <br>
+                            <a href="javascript:;" class="activity"><b class="caret caret-right"></b>&nbsp;&nbsp;Norway Landscape</a>
+                            </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?</p></div>
+                            <div class="images">
+                            <figure><a href="./images/content/content13.gif" itemprop="contentUrl" data-size="400x409"><img src="./images/content/content13.gif" width="100%"/></a></figure>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                        <p class="post-tags">#&nbsp;宠物 &nbsp;&nbsp;&nbsp; #&nbsp;动图 &nbsp;&nbsp;&nbsp; #&nbsp;搞笑</p>
+                <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">美如画</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec45;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+
+                    <div id="" class="collapse comment-area">
+                    <ul class=" comments-list">
+                <li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>                       
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;1036</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...
+                          </p><div class="images"><figure><a href="./images/content/content14.jpg" itemprop="contentUrl" data-size="1920x1200"><img src="./images/content/content14.jpg"/></a></figure></div>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;102</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar5.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;18</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>     
+                    </li>
+<li>
+                     
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;24</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+       </div>
+          <div class="comment-edit">
+            <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+            <form>
+            <textarea class="col-xs-12" class="comment-edit-area"  placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide"><label>
+            <button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+            <input type="file" class="file-upload" id="" name="" title="添加图片">
+            </label>
+            <button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" disabled="value"> 发布</button></div>
+            </form>
+      </div>
+      </div>
+                
+</li>
+</ul>
+<ul class="post-list col-lg-4 col-md-6"> <!--list-2-->
+<li>
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img src="./images/avatar12.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <p class="user-name"><a href="javascript:;">Agustin Ortiz</a></p>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <div class="post-close"><span class="post-time">20 分钟前</span>
+                            <span class="dislike position">距离500米</span>
+                            <a class="panel-close"><i class="iconfont">&#xe73a;</i></a></div>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                        </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。</p>
+
+<p>我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。</p></div>
+                       <div class="images">
+                        <figure><a href="./images/content/content15.jpg" itemprop="contentUrl" data-size="750x498"><img src="./images/content/content15.jpg" width="100%"/></a></figure>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                        <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">蠢哭了</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec46;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+            <div id="" class="collapse comment-area"> 
+                     <ul class=" comments-list">
+                <li>
+                        <a href="javascript:;" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;64</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;35</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar.png" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;27</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;16</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+        </div>   
+                <div class="comment-edit">
+                <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+                <form>
+            <textarea class="col-xs-12" class="comment-edit-area" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide">
+            <label><button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+<input type="file" class="file-upload" id="" name="" title="添加图片"></label>
+<button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" disabled="value"> 发布</button></div>
+            </form>
+            </div>                         
+                
+     </div>
+    </li>
+</ul><!--Posts-list-2 end-->
+        <!--Posts-list-3-->
+<ul class="post-list list-hide col-lg-4 col-md-6 col-xs-12"> 
+<li>        
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img src="./images/avatar4.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <a href="javascript:;" class="user-name">Agustin Ortiz</a>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <span class="post-time">20 分钟前</span>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>        
+                            <br>
+                            <a href="javascript:;" class="activity"><b class="caret caret-right"></b>&nbsp;&nbsp;Norway Landscape</a>
+                            </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。
+
+现在想来，忽然被这凡尘里最普普通通的人们感动。哪怕生活艰辛，我们在日夜劳作里忘记了抬头看看月亮，却依然不愿怠慢，那些特殊的时刻，那个值得陪伴和纪念的良辰和爱人。</p></div>
+           <div class="images">
+            <figure><a href="./images/content/content1.jpg" itemprop="contentUrl" data-size="938x580"><img src="./images/content/content1.jpg" width="100%"/></a><figcaption itemprop="caption description">Image caption  1</figcaption></figure></div>
+            </div>
+                        <div class="post-footer">
+                        <p class="post-tags">#&nbsp;小吃 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;春秋 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;节气</p>
+                <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">美如画</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec45;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+
+                    <div id="" class="collapse comment-area">
+                    <ul class=" comments-list">
+                <li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>                       
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;1036</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...
+                          </p><div class="images"><figure><a href="./images/content/content14.jpg" itemprop="contentUrl" data-size="1920x1200"><img src="./images/content/content14.jpg"/></a></figure></div>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;102</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar5.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;18</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>     
+                    </li>
+<li>
+                     
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;24</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+       </div>
+          <div class="comment-edit">
+            <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+            <form>
+            <textarea class="col-xs-12" class="comment-edit-area"  placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide"><label>
+            <button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+            <input type="file" class="file-upload" id="" name="" title="添加图片">
+            </label>
+            <button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" disabled="value"> 发布</button></div>
+            </form>
+      </div>
+      </div>
+                
+</li>
+
+</ul>
+
+
+
+
+</div><!--Posts-container end-->
+</div><!--loc-post-->
+
+
+
+
+
+</div><!---Location-end-->
+
+
+
+<!-------Posts---->
+<div class="tab-pane fade" id="posts">
+    <!--Posts-list-1-->
+<div class="post-container">
+<ul class="post-list col-lg-4 col-md-6 col-xs-12">
+<li>            
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img  src="./images/avatar4.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <a href="javascript:;" class="user-name">Agustin Ortiz</a>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <span class="post-time">20 分钟前</span>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                            <br>
+                            <a href="javascript:;" class="activity"><b class="caret caret-right"></b>&nbsp;&nbsp;Norway Landscape</a>
+                            </div>
+                        </div>
+                        <div class="post-content col-lg-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。</p></div>
+            <div id="slide-1" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+          <div class="item active">
+            <figure><a href="./images/content/content3.jpg" itemprop="contentUrl" data-size="938x580"><img src="./images/content/content3.jpg" width="100%"/></a></figure></div>
+            <div class="item">
+            <figure><a href="./images/content/content9.jpg" itemprop="contentUrl" data-size="880x712"><img src="./images/content/content9.jpg" width="100%"/></a></figure></div>
+           <div class="item">
+            <figure><a href="./images/content/content10.jpg" itemprop="contentUrl" data-size="530x795"><img src="./images/content/content10.jpg" width="100%"/></a></figure></div>
+            
+            <badge class="img-badge">3</badge>
+          </div>
+          <a class="left carousel-control" href="#slide-1" role="button" data-slide="prev"><i class="iconfont">&#xf0343;</i></a>
+          <a class="right carousel-control" href="#slide-1" role="button" data-slide="next"><i class="iconfont">&#xf0344;</i></a>
+      </div>  
+            </div>
+                        <div class="post-footer">
+                        <p class="post-tags">#&nbsp;小吃 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;春秋 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;节气</p>
+                <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">美如画</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec45;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+
+                    <div id="" class="collapse comment-area">
+                    <ul class=" comments-list">
+                <li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>                       
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;1036</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                          <div class="images"><figure><a href="./images/content/content14.jpg" itemprop="contentUrl" data-size="1920x1200"><img src="./images/content/content14.jpg"/></a></figure></div>
+
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;102</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar5.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;18</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>     
+                    </li>
+<li>
+                     
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;24</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+       </div>
+          <div class="comment-edit">
+            <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+            <form>
+            <textarea class="col-xs-12" class="comment-edit-area" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide"><label>
+            <button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+            <input type="file" class="file-upload" id="" name="" title="添加图片">
+            </label>
+            <button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" disabled="value"> 发布</button></div>
+            </form>
+      </div>
+      </div>
+                
+</li>
+
+<li>
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img src="./images/avatar12.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <p class="user-name"><a href="javascript:;">Agustin Ortiz</a></p>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <span class="post-time">20 分钟前</span>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                        </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><b>项羽本纪</b><br><p>项籍者，下相人也，字羽。初起时，年二十四。其季父项梁，梁父即楚将项燕，为秦将王翦所戮者也。项氏世世为楚将，封于项，故姓项氏。</p>
+                            <p>项籍少时，学书不成，去；学剑，又不成，项梁怒之。籍曰：“书足以记名姓而已。剑一人敌，不足学，学万人敌。”于是项梁乃教籍兵法，籍大喜，略知其意，又不肯竟学。项梁尝有栎阳逮，乃请蕲狱掾曹咎书抵栎阳狱掾司马欣，以故事得已。项梁杀人，与籍避仇于吴中，吴中贤士大夫皆出项梁下。每吴中有大徭役及丧，项梁常为主办，阴以兵法部勒宾客及子弟，以是知其能。秦始皇帝游会稽，渡浙江，梁与籍俱观。籍曰：“彼可取而代也。”梁掩其口，曰：“毋妄言，族矣！”梁以此奇籍。籍长八尺余，力能扛鼎，才气过人，虽吴中子弟，皆已惮籍矣。<a class="read-more pull-right" href="javascript:;" title="展开..."><i class="iconfont">&#xe7bc;</i></a></p>
+                            <div class="text-hide"><p>秦二世元年七月，陈涉等起大泽中。其九月，会稽守通谓梁曰：“江西皆反，此亦天亡秦之时也。吾闻先即制人，后则为人所制。吾欲发兵，使公及桓楚将。”是时桓楚亡在泽中。梁曰：“桓楚亡，人莫知其处，独籍知之耳。”梁乃出，诫籍持剑居外待。梁复入，与守坐，曰：“请召籍，使受命召桓楚。”守曰：“诺。”梁召籍入。须臾，梁瞬籍曰：“可行矣！”于是籍遂拔剑斩守头。项梁持守头，佩其印绶。门下大惊，扰乱，籍所击杀数十百人。一府中皆慑伏，莫敢起。梁乃召故所知豪吏，谕以所为起大事，遂举吴中兵。使人收下县，得精兵八千人。梁部署吴中豪杰为校尉、候、司马。有一人不得用，自言于梁。梁曰：“前时某丧使公主某事，不能办，以此不任用公。”众乃皆伏。于是梁为会稽守，籍为裨将，徇下县。</p>
+                            <p>广陵人召平于是为陈王徇广陵，未能下。闻陈王败走，秦兵又且至，乃渡江矫陈王命，拜梁为楚王上柱国。曰：“江东已定，急引兵西击秦。”项梁乃以八千人渡江而西。闻陈婴已下东阳，使使欲与连和俱西。陈婴者，故东阳令史，居县中，素信谨，称为长者。东阳少年杀其令，相聚数千人，欲置长，无适用，乃请陈婴。婴谢不能，遂强立婴为长，县中从者得二万人。少年欲立陈婴便为王，异军苍头特起。陈婴母谓婴曰：“自我为汝家妇，未尝闻汝先古之有贵者。今暴得大名，不祥。不如有所属，事成犹得封侯，事败易以亡，非世所指名也。”婴乃不敢为王。谓其军吏曰：“项氏世世将家，有名于楚。今欲举大事，将非其人，不可。我倚名族，亡秦必矣。”于是众从其言，以兵属项梁。项梁渡淮，黥布、蒲将军亦以兵属焉。凡六七万人，军下邳。</p>
+                            <p>当是时，秦嘉已立景驹为楚王，军彭城东，欲距项梁。项梁谓军吏曰：“陈王先首事，战不利，未闻所在。今秦嘉倍陈王而立景驹，逆无道。”乃进兵击秦嘉。秦嘉军败走，追之至胡陵。嘉还战一日，嘉死，军降。景驹走死梁地。项梁已并秦嘉军，军胡陵，将引军而西。章邯军至栗，项梁使别将朱鸡石、馀樊君与战。馀樊君死，朱鸡石军败，亡走胡陵。项梁乃引兵入薛，诛鸡石。项梁前使项羽别攻襄城，襄城坚守不下。已拔，皆坑之。还报项梁。项梁闻陈王定死，召诸别将会薛计事。此时，沛公亦起沛往焉。</p>
+                            <p>居巢人范增，年七十，素居家，好奇计，往说项梁曰：“陈胜败固当。夫秦灭六国，楚最无罪。自怀王入秦不反，楚人怜之至今，故楚南公曰：‘楚虽三户，亡秦必楚’也。今陈胜首事，不立楚后而自立，其势不长。今君起江东，楚蜂起之将皆争附君者，以君世世楚将，为能复立楚之后也。”于是项梁然其言，乃求楚怀王孙心民间，为人牧羊，立以为楚怀王，从民所望也。陈婴为楚上柱国，封五县，与怀王都盱台。项梁自号为武信君。</p>
+                            </div>
+                            </div>
+                        <div class="images">
+                            <figure><a href="./images/content/content17.jpg" itemprop="contentUrl" data-size="1050x755"><img src="./images/content/content17.jpg" width="100%"/></a></figure>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                        <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">蠢哭了</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec46;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+            <div id="" class="collapse comment-area"> 
+                     <ul class=" comments-list">
+                <li>
+                        <a href="javascript:;" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;64</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;35</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar.png" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;27</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;16</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+        </div>
+                
+                <div class="comment-edit">
+                <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+                <form>
+            <textarea class="col-xs-12" class="comment-edit-area" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide">
+            <label><button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+<input type="file" class="file-upload" id="" name="" title="添加图片"></label>
+<button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" id="btn1" disabled="value"> 发布</button></div>
+            </form>
+            </div>
+        </div>
+                                    
+    </li>
+</ul><!--Posts-list-1 end -->
+
+
+     <!--Posts-list-2 -->
+<ul class="post-list col-lg-4 col-md-6 col-xs-12"> 
+<li>          
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img  src="./images/avatar4.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <a href="javascript:;" class="user-name">Agustin Ortiz</a>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <span class="post-time">20 分钟前</span>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                            <br>
+                            <a href="javascript:;" class="activity"><b class="caret caret-right"></b>&nbsp;&nbsp;Norway Landscape</a>
+                            </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?</p></div>
+                            <div class="images">
+                            <figure><a href="./images/content/content13.gif" itemprop="contentUrl" data-size="400x409"><img src="./images/content/content13.gif" width="100%"/></a></figure>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                        <p class="post-tags">#&nbsp;宠物 &nbsp;&nbsp;&nbsp; #&nbsp;动图 &nbsp;&nbsp;&nbsp; #&nbsp;搞笑</p>
+                <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">美如画</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec45;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+
+                    <div id="" class="collapse comment-area">
+                    <ul class=" comments-list">
+                <li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>                       
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;1036</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...
+                          </p><div class="images"><figure><a href="./images/content/content14.jpg" itemprop="contentUrl" data-size="1920x1200"><img src="./images/content/content14.jpg"/></a></figure></div>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;102</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar5.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;18</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>     
+                    </li>
+<li>
+                     
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;24</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+       </div>
+          <div class="comment-edit">
+            <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+            <form>
+            <textarea class="col-xs-12" class="comment-edit-area" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide"><label>
+            <button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+            <input type="file" class="file-upload" id="" name="" title="添加图片">
+            </label>
+            <button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" disabled="value"> 发布</button></div>
+            </form>
+      </div>
+      </div>
+                
+</li>
+
+<li>
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img src="./images/avatar12.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <p class="user-name"><a href="javascript:;">Agustin Ortiz</a></p>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <span class="post-time">20 分钟前</span>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                        </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。</p>
+
+<p>我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。</p>
+</div>
+                        <div class="images">
+                            <figure><a href="./images/content/content18.jpg" itemprop="contentUrl" data-size="530x354"><img src="./images/content/content18.jpg" width="100%"/></a></figure>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                        <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">蠢哭了</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec46;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+            <div id="" class="collapse comment-area"> 
+                     <ul class=" comments-list">
+                <li>
+                        <a href="javascript:;" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;64</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;35</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar.png" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;27</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;16</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+        </div>
+                
+                <div class="comment-edit">
+                <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+                <form>
+            <textarea class="col-xs-12" class="comment-edit-area" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide">
+            <label><button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+<input type="file" class="file-upload" id="" name="" title="添加图片"></label>
+<button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" id="btn1" disabled="value"> 发布</button></div>
+            </form>
+            </div>                         
+                
+     </div>
+    </li>
+  
+</ul><!--Posts-list-2 end-->
+
+
+     <!--Posts-list-3-->
+<ul class="post-list list-hide col-lg-4 col-md-6 col-xs-12"> 
+<li>        
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img src="./images/avatar4.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <a href="javascript:;" class="user-name">Agustin Ortiz</a>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <span class="post-time">20 分钟前</span>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>        
+                            <br>
+                            <a href="javascript:;" class="activity"><b class="caret caret-right"></b>&nbsp;&nbsp;Norway Landscape</a>
+                            </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。
+
+我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。
+
+现在想来，忽然被这凡尘里最普普通通的人们感动。哪怕生活艰辛，我们在日夜劳作里忘记了抬头看看月亮，却依然不愿怠慢，那些特殊的时刻，那个值得陪伴和纪念的良辰和爱人。</p></div>
+           <div class="images">
+            <figure><a href="./images/content/content1.jpg" itemprop="contentUrl" data-size="938x580"><img src="./images/content/content1.jpg" width="100%"/></a><figcaption itemprop="caption description">Image caption  1</figcaption></figure></div>
+            </div>
+                        <div class="post-footer">
+                        <p class="post-tags">#&nbsp;小吃 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;春秋 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;节气</p>
+                <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">美如画</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec45;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+
+                    <div id="" class="collapse comment-area">
+                    <ul class=" comments-list">
+                <li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>                       
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;1036</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...
+                          </p><div class="images"><figure><a href="./images/content/content14.jpg" itemprop="contentUrl" data-size="1920x1200"><img src="./images/content/content14.jpg"/></a></figure></div>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;102</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar5.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;18</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>     
+                    </li>
+<li>
+                     
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;24</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+       </div>
+          <div class="comment-edit">
+            <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+            <form>
+            <textarea class="col-xs-12" class="comment-edit-area" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide"><label>
+            <button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+            <input type="file" class="file-upload" id="" name="" title="添加图片">
+            </label>
+            <button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" disabled="value"> 发布</button></div>
+            </form>
+      </div>
+      </div>
+                
+</li>
+
+<li>
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img src="./images/avatar12.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <p class="user-name"><a href="javascript:;">Agustin Ortiz</a></p>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <span class="post-time">20 分钟前</span>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                        </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。
+
+我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。
+
+现在想来，忽然被这凡尘里最普普通通的人们感动。哪怕生活艰辛，我们在日夜劳作里忘记了抬头看看月亮，却依然不愿怠慢，那些特殊的时刻，那个值得陪伴和纪念的良辰和爱人。</p>
+                            <p>Just created a new snippet inspired by the Svbtle Menu. Find it here: <a>http://bootsnipp.com/snippets/MaWrA</a></p></div>
+                        <img src="./images/content/content15.jpg" width="100%"/>
+                        <div class="post-footer">
+                        <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">蠢哭了</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec46;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+            <div id="" class="collapse comment-area"> 
+                     <ul class=" comments-list">
+                <li>
+                        <a href="javascript:;" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;64</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;35</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar.png" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;27</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;16</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+        </div>
+                
+                <div class="comment-edit">
+                <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+                <form>
+            <textarea class="col-xs-12" class="comment-edit-area" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide">
+            <label><button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+<input type="file" class="file-upload" id="" name="" title="添加图片"></label>
+<button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" id="btn1" disabled="value"> 发布</button></div>
+            </form>
+            </div>
+        </div>
+                                   
+    </div>
+    </li>
+    </ul><!--Posts-list-3 end-->
+</div>
+</div><!--Posts end-->
+
+<!--Square-->
+<div class="tab-pane fade" id="square">
+<div class="post-container">
+<div class="tab-content topic-tab">
+<div class="tab-pane active fade in" id="hot-topic">
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-1" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-2" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-3" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-4" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+<div class="col-md-12">话题展开</div>
+<div class="col-md-6 col-lg-4">
+<div class="topic-box">
+<div class="topic-header">
+<p class="topic-name"><i class="iconfont">&#xe630;</i>&nbsp; 乐在骑中</p>
+<a href="javascript:;" class="follow">&nbsp;<b>订阅</b></a>
+<span class="topic-time">6 天前</span>
+</div><!--topic-header-->
+<div class="topic-content">
+<img class="topic-bg" src="./images/content/content17.jpg">
+<h3 class="topic-sub">骑行两万里</h3>
+<div class="topic-description">
+<p>New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+<p>I made these adorable mini cactus brownie cakes for a party. These were so popular that they were gone in minutes! Everyone was impressed! Some people even thought they were real plants! O(∩_∩)O~﻿</p>
+<p>Researchers have identified gut microbiota that interact with brain regions associated with mood and behavior. This may be the first time that behavioral and neurobiological differences associated with microbial composition in healthy humans have been identified.﻿</p>
+</div>
+<button class="join-in">加入话题</button>
+</div><!--topic-content-->
+<div class="topic-footer">
+<a href="#" class="topic-member" id=""><i>参与&nbsp;<span>360</span></i></a>
+<i>浏览&nbsp;<span>11451</span></i>
+</div><!--topic-footer-->
+</div><!--topic-box-->
+</div>
+
+
+
+
+
+</div><!--Hot-topic-end-->
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="local-topic">
+<div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-4" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta"><i class="iconfont">&#xe6c5;</i> &nbsp;360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+</div><!--Local-topic-end-->
+
+<div class="tab-pane fade" id="latest-topic">
+<div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-2" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+</div><!--Latest-topic-end-->
+
+<div class="tab-pane fade" id="apply-topic">
+<h3 class="tab-title">发起话题</h3>
+</div><!--Apply-topic-end-->
+
+</div><!--Topic-tab-->
+</div><!--Post-container end-->
+</div><!--Square end-->
+
+<!--In-Lifestep-->
+<div class="tab-pane fade" id="in-lifestep">
+
+
+
+
+
+</div><!--In-Lifestep end-->
+
+<!--Search-->
+<div class="tab-pane fade" id="search">
+
+</div><!--Search end-->
+
+
+
+
+
+<!--Setting-->
+<div class="tab-pane fade" id="setting">
+<div class="container">
+    <div class="col-md-8 col-md-offset-2">
+    <div class="setting-field">
+         <form class="form-horizontal">
+            <fieldset>
+                
+<legend>帐户设置</legend>
+
+<!-- Email input-->
+         <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2">电子邮箱</label>
+                    <div class="controls col-sm-8 col-xs-8">
+                        <input id="email" name="email" type="email" placeholder="电子邮箱" class="form-control">
+                    </div>
+                    <a class="btn setting-edit pull-right" title="更改"><i class="iconfont">&#xe8cc;</i></a>
+                </div> 
+         <!-- Password input-->
+         <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2">密码</label>
+                    <div class="controls col-sm-8 col-xs-8">
+                        <input id="password" name="password" type="password" placeholder="密码" class="form-control">
+                    </div>
+                    <a class="btn setting-edit pull-right" title="更改"><i class="iconfont">&#xe8cc;</i></a>
+                </div> 
+      <!-- Mobile No. input-->
+         <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2">手机号码</label>
+                    <div class="controls col-sm-8 col-xs-8">
+                        <input id="mobile" name="mobile" type="text" placeholder="绑定手机号码" class="form-control">
+                    </div>
+                </div>
+                <!-- nick-name input-->
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2">昵称</label>
+                    <div class="controls col-sm-10 col-xs-10">
+                        <input id="nick-name" name="nick-name" type="text" placeholder="输入你的昵称"
+                        class="form-control">
+                        <p class="help-block">昵称只能更改一次</p>
+                    </div>
+                </div>
+                 <!-- signature-input-->
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2">个性签名</label>
+                    <div class="controls col-sm-10 col-xs-10">
+                        <input id="signature" name="signature" type="text" placeholder="填写你的个性签名"
+                        class="form-control">
+                        <p class="help-block">签名不多于30字</p>
+                    </div>
+                </div>
+                <!-- user-bio-input-->
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2">个人简介</label>
+                    <div class="controls col-sm-10 col-xs-10">
+                        <textarea id="user-bio" name="user-bio" type="text" placeholder="填写你的个人简介"
+                        class="form-control"></textarea>
+                    </div>
+                </div>
+                <!-- User-Name input-->
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2">姓名</label>
+                    <div class="controls col-sm-10 col-xs-10">
+                        <input id="user_name" name="user_name" type="text" placeholder="输入你的姓名"
+                        class="form-control">
+                    </div>
+                </div>
+                
+                <!-- Gender Select -->
+<div class="form-group">
+  <label class="control-label col-sm-2 col-xs-2" for="selectbasic">性别</label>
+  <div class="controls col-sm-3 col-xs-4">
+    <select id="gender" name="gender" class="form-control">
+      <option>男</option>
+      <option>女</option>
+      <option>其他</option>
+    </select>
+  </div>
+</div>
+                 <!-- Birthday Select  -->
+                <div class="form-group" id="birth-date">
+                                    <label class="control-label col-sm-2 col-xs-2 col-cs-2">生日</label>
+                    <div class="col-sm-10 col-xs-10 col-cs-10" style="padding-left:0" id="birth-date">
+                    <div class="col-sm-3 col-xs-3 col-cs-3">
+                    <select id="profile_date_year" name="profile[date][year]" class="form-control">
+                                <option value="" selected="selected">年</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
+                                <option value="2009">2009</option>
+                                <option value="2008">2008</option>
+                                <option value="2007">2007</option>
+                                <option value="2006">2006</option>
+                                <option value="2005">2005</option>
+                                <option value="2004">2004</option>
+                                <option value="2003">2003</option>
+                                <option value="2002">2002</option>
+                                <option value="2001">2001</option>
+                                <option value="2000">2000</option>
+                                <option value="1999">1999</option>
+                                <option value="1998">1998</option>
+                                <option value="1997">1997</option>
+                                <option value="1996">1996</option>
+                                <option value="1995">1995</option>
+                                <option value="1994">1994</option>
+                                <option value="1993">1993</option>
+                                <option value="1992">1992</option>
+                                <option value="1991">1991</option>
+                                <option value="1990">1990</option>
+                                <option value="1989">1989</option>
+                                <option value="1988">1988</option>
+                                <option value="1987">1987</option>
+                                <option value="1986">1986</option>
+                                <option value="1985">1985</option>
+                                <option value="1984">1984</option>
+                                <option value="1983">1983</option>
+                                <option value="1982">1982</option>
+                                <option value="1981">1981</option>
+                                <option value="1980">1980</option>
+                                <option value="1979">1979</option>
+                                <option value="1978">1978</option>
+                                <option value="1977">1977</option>
+                                <option value="1976">1976</option>
+                                <option value="1975">1975</option>
+                                <option value="1974">1974</option>
+                                <option value="1973">1973</option>
+                                <option value="1972">1972</option>
+                                <option value="1971">1971</option>
+                                <option value="1970">1970</option>
+                                <option value="1969">1969</option>
+                                <option value="1968">1968</option>
+                                <option value="1967">1967</option>
+                                <option value="1966">1966</option>
+                                <option value="1965">1965</option>
+                                <option value="1964">1964</option>
+                                <option value="1963">1963</option>
+                                <option value="1962">1962</option>
+                                <option value="1961">1961</option>
+                                <option value="1960">1960</option>
+                                <option value="1959">1959</option>
+                                <option value="1958">1958</option>
+                                <option value="1957">1957</option>
+                                <option value="1956">1956</option>
+                                <option value="1955">1955</option>
+                                <option value="1954">1954</option>
+                                <option value="1953">1953</option>
+                                <option value="1952">1952</option>
+                                <option value="1951">1951</option>
+                                <option value="1950">1950</option>
+                                <option value="1949">1949</option>
+                                <option value="1948">1948</option>
+                                <option value="1947">1947</option>
+                                <option value="1946">1946</option>
+                                <option value="1945">1945</option>
+                                <option value="1944">1944</option>
+                                <option value="1943">1943</option>
+                                <option value="1942">1942</option>
+                                <option value="1941">1941</option>
+                                <option value="1940">1940</option>
+                                <option value="1939">1939</option>
+                                <option value="1938">1938</option>
+                                <option value="1937">1937</option>
+                                <option value="1936">1936</option>
+                                <option value="1935">1935</option>
+                                <option value="1934">1934</option>
+                                <option value="1933">1933</option>
+                                <option value="1932">1932</option>
+                                <option value="1931">1931</option>
+                                <option value="1930">1930</option>
+                                <option value="1929">1929</option>
+                                <option value="1928">1928</option>
+                                <option value="1927">1927</option>
+                                <option value="1926">1926</option>
+                                <option value="1925">1925</option>
+                                <option value="1924">1924</option>
+                                <option value="1923">1923</option>
+                                <option value="1922">1922</option>
+                                <option value="1921">1921</option>
+                                <option value="1920">1920</option>
+                                <option value="1919">1919</option>
+                                <option value="1918">1918</option>
+                                <option value="1917">1917</option>
+                                <option value="1916">1916</option>
+                                <option value="1915">1915</option>
+                                <option value="1914">1914</option>
+                                <option value="1913">1913</option>
+                                <option value="1912">1912</option>
+                                <option value="1911">1911</option>
+                                <option value="1910">1910</option>
+                                <option value="1909">1909</option>
+                                <option value="1908">1908</option>
+                                <option value="1907">1907</option>
+                                <option value="1906">1906</option>
+                                <option value="1905">1905</option>
+                                <option value="1904">1904</option>
+                                <option value="1903">1903</option>
+                                <option value="1902">1902</option>
+                                <option value="1901">1901</option>
+                                <option value="1900">1900</option>
+                            </select>
+                            </div>
+                            <div class="col-sm-3 col-xs-3 col-cs-3">
+                            <select id="profile_date_month" name="profile[date][month]" class="form-control">
+                                <option value="" selected="selected">月</option>
+                                <option value="1">1月</option>
+                                <option value="2">2月</option>
+                                <option value="3">3月</option>
+                                <option value="4">4月</option>
+                                <option value="5">5月</option>
+                                <option value="6">6月</option>
+                                <option value="7">7月</option>
+                                <option value="8">8月</option>
+                                <option value="9">9月</option>
+                                <option value="10">10月</option>
+                                <option value="11">11月</option>
+                                <option value="12">12月</option>
+                            </select>
+                            </div>
+                            <div class="col-sm-3 col-xs-3 col-cs-3">
+                            <select id="profile_date_day" name="profile[date][day]" class="form-control">
+                                <option value="" selected="selected">日</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            </div>
+              </div>
+                </div>
+                
+                
+                
+                <!-- city input-->
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2">城镇</label>
+                    <div class="controls col-sm-10 col-xs-10">
+                        <input id="city" name="city" type="text" placeholder="所在城镇" class="form-control">
+                    </div>
+                </div>
+                <!-- country select -->
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2">国家/地区</label>
+                    <div class="controls col-sm-6 col-xs-8 col-cs-8">
+                        <select id="country" name="country" class="form-control">
+                            <option value="" selected="selected">(请选择一个国家/地区)</option>
+                            <option value="AF">Afghanistan</option>
+                            <option value="AL">Albania</option>
+                            <option value="DZ">Algeria</option>
+                            <option value="AS">American Samoa</option>
+                            <option value="AD">Andorra</option>
+                            <option value="AO">Angola</option>
+                            <option value="AI">Anguilla</option>
+                            <option value="AQ">Antarctica</option>
+                            <option value="AG">Antigua and Barbuda</option>
+                            <option value="AR">Argentina</option>
+                            <option value="AM">Armenia</option>
+                            <option value="AW">Aruba</option>
+                            <option value="AU">Australia</option>
+                            <option value="AT">Austria</option>
+                            <option value="AZ">Azerbaijan</option>
+                            <option value="BS">Bahamas</option>
+                            <option value="BH">Bahrain</option>
+                            <option value="BD">Bangladesh</option>
+                            <option value="BB">Barbados</option>
+                            <option value="BY">Belarus</option>
+                            <option value="BE">Belgium</option>
+                            <option value="BZ">Belize</option>
+                            <option value="BJ">Benin</option>
+                            <option value="BM">Bermuda</option>
+                            <option value="BT">Bhutan</option>
+                            <option value="BO">Bolivia</option>
+                            <option value="BA">Bosnia and Herzegowina</option>
+                            <option value="BW">Botswana</option>
+                            <option value="BV">Bouvet Island</option>
+                            <option value="BR">Brazil</option>
+                            <option value="IO">British Indian Ocean Territory</option>
+                            <option value="BN">Brunei Darussalam</option>
+                            <option value="BG">Bulgaria</option>
+                            <option value="BF">Burkina Faso</option>
+                            <option value="BI">Burundi</option>
+                            <option value="KH">Cambodia</option>
+                            <option value="CM">Cameroon</option>
+                            <option value="CA">Canada</option>
+                            <option value="CV">Cape Verde</option>
+                            <option value="KY">Cayman Islands</option>
+                            <option value="CF">Central African Republic</option>
+                            <option value="TD">Chad</option>
+                            <option value="CL">Chile</option>
+                            <option value="CN">中国/China</option>
+                            <option value="CX">Christmas Island</option>
+                            <option value="CC">Cocos (Keeling) Islands</option>
+                            <option value="CO">Colombia</option>
+                            <option value="KM">Comoros</option>
+                            <option value="CG">Congo</option>
+                            <option value="CD">Congo, the Democratic Republic of the</option>
+                            <option value="CK">Cook Islands</option>
+                            <option value="CR">Costa Rica</option>
+                            <option value="CI">Cote d'Ivoire</option>
+                            <option value="HR">Croatia (Hrvatska)</option>
+                            <option value="CU">Cuba</option>
+                            <option value="CY">Cyprus</option>
+                            <option value="CZ">Czech Republic</option>
+                            <option value="DK">Denmark</option>
+                            <option value="DJ">Djibouti</option>
+                            <option value="DM">Dominica</option>
+                            <option value="DO">Dominican Republic</option>
+                            <option value="TP">East Timor</option>
+                            <option value="EC">Ecuador</option>
+                            <option value="EG">Egypt</option>
+                            <option value="SV">El Salvador</option>
+                            <option value="GQ">Equatorial Guinea</option>
+                            <option value="ER">Eritrea</option>
+                            <option value="EE">Estonia</option>
+                            <option value="ET">Ethiopia</option>
+                            <option value="FK">Falkland Islands (Malvinas)</option>
+                            <option value="FO">Faroe Islands</option>
+                            <option value="FJ">Fiji</option>
+                            <option value="FI">Finland</option>
+                            <option value="FR">France</option>
+                            <option value="FX">France, Metropolitan</option>
+                            <option value="GF">French Guiana</option>
+                            <option value="PF">French Polynesia</option>
+                            <option value="TF">French Southern Territories</option>
+                            <option value="GA">Gabon</option>
+                            <option value="GM">Gambia</option>
+                            <option value="GE">Georgia</option>
+                            <option value="DE">Germany</option>
+                            <option value="GH">Ghana</option>
+                            <option value="GI">Gibraltar</option>
+                            <option value="GR">Greece</option>
+                            <option value="GL">Greenland</option>
+                            <option value="GD">Grenada</option>
+                            <option value="GP">Guadeloupe</option>
+                            <option value="GU">Guam</option>
+                            <option value="GT">Guatemala</option>
+                            <option value="GN">Guinea</option>
+                            <option value="GW">Guinea-Bissau</option>
+                            <option value="GY">Guyana</option>
+                            <option value="HT">Haiti</option>
+                            <option value="HM">Heard and Mc Donald Islands</option>
+                            <option value="VA">Holy See (Vatican City State)</option>
+                            <option value="HN">Honduras</option>
+                            <option value="HK">香港/Hong Kong</option>
+                            <option value="HU">Hungary</option>
+                            <option value="IS">Iceland</option>
+                            <option value="IN">India</option>
+                            <option value="ID">Indonesia</option>
+                            <option value="IR">Iran (Islamic Republic of)</option>
+                            <option value="IQ">Iraq</option>
+                            <option value="IE">Ireland</option>
+                            <option value="IL">Israel</option>
+                            <option value="IT">Italy</option>
+                            <option value="JM">Jamaica</option>
+                            <option value="JP">Japan</option>
+                            <option value="JO">Jordan</option>
+                            <option value="KZ">Kazakhstan</option>
+                            <option value="KE">Kenya</option>
+                            <option value="KI">Kiribati</option>
+                            <option value="KP">Korea, Democratic People's Republic of</option>
+                            <option value="KR">Korea, Republic of</option>
+                            <option value="KW">Kuwait</option>
+                            <option value="KG">Kyrgyzstan</option>
+                            <option value="LA">Lao People's Democratic Republic</option>
+                            <option value="LV">Latvia</option>
+                            <option value="LB">Lebanon</option>
+                            <option value="LS">Lesotho</option>
+                            <option value="LR">Liberia</option>
+                            <option value="LY">Libyan Arab Jamahiriya</option>
+                            <option value="LI">Liechtenstein</option>
+                            <option value="LT">Lithuania</option>
+                            <option value="LU">Luxembourg</option>
+                            <option value="MO">澳門/Macau</option>
+                            <option value="MK">Macedonia, The Former Yugoslav Republic of</option>
+                            <option value="MG">Madagascar</option>
+                            <option value="MW">Malawi</option>
+                            <option value="MY">Malaysia</option>
+                            <option value="MV">Maldives</option>
+                            <option value="ML">Mali</option>
+                            <option value="MT">Malta</option>
+                            <option value="MH">Marshall Islands</option>
+                            <option value="MQ">Martinique</option>
+                            <option value="MR">Mauritania</option>
+                            <option value="MU">Mauritius</option>
+                            <option value="YT">Mayotte</option>
+                            <option value="MX">Mexico</option>
+                            <option value="FM">Micronesia, Federated States of</option>
+                            <option value="MD">Moldova, Republic of</option>
+                            <option value="MC">Monaco</option>
+                            <option value="MN">Mongolia</option>
+                            <option value="MS">Montserrat</option>
+                            <option value="MA">Morocco</option>
+                            <option value="MZ">Mozambique</option>
+                            <option value="MM">Myanmar</option>
+                            <option value="NA">Namibia</option>
+                            <option value="NR">Nauru</option>
+                            <option value="NP">Nepal</option>
+                            <option value="NL">Netherlands</option>
+                            <option value="AN">Netherlands Antilles</option>
+                            <option value="NC">New Caledonia</option>
+                            <option value="NZ">New Zealand</option>
+                            <option value="NI">Nicaragua</option>
+                            <option value="NE">Niger</option>
+                            <option value="NG">Nigeria</option>
+                            <option value="NU">Niue</option>
+                            <option value="NF">Norfolk Island</option>
+                            <option value="MP">Northern Mariana Islands</option>
+                            <option value="NO">Norway</option>
+                            <option value="OM">Oman</option>
+                            <option value="PK">Pakistan</option>
+                            <option value="PW">Palau</option>
+                            <option value="PA">Panama</option>
+                            <option value="PG">Papua New Guinea</option>
+                            <option value="PY">Paraguay</option>
+                            <option value="PE">Peru</option>
+                            <option value="PH">Philippines</option>
+                            <option value="PN">Pitcairn</option>
+                            <option value="PL">Poland</option>
+                            <option value="PT">Portugal</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="QA">Qatar</option>
+                            <option value="RE">Reunion</option>
+                            <option value="RO">Romania</option>
+                            <option value="RU">Russian Federation</option>
+                            <option value="RW">Rwanda</option>
+                            <option value="KN">Saint Kitts and Nevis</option>
+                            <option value="LC">Saint LUCIA</option>
+                            <option value="VC">Saint Vincent and the Grenadines</option>
+                            <option value="WS">Samoa</option>
+                            <option value="SM">San Marino</option>
+                            <option value="ST">Sao Tome and Principe</option>
+                            <option value="SA">Saudi Arabia</option>
+                            <option value="SN">Senegal</option>
+                            <option value="SC">Seychelles</option>
+                            <option value="SL">Sierra Leone</option>
+                            <option value="SG">Singapore</option>
+                            <option value="SK">Slovakia (Slovak Republic)</option>
+                            <option value="SI">Slovenia</option>
+                            <option value="SB">Solomon Islands</option>
+                            <option value="SO">Somalia</option>
+                            <option value="ZA">South Africa</option>
+                            <option value="GS">South Georgia and the South Sandwich Islands</option>
+                            <option value="ES">Spain</option>
+                            <option value="LK">Sri Lanka</option>
+                            <option value="SH">St. Helena</option>
+                            <option value="PM">St. Pierre and Miquelon</option>
+                            <option value="SD">Sudan</option>
+                            <option value="SR">Suriname</option>
+                            <option value="SJ">Svalbard and Jan Mayen Islands</option>
+                            <option value="SZ">Swaziland</option>
+                            <option value="SE">Sweden</option>
+                            <option value="CH">Switzerland</option>
+                            <option value="SY">Syrian Arab Republic</option>
+                            <option value="TW">台灣/Taiwan, Province of China</option>
+                            <option value="TJ">Tajikistan</option>
+                            <option value="TZ">Tanzania, United Republic of</option>
+                            <option value="TH">Thailand</option>
+                            <option value="TG">Togo</option>
+                            <option value="TK">Tokelau</option>
+                            <option value="TO">Tonga</option>
+                            <option value="TT">Trinidad and Tobago</option>
+                            <option value="TN">Tunisia</option>
+                            <option value="TR">Turkey</option>
+                            <option value="TM">Turkmenistan</option>
+                            <option value="TC">Turks and Caicos Islands</option>
+                            <option value="TV">Tuvalu</option>
+                            <option value="UG">Uganda</option>
+                            <option value="UA">Ukraine</option>
+                            <option value="AE">United Arab Emirates</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="US">United States</option>
+                            <option value="UM">United States Minor Outlying Islands</option>
+                            <option value="UY">Uruguay</option>
+                            <option value="UZ">Uzbekistan</option>
+                            <option value="VU">Vanuatu</option>
+                            <option value="VE">Venezuela</option>
+                            <option value="VN">Viet Nam</option>
+                            <option value="VG">Virgin Islands (British)</option>
+                            <option value="VI">Virgin Islands (U.S.)</option>
+                            <option value="WF">Wallis and Futuna Islands</option>
+                            <option value="EH">Western Sahara</option>
+                            <option value="YE">Yemen</option>
+                            <option value="YU">Yugoslavia</option>
+                            <option value="ZM">Zambia</option>
+                            <option value="ZW">Zimbabwe</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- privicy input-->
+                <div class="form-group form-priv">
+                    <label class="control-label col-sm-2 col-xs-2">隐私</label>
+                    <div class="controls col-sm-8 col-xs-8">
+                    <div class="material-switch pull-left">
+                            <input id="SwitchPrimary" name="SwitchOption" type="checkbox"/>
+                            <label for="SwitchPrimary" class="label-primary"></label>
+                        </div>
+                    <span class="priv-help">允许他人通过邮箱或昵称查找到你。</span>
+                    
+                        </div>
+                    
+                        
+                </div>
+<div class="setting-submit">
+<input type="button" class="btn btn-primary pull-right" value="保存更新">
+<input type="button" class="btn btn-default pull-right" value="取消">
+</div>
+
+            </fieldset>
+        </form>
+    </div><!--setting-field-->
+</div>
+
+</div>
+
+
+
+
+
+
+</div><!--Setting end-->
+
+<!--Help-->
+<div class="tab-pane fade" id="help">
+
+</div><!--Help end-->
+
+</div><!--Mainbody End-->
+
+
+      <!--Text Post Window -->
+<div class="modal fade" id="text-edit" tabindex="-1" role="dialog" aria-labelledby="text-edit" aria-hidden="true">
+      <div class="modal-dialog">
+      <div class="row">
+      <div><a href="javascript:;"><img class="avatar" src="./images/avatar13.jpg" height="65px" alt="avatar"></a></div>
+      <div id="post-board">
+      <a href="javascript" class="pull-left"><h5 id="user-name">Ryan Haywood</h5></a>
+      <select id="options" class="pull-right" onchange="optionCheck()">
+      <option selected="selected" value="open">公开</option>
+      <option value="private">私有</option></select>
+      <span class="glyphicon glyphicon-globe pull-right"></span>
+      <input id="title" class="col-xs-12" placeholder="标题（可不填）"/>
+      <textarea id="text-editor" class="col-xs-12" placeholder="分享你的生活&hellip;"></textarea>
+      <div id="add" class="col-xs-12">
+      <input type="file" title="添加图片" class="file-upload" id="" name="">
+      <a href="javascript:;" id="photo"><span class="glyphicon glyphicon-camera"></span></a>
+      <a href="javascript:;" title="添加链接" id="links"><span class="glyphicon glyphicon-link"></span></a>
+      <div class="btn-group" data-toggle="buttons">
+<label class="btn location-btn" data-toggle="tooltip" data-placement="top" title="仅当前位置可见"><input type="checkbox" name="location"><span class="glyphicon glyphicon-map-marker"></span></label></div></div>
+      <button id="post-btn" class="btn btn-primary pull-right" role="button">发布</button>
+      <button id="cancle-btn" class="btn btn-primary pull-right" data-dismiss="modal" role="button">取消</button>
+      </div>
+      </div>
+      </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+     
+        <!--Remark Window -->
+<div class="modal fade" id="remark" tabindex="-1" role="dialog" aria-labelledby="remark" aria-hidden="true">
+      <div class="modal-dialog">
+<div class="modal-body">
+                <p>你觉得这帖子怎么样？点评一下吧：</p>
+            
+                            <div class="btn-group remarkBtnGroup" data-toggle="buttons">
+                                <label class="btn remark-btn" id="option1">                               
+                                    <input type="radio" name="options">(^ ᗨ ^) 太逗了 
+                                </label>
+                                <label class="btn remark-btn" id="option2">                                   
+                                    <input type="radio" name="options">(⊙o⊙) 大吃一惊 
+                                </label>
+                                <label class="btn remark-btn" id="option3">                           
+                                    <input type="radio" name="options">(⊙_⊙;) 吓坏了
+                                </label>              
+                                 <label class="btn remark-btn" id="option4">                                 
+                                    <input type="radio" name="options">(*∩_∩*) 美如画 
+                                </label>
+                                <label class="btn remark-btn" id="option5">                                  
+                                    <input type="radio" name="options">(╰ _ ╯) 岂有此理 
+                                </label>
+                               <label class="btn remark-btn" id="option6">                                    
+                                    <input type="radio" name="options">(︶o︶) 丑到家 
+                                </label>            
+                               <label class="btn remark-btn" id="option7">                                   
+                                    <input type="radio" name="options">(^ ω ^) 萌化了 
+                                </label>
+                                <label class="btn remark-btn" id="option8">                               
+                                    <input type="radio" name="options">(- _ -") 索然无味 
+                                </label>
+                                <label class="btn remark-btn" id="option9">                           
+                                    <input type="radio" name="options">(′ ェ ';) 蠢哭了 
+                                </label>
+                                <label class="btn remark-btn" id="option10">
+                                    <input type="radio" name="options">(+﹏+) 好感人 
+                                </label>
+                                <label class="btn remark-btn" id="option11">  
+                                   <input type="radio" name="options">(￣.￣) 一本正经 
+                                </label>
+                                <label class="btn remark-btn" id="option12">                     
+                                    <input type="radio" name="options">(〒_〒) 好可怜 
+                                </label>            
+                                <label class="btn remark-btn" id="option13">
+                                    <input type="radio" name="options">(✧◡✧) 正能量 
+                                </label>
+                                <label class="btn remark-btn" id="option14">                    
+                                    <input type="radio" name="options">(¯ □ ¯) 无话可说 
+                                </label>
+                                <label class="btn remark-btn" id="option15">   
+                                    <input type="radio" name="options">(@_@) 搞不懂 
+                                </label>
+                            </div>
+        <button id="post-btn" class="btn btn-primary pull-right" role="button">提交</button>
+<button id="cancle-btn" class="btn btn-primary pull-right" data-dismiss="modal" role="button">取消</button>
+  </div>               
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+
+<!--Feedback Window -->
+<div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="feedback" aria-hidden="true">
+      <div class="modal-dialog">
+<div class="modal-body">
+                <p>你觉得这帖子怎么样？点评一下吧：</p>
+            
+                            
+                            </div>
+        <button id="post-btn" class="btn btn-primary pull-right" role="button">提交</button>
+<button id="cancle-btn" class="btn btn-primary pull-right" data-dismiss="modal" role="button">取消</button>
+  </div>                  
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+
+                                                                 
+<!--Images Viewer Window -->
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="关闭 (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="全屏"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="放大/缩小"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader-active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <button class="pswp__button pswp__button--arrow--left" title="上一张">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="下一张">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-modalmanager.js"></script>
+<script src="js/jquery-scrollLock.min.js"></script>
+<script src="js/photoswipe.min.js"></script>
+<script src="js/photoswipe-ui-default.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+$(function () {
+  $('[data-toggle="popover"]').popover()
+});
+$('.comments-list').scrollLock();
+$(function(){
+    $('select').selectpicker();
+    $('.dropdown-menu').scrollLock();
+});
+//  hover资料卡 
+    $(".user-avatar,.user-name,.avatar-hide,.avatar-show").popover({
+    trigger:"hover",  
+    placement:"bottom",
+    html:true,
+    animation: true,
+    delay: {show:700,hide: 300},
+    content:'<div class="card"><a href="#"><img class="card-img-top" src="./images/card1.jpg"></a><div class="dropdown card-option"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="iconfont">&#xe8c8;</i></a><ul class="dropdown-menu card-menu"><li><a href="javascript:;">发送消息</a></li><li><a href="javascript:;">举报滥用</a></li></ul></div><button class="btn btn-info">关注</button><div class="card-block"><figure class="profile"><a href="#"><img src="./images/card-avatar.gif" class="profile-avatar" alt=""></a></figure><a href="#"><h4 class="card-title">Tawshif Ahsan Khan</h4></a><div class="card-text">Tawshif is a web designer living in Bangladesh.</div></div><div class="card-footer"><div class="col-xs-4 card-latest"><a href="#"><img class="img-responsive" src="./images/card2.jpg" alt=""></a></div><div class="col-xs-4 card-latest"><a href="#"><img class="img-responsive" src="./images/card3.jpg" alt=""></a></div><div class="col-xs-4 card-latest"><a href="#"><img class="img-responsive" src="./images/card4.jpg" alt=""></a></div><br><span class="update">更新于 3 分钟前</span></div></div>'
+})
+    .on('shown.bs.popover', function (event) {
+        var that = this;
+        $(this).parent().find('div.popover').on('mouseenter', function () {
+            $(that).attr('in', true);
+        }).on('mouseleave', function () {
+            $(that).removeAttr('in');
+            $(that).popover('hide');
+        });
+    }).on('hide.bs.popover', function (event) {
+        if ($(this).attr('in')) {
+            event.preventDefault();
+        }
+    });
+ 
+</script>  
+<script>
+//  评论选项
+ $(".popmenu").popover({
+    trigger:"click", 
+    placement:"left",
+    html:true,
+    content: '<ul id="pop-menu"><li><a href="javascript:;">为评论点赞</a></li><li><a href="javascript:;">回复</a></li><li><a href="javascript:;">举报评论</a></li><li><a href="javascript:;">查看对话</a></li></ul>'
+})
+ $(document).on('click', function (e) {
+    $('.popmenu').each(function () {
+        if (!$(this).is(e.target) && $(this).has(e.target).length === 0) {                
+            (($(this).popover('hide').data('bs.popover')||{}).inState||{}).click = false
+        }
+    });
+});   
+</script>
+<script type="text/javascript">
+//*话题Tab栏固定*//
+$('.tab-wrapper').hide();
+$('#navbar-top').addClass('nav-shadow');
+ $('#topic-tgo').on('shown.bs.tab', function () {
+    $('.sidebar-nav').css('padding-top','64px');
+    $('#topic-bar').show();
+    $('#navbar-top').removeClass('nav-shadow');
+  });
+  $('.tab-tgo').not('#topic-tgo').on('shown.bs.tab', function () {
+    $('.sidebar-nav').css('padding-top','20px');
+    $('#topic-bar').hide();
+    $('#navbar-top').addClass('nav-shadow');  
+  });
+$('#search-btn').on('shown.bs.tab', function () {
+    $('.sidebar-nav').css('padding-top','64px');
+    $('#search-bar').show();
+    $('#navbar-top').removeClass('nav-shadow');
+  });
+  $('.tab-tgo').not('#search-btn').on('shown.bs.tab', function () {
+    $('#search-bar').hide();  
+  });
+//modal背景固定
+$('.modal')
+  .on('shown', function () {
+    $('body').on('wheel.modal mousewheel.modal', function () {
+      return false;
+    });
+  })
+  .on('hidden', function () {
+    $('body').off('wheel.modal mousewheel.modal');
+  });
+ 
+//编辑按钮动画
+$('.edit-box input, .post-button').on("click", function () {
+    $('.posticon').toggleClass('active');
+});
+$('#text-edit').on('hidden', function () {
+      $('.posticon').removeClass('active');
+  });
+</script>
+<script type="text/javascript">
+//textarea自动增高
+$('textarea').each(function () {
+  this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:show;');
+}).on('input', function () {
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px';
+});
+//轮播
+$('.carousel').carousel({
+  interval: 4000
+});
+$(".carousel-control").hide();
+$(function(){
+   //鼠标滑过，左右按钮进行显示和隐藏
+   $(".carousel").hover(function(){
+     $(".carousel-control").show();
+   },function(){
+     $(".carousel-control").hide();
+   });
+   });
+
+/*侧边栏-toggle*/
+    $("").click(function(e) {
+        e.preventDefault();
+        $("").toggleClass("active");
+    });
+
+//*切换标签*//
+$(document).ready(function () {
+    $('.tab-tgo').on('shown.bs.tab',function(){
+      $('#page-name').html($(this).attr('title'));
+      $('.tab-tgo').not(this).parents('li').removeClass('active');
+      $(this).addClass('active');
+    });
+
+  //*回到顶部*//
+  $('.top-bar').on('click',function(e){
+        if ($(e.target).hasClass('back-top')) {
+          $("html,body").animate({"scrollTop":"0px"},400);
+        }
+  });
+
+//*按钮禁用*//
+  $('.btn-submit').attr('disabled', true);
+$('.comment-edit textarea').on('keyup', function() {
+    var text_value = $(this).val();
+    if (!text_value.trim().length) {
+      $(this).parents('form').find('.btn-submit').attr('disabled', true);
+    } else {
+      $(this).parents('form').find('.btn-submit').attr('disabled', false);
+    }
+  });
+//*评论输入框隐藏*//
+  $('.comment-edit textarea').on('click',function(){
+    $('.comment-edit textarea').not(this).css('height', '42px');
+    $('.comment-edit textarea').not(this).parents('.comment-edit').find('.comment-edit-hide').slideUp(200);
+    $(this).css('height', 'auto');
+    $(this).parents('.comment-edit').find('.comment-edit-hide').slideDown(200);
+  });
+$(document).click(function (e) {
+    if (!$(e.target).parents().andSelf().is('.comment-edit')) {
+        $('.comment-edit textarea').css('height', '42px');
+        $('.comment-edit-hide').slideUp(300);
+    }
+});
+   
+});
+
+//*侧边栏固定*//
+$(function(){
+var col=$(".topic-col"); //得到导航对象
+var win=$(window); //得到窗口对象
+var sc=$(document);//得到document文档对象。
+win.scroll(function(){
+  if(sc.scrollTop()>=830){
+    col.addClass("fixed");  
+  }else{
+   col.removeClass("fixed");
+  }
+})  
+});      
+</script>
+
+<script>
+//*评论展开*//
+$(document).ready(function(){
+    console.log('ready');  
+    $('.rating').click(function() {
+  $comments = $(this).parent().siblings('.collapse');
+  if ($comments.hasClass('in')) {
+    $comments.collapse('hide');
+  } else {
+    $comments.collapse('show');
+  }
+});
+//*文字过长隐藏*//
+ $(".text-hide").hide();
+  $('.read-more').on('click',function(){
+    $(this).parents('.post-content').find('.text-hide').slideDown(400);
+    $(this).hide();
+  }); 
+//*Post-box动作*//
+  $('.post-box').on('click',function () {
+      $('.post-box').not(this).find('.collapse').collapse('hide');
+      $(this).addClass('shadow');
+    $('.post-box').not(this).find('.text-hide').slideUp(400);
+      $('.post-box').not(this).find('.read-more').show(400);
+      $('.post-box').not(this).removeClass('shadow');
+  });
+
+  //hover打开dropdown
+$(function(){
+        $(".dropdown").hover(            
+          function() {
+            $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+            $(this).toggleClass('open');                
+          },
+          function() {
+            $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+            $(this).toggleClass('open');                
+          });
+      });
+});
+
+
+
+//*查看全部*//
+$('.loc-topic .view-all').click(function () {
+    $('#topic-tgo').tab('show');
+    $('#topic-bar li').removeClass('active');
+    $('#topic-bar li:nth-child(2)').addClass('active');
+});
+$('.topic-col .view-all').click(function () {
+    $('#topic-tgo').tab('show');
+    $('#topic-bar li').removeClass('active');
+    $('#topic-bar li:first-child').addClass('active');
+});
+$('.side-col .view-all').click(function () {
+    $('#search-btn').tab('show');
+});
+$('.side-col .find-friend').click(function () {
+    $('#search-btn').tab('show');
+    $('#search-bar li').removeClass('active');
+    $('#search-bar li:first-child').addClass('active');
+});
+</script>
+<script>
+//点评侧边栏展开
+$(document).ready(function(){
+    console.log('ready'); 
+    $('.toggle-remark').click(function() {
+  $remarks = $(this).parent().siblings('.collapse');
+  if ($remarks.hasClass('in')) {
+    $remarks.collapse('hide');
+    $(this).html('展开&nbsp;<span class="glyphicon glyphicon-triangle-bottom"></span>');
+  } else {
+    $remarks.collapse('show');
+    $(this).html('收起&nbsp;<span class="glyphicon glyphicon-triangle-top"></span>');
+  }
+});
+}); 
+</script>
+
+<script>
+//PhotoSwipe图片浏览
+var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+    // parse slide data (url, title, size ...) from DOM elements 
+    // (children of gallerySelector)
+    var parseThumbnailElements = function(el) {
+        var thumbElements = el.childNodes,
+            numNodes = thumbElements.length,
+            items = [],
+            figureEl,
+            linkEl,
+            size,
+            item;
+
+        for(var i = 0; i < numNodes; i++) {
+
+            figureEl = thumbElements[i]; // <figure> element
+
+            // include only element nodes 
+            if(figureEl.nodeType !== 1) {
+                continue;
+            }
+
+            linkEl = figureEl.children[0]; // <a> element
+
+            size = linkEl.getAttribute('data-size').split('x');
+
+            // create slide object
+            item = {
+                src: linkEl.getAttribute('href'),
+                w: parseInt(size[0], 10),
+                h: parseInt(size[1], 10)
+            };
+
+
+
+            if(figureEl.children.length > 1) {
+                // <figcaption> content
+                item.title = figureEl.children[1].innerHTML; 
+            }
+
+            if(linkEl.children.length > 0) {
+                // <img> thumbnail element, retrieving thumbnail url
+                item.msrc = linkEl.children[0].getAttribute('src');
+            } 
+
+            item.el = figureEl; // save link to element for getThumbBoundsFn
+            items.push(item);
+        }
+
+        return items;
+    };
+
+    // find nearest parent element
+    var closest = function closest(el, fn) {
+        return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+    };
+
+    // triggers when user clicks on thumbnail
+    var onThumbnailsClick = function(e) {
+        e = e || window.event;
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+        var eTarget = e.target || e.srcElement;
+
+        // find root element of slide
+        var clickedListItem = closest(eTarget, function(el) {
+            return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+        });
+
+        if(!clickedListItem) {
+            return;
+        }
+
+        // find index of clicked item by looping through all child nodes
+        // alternatively, you may define index via data- attribute
+        var clickedGallery = clickedListItem.parentNode,
+            childNodes = clickedListItem.parentNode.childNodes,
+            numChildNodes = childNodes.length,
+            nodeIndex = 0,
+            index;
+
+        for (var i = 0; i < numChildNodes; i++) {
+            if(childNodes[i].nodeType !== 1) { 
+                continue; 
+            }
+
+            if(childNodes[i] === clickedListItem) {
+                index = nodeIndex;
+                break;
+            }
+            nodeIndex++;
+        }
+
+
+
+        if(index >= 0) {
+            // open PhotoSwipe if valid index found
+            openPhotoSwipe( index, clickedGallery );
+        }
+        return false;
+    };
+
+    // parse picture index and gallery index from URL (#&pid=1&gid=2)
+    var photoswipeParseHash = function() {
+        var hash = window.location.hash.substring(1),
+        params = {};
+
+        if(hash.length < 5) {
+            return params;
+        }
+
+        var vars = hash.split('&');
+        for (var i = 0; i < vars.length; i++) {
+            if(!vars[i]) {
+                continue;
+            }
+            var pair = vars[i].split('=');  
+            if(pair.length < 2) {
+                continue;
+            }           
+            params[pair[0]] = pair[1];
+        }
+
+        if(params.gid) {
+            params.gid = parseInt(params.gid, 10);
+        }
+
+        return params;
+    };
+
+    var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+        var pswpElement = document.querySelectorAll('.pswp')[0],
+            gallery,
+            options,
+            items;
+
+        items = parseThumbnailElements(galleryElement);
+
+        // define options (if needed)
+        options = {
+
+            // define gallery index (for URL)
+            galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+            getThumbBoundsFn: function(index) {
+                // See Options -> getThumbBoundsFn section of documentation for more info
+                var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                    pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                    rect = thumbnail.getBoundingClientRect(); 
+
+                return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+            }
+
+        };
+
+        // PhotoSwipe opened from URL
+        if(fromURL) {
+            if(options.galleryPIDs) {
+                // parse real index when custom PIDs are used 
+                // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                for(var j = 0; j < items.length; j++) {
+                    if(items[j].pid == index) {
+                        options.index = j;
+                        break;
+                    }
+                }
+            } else {
+                // in URL indexes start from 1
+                options.index = parseInt(index, 10) - 1;
+            }
+        } else {
+            options.index = parseInt(index, 10);
+        }
+
+        // exit if index not found
+        if( isNaN(options.index) ) {
+            return;
+        }
+
+        if(disableAnimation) {
+            options.showAnimationDuration = 0;
+        }
+
+        // Pass data to PhotoSwipe and initialize it
+        gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+    };
+
+    // loop through all gallery elements and bind events
+    var galleryElements = document.querySelectorAll( gallerySelector );
+
+    for(var i = 0, l = galleryElements.length; i < l; i++) {
+        galleryElements[i].setAttribute('data-pswp-uid', i+1);
+        galleryElements[i].onclick = onThumbnailsClick;
+    }
+
+    // Parse URL and open gallery if it contains #&pid=3&gid=1
+    var hashData = photoswipeParseHash();
+    if(hashData.pid && hashData.gid) {
+        openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+    }
+};
+
+// execute above function
+initPhotoSwipeFromDOM('.images, .carousel-inner');
+</script>
+
+
+
+</body>
+</html>

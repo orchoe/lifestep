@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发布文字</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/explore.css" rel="stylesheet">
+    <style>
+   .page-title {
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 100;
+  font-size: 40px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 930px;
+  display: block;
+  position: relative;
+ 
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 50px;
+}
+.wrapper:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: .6;
+}
+.wrapper .container {
+  z-index: 2;
+  position: relative;
+}
+.wrapper footer {
+  position: absolute;
+  z-index: 3;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+.wrapper footer h3 {
+  color: #FFFFFF;
+  font-weight: 200;
+}
+.wrapper footer h3 a{
+    color:#eeeeee;
+}
+.wrapper footer .social-icon {
+  color: #FFFFFF;
+  opacity: 0.8;
+  font-size: 34px;
+  margin: 20px;
+}
+.wrapper footer .social-icon:hover {
+  opacity: 1;
+}
+
+.ticket-card {
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+  background: #FFFFFF;
+  border-radius: 4px;
+}
+.ticket-card:hover .cover img, .ticket-card.active .cover img {
+  -moz-transform: translate(0, -50px);
+  -o-transform: translate(0, -50px);
+  -ms-transform: translate(0, -50px);
+  -webkit-transform: translate(0, -50px);
+  transform: translate(0, -50px);
+  box-shadow: 0 10px 20px -4px rgba(22, 22, 22, 0.5);
+}
+.ticket-card .cover {
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  margin: 15px;
+}
+.ticket-card .cover img {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  margin-top: -30px;
+  box-shadow: 0 10px 16px -6px rgba(22, 22, 22, 0.5);
+  border-radius: 4px;
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+  -moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+  -o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+  -ms-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+  transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+}
+.ticket-card .cover .info {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  padding: 0 15px;
+  color: #777777;
+}
+.ticket-card .cover .info .going,
+.ticket-card .cover .info .tickets-left {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f3f3f3;
+  width: 50%;
+}
+.ticket-card .cover .info .going {
+  float: left;
+}
+.ticket-card .cover .info .tickets-left {
+  float: right;
+  text-align: right;
+}
+.ticket-card .cover .info .fa {
+  color: #CCCCCC;
+  margin-right: 5px;
+}
+.ticket-card .artist {
+  float: left;
+}
+.ticket-card .artist .info {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #BBBBBB;
+  margin-bottom: 0;
+}
+.ticket-card .artist .name {
+  font-weight: 200;
+  font-size: 22px;
+  margin-top: 5px;
+}
+.ticket-card .ticket {
+  float: left;
+}
+.ticket-card .ticket small {
+  font-size: 75%;
+}
+.ticket-card .price {
+  float: right;
+  text-align: right;
+}
+.ticket-card .price .from {
+  color: #BBBBBB;
+}
+.ticket-card .price .value {
+  font-size: 28px;
+  font-weight: 200;
+  color: #00bbff;
+  margin-top: -5px;
+}
+.ticket-card .price .value b {
+  font-size: 18px;
+  font-weight: 200;
+}
+.ticket-card .list-unstyled {
+  max-height: 200px;
+  overflow-x: hidden;
+  overflow-y:scroll;
+  background: #EEEEEE;
+  margin-bottom: 0;
+  box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+.ticket-card .list-unstyled li {
+  border-bottom: 1px dotted #CCCCCC;
+  padding: 5px 30px;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+.ticket-card .list-unstyled li .btn-buy {
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  background: #00bbff;
+  border: 0;
+  opacity: 0;
+  -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+  -moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+  -o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+  -ms-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+  transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+}
+.ticket-card .list-unstyled li:hover .btn-buy {
+  opacity: 1;
+}
+.ticket-card .list-unstyled li:last-child {
+  border-bottom: none;
+		}
+.ticket-card .list-unstyled li:before, .ticket-card .list-unstyled li:after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+.ticket-card .list-unstyled li .price .value {
+  color: #444444;
+  font-size: 22px;
+  margin-top: 10px;
+}
+.ticket-card .body {
+  padding: 5px 30px;
+}
+.ticket-card .body .info {
+  color: #777777;
+}
+.ticket-card .body .location,
+.ticket-card .body .date {
+  padding-top: 10px;
+  width: 50%;
+}
+.ticket-card .body .location {
+  float: left;
+}
+.ticket-card .body .date {
+  float: right;
+  text-align: right;
+}
+.ticket-card .body .fa {
+  color: #CCCCCC;
+  margin-right: 5px;
+}
+.ticket-card .footer .btn {
+  width: 100%;
+  background: transparent;
+  border-top: 1px dotted #BBBBBB;
+  border-radius: 0;
+  padding: 15px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #666666;
+  box-shadow: none;
+}
+.ticket-card .footer .btn:focus, .ticket-card .footer .btn:hover, .ticket-card .footer .btn:active {
+  outline: none !important;
+}
+		
+		
+		
+		.list-unstyled::-webkit-scrollbar {/*滚动条整体样式*/
+            width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+            height: 4px;
+        }
+        .list-unstyled::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.2);
+        }
+        .list-unstyled::-webkit-scrollbar-track {/*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            border-radius: 0;
+            background: rgba(0,0,0,0.1);
+        }
+scrollbar{
+-moz-appearance: none !important;
+background-color: transparent !important;/* 滚动条背景透明 */
+background-image: none !important; /* 滚动条背景图案不显示 */
+position: relative !important; /* 更改滚动条的定位方式为相对 */
+overflow: hidden !important;
+z-index: 999999999 !important; /* 把滚动条提到Z轴最上层 */
+}
+
+
+
+body{
+    background: #8999A8;
+}
+.navbar, .dropdown-menu{
+background:rgba(255,255,255,0.25);
+border: none;
+
+}
+
+.nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
+  border-bottom: 3px solid transparent;
+}
+.nav>li>a:focus, .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+  border-bottom: 3px solid transparent;
+  background: none;
+}
+.navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
+ color: #fff;
+}
+.dropdown-menu{
+      -webkit-box-shadow: none;
+    box-shadow:none;
+}
+
+.nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
+  border-bottom: #C4E17F 3px solid;
+}
+.nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2){
+  border-bottom: #F7FDCA 3px solid;
+}
+.nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3){
+  border-bottom: #FECF71 3px solid;
+}
+.nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4){
+  border-bottom: #F0776C 3px solid;
+}
+.nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5){
+  border-bottom: #DB9DBE 3px solid;
+}
+.nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6){
+  border-bottom: #C49CDE 3px solid;
+}
+.nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7){
+  border-bottom: #669AE1 3px solid;
+}
+.nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
+  border-bottom: #62C2E4 3px solid;
+}
+
+.navbar-toggle .icon-bar{
+    color: #fff;
+    background: #fff;
+}
+
+
+.text-l{
+    float:left;padding-right:10px;
+}    
+.avatar{
+    display:flex;justify-content:center;align-items:center;width:25%;float:left;padding-right:10px;
+}
+.macro{
+    margin-top:5px;width:85%;border-radius:5px;padding:5px;display:flex;
+}
+.msj{
+    float:right;background:white;
+}
+.msj:before{
+    width: 0;
+    height: 0;
+    content:"";
+    top:-5px;
+    left:-30px;
+    position:relative;
+    border-style: solid;
+    border-width: 0 30px 30px 0;
+    border-color: transparent #ffffff transparent transparent;            
+}
+
+
+
+
+
+
+.triangle {
+  position: relative;
+  margin: 3em;
+  padding: 1em;
+  box-sizing: border-box;
+  background: green;
+  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);}
+  
+  .triangle:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-left: -0.5em;
+    top: 10em;
+    left: 50%;
+    box-sizing: border-box;
+    border: 1em solid black;
+    border-color:transparent transparent #fff #fff;
+    transform-origin: 0 0;
+    transform: rotate(-180deg);
+    box-shadow: -3px -3px 3px 0 rgba(0, 0, 0, 0.4);
+  }
+
+
+.triangle--problem {
+  position: relative;
+  margin: 5em;
+  padding: 1em;
+  box-sizing: border-box;
+  
+  background: $green--light;
+  
+  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);}
+  
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-left: -0.75em;
+    bottom: -3em;
+    left: 50%;
+    box-sizing: border-box;
+    
+    border: 1.5em solid black;
+    border-color: $green--light transparent transparent transparent;
+    
+    box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
+  }
+
+
+
+
+
+.image-layer {
+    width: 384px;
+    height: 240px;
+    background: #777;
+    margin: 40px auto 0;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image-layer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0px solid;
+    border-color: transparent #8999A8;
+    
+    
+
+
+    -webkit-transition: border .3s ease; 
+    transition: border .3s ease;
+}
+
+.image-layer:hover:before {
+  border-bottom:30px solid red;
+ border-left:30px solid red;
+ border-right:30px solid #8999A8;
+ border-top:30px solid #8999A8;
+  border-right-width: 30px;
+  border-bottom-width: 30px;
+    
+    
+ border-bottom-left-radius: 6px;
+    -moz-border-radius: 6px;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 0;
+    border-bottom: 30px solid #666699;
+    border-left: 20px solid rgba(255, 255, 255, 0); 
+    border-right: 20px solid rgba(255, 255, 255, 0);
+}
+
+
+
+
+
+	</style>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">LOGO</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Paramètres</a></li>
+                <li><a href="#">Mes frenks</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Signaler un bug</a></li>
+                <li><a href="#">Conditions générales</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Recherche">
+            </div>
+        </form>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+
+
+
+
+<div class="panel panel-default col-md-3 panel-card" id="#data-content">
+<div class="panel-heading">
+<img src="./images/panel1.jpg"/>
+<button class="btn btn-info btn-sm" role="button">关注</button></div>
+<div class="panel-figure"><img class="img-responsive img-circle" src="./images/avatar6.jpg" /></div>
+<div class="panel-body text-center">
+<h4 class="panel-header"><a href="">@Maridlcrmn</a></h4>
+<small>A short description goes here.</small></div>
+<div class="panel-thumbnails">
+<div class="row">
+<div class="col-xs-4"><img src="./images/panel3.jpg"/></div>
+<div class="col-xs-4"><img src="./images/panel4.jpg" /></div>
+<div class="col-xs-4"><img src="./images/panel2.jpg" /></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-sm-6 col-md-4 col-lg-3 mt-4" style="border:none">
+                <div class="card">
+                    <img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif">
+                    <div class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="iconfont">hhhh</i></a>
+                            <ul class="dropdown-menu">
+                            <li><a href="javascript:;">发送消息</a></li>
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                    <button class="btn btn-default">关注</button>
+                    <div class="card-block">
+                        <figure class="profile">
+                            <img src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif" class="profile-avatar" alt="">
+                        </figure>
+                        <h4 class="card-title mt-3">Tawshif Ahsan Khan</h4>
+                        <div class="card-text">
+                            Tawshif is a web designer living in Bangladesh.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                    <div class="col-xs-4 card-latest"><img class="img-responsive" src="http://i.ytimg.com/i/vWtix2TtWGe9kffqnwdaMw/mq1.jpg" alt="" ></div>
+                                <div class="col-xs-4 card-latest"><img src="http://i.ytimg.com/i/U6cE7pdJPc6DU2jSrKEsdQ/mq1.jpg" alt="" ></div>
+                                <div class="col-xs-4 card-latest"><img src="http://i.ytimg.com/i/2-zLDHEP2rEkqwgutb2ctA/mq1.jpg" alt="" ></div>
+                        <small>Last updated 3 mins ago</small>
+                        
+                    </div>
+                </div>
+            </div>
+
+<style type="text/css">
+html {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+h5 {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+    margin: 0;
+}
+
+.card {
+    font-size: 1em;
+    overflow: ;
+    padding: 0;
+    border:0;
+    background:#fff;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.btn-default{
+  position: absolute;
+  top:10px;
+  right:25px;
+}
+.card .dropdown{
+position: absolute;
+  top:10px;
+  right:85px;
+}
+
+.card-latest{
+}
+.card-title {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+}
+
+.card-text {
+    clear: both;
+    margin-top: .5em;
+    color: rgba(0, 0, 0, .68);
+}
+
+.card-footer {
+    font-size: 1em;
+    position: static;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 10px 0;
+    color: rgba(0, 0, 0, .4);
+    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    background: #fff;
+}
+
+.card-inverse .btn {
+    border: 1px solid rgba(0, 0, 0, .05);
+}
+
+.profile {
+    position: absolute;
+    top: -12px;
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+.profile-avatar {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.profile-inline {
+    position: relative;
+    top: 0;
+    display: inline-block;
+}
+
+.profile-inline ~ .card-title {
+    display: inline-block;
+    margin-left: 4px;
+    vertical-align: top;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.meta {
+    font-size: 1em;
+    color: rgba(0, 0, 0, .4);
+}
+
+.meta a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .4);
+}
+
+.meta a:hover {
+    color: rgba(0, 0, 0, .87);
+}
+.container{background-color:#f1f1f1;}
+.watch-card{margin-top:50px;margin-bottom:50px;}
+.watch-card > div{max-width:300px;}
+.watch-card:hover .artist-title a, .watch-card:hover .listing-tab .tab-content ul li a{color:#167ac9;}
+.listing-tab .tab-content ul li:hover{cursor:pointer;text-decoration:underline;}
+.artist-title{padding:15px;background:#fff;}
+.artist-title a{test-decoration:none;font-size:21px;font-family:arial, san-serif; color:#555;}
+.artist-title a:hover{color:#16a3de;}
+.artist-collage img{max-width:100%;}
+.artist-collage{position:relative;max-height:150px;width:100%;overflow:hidden;}
+.artist-collage,.artist-collage div{padding:0;}
+span.play-mix {
+    position: absolute;
+    top: 38%;
+    z-index: 9;
+    left: 30%;
+    border: 3px solid rgba(255,255,255,.25);
+}
+span.btn.play-mix-btn {
+    background-color: #000;
+    padding: 5px 12px;
+    border:none;
+    border-radius: 2px;
+    box-shadow:0 0 70px rgba(255,255,255,.5);
+}
+.collage-rhs img{margin-top:-5px;}
+span.play-mix-btn:hover {
+    box-shadow: 0 0 80px rgba(255,255,255,.9);
+}
+.listing-tab{
+    padding:0;    
+}.related-artist .artist-next{padding-left:0;}
+.related-artist .col-md-12{padding-right:0;}
+.play-mix-btn span {
+    color: #1775bc;
+}
+.related-artist img{width:100%;}
+.related-artist h3 {
+    font-size: 17px;
+    margin-left: 15px;
+    margin-top: 9px;
+}.related-artist{overflow:hidden;padding-bottom:10px;}
+.listing-tab .tab-content ul{padding:0;margin:0;}
+.listing-tab .tab-content ul li {
+    list-style-type: none;
+    border-bottom: 1px solid #eee;
+    padding: 8px;
+}.listing-tab .tab-content ul li {
+    list-style-type: none;
+    border-bottom: 1px solid #eee;
+    padding: 8px;
+    padding-left: 20px;
+    font-size: 13px;
+    color: #666;
+}.listing-tab .tab-content ul li a{text-decoration:none; color:#666;}
+.listing-tab .tab-content ul li span{display:inline-block;float:right;padding-right:10px;}
+.listing-tab .nav-tabs>li,.nav-tabs>li a:hover{margin-bottom:0;background:none;}
+.listing-tab .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{border:none;background:none;}
+.listing-tab .nav-tabs>li>a:hover{border-color:none;color:red;}
+.listing-tab .nav-tabs>li>a{border:0;padding:17px 0 7px;color:#333;margin-left:15px;}
+.listing-tab .nav-tabs>li.active>a{border-bottom:2px solid #bb0000;color:#000;}
+.listing-tab{background-color:#fff;}
+.artist-collage.btn-default{
+  position: absolute;
+  top:10px;
+  right:25px;
+}
+.artist-collage .dropdown{
+position: absolute;
+  top:10px;
+  right:85px;
+}
+.artist-collage .dropdown-menu{
+  position: absolute;
+  background: #fff;
+  color:#333;
+  z-index: 1111;
+  top:0;
+  right:0;
+}
+
+
+
+
+</style>
+
+
+
+        <div class="col-md-4 col-md-offset-4 watch-card">
+            
+            <div class="artist-collage col-md-12">
+                <span class="play-mix"><span class="btn btn-info play-mix-btn"> <span>►</span> YouTube Mix</span></span>
+                <img src="http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg" alt="artist-image">
+                <div class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="iconfont"></i>hhhh</a>
+                            <ul class="dropdown-menu">
+                            <li><a href="javascript:;">发送消息</a></li>
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                    <button class="btn btn-default">关注</button>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                <div class="artist-title col-md-12">
+                <a href="">Chris Brown</a><br/>
+                <span>Music</span>
+            </div>
+                  <!-- Tab panes -->
+                    <div role="tabpanel" class="tab-pane" id="albums">
+                        <ul>
+                            <li><a href="#"><img src="http://i.ytimg.com/p/PL-o37YO_uwcLPmR8QBTegC2BoJ03I3tqe/mqdefault.jpg" alt="" width="50" height="50"> Kiss kiss</a></li>
+        
+                        </ul>
+                        <div class="related-artist">
+                            <h3>Related artist</h3>
+                            <div class="col-md-12">
+                                <div class="col-md-4 artist-next"><img src="http://i.ytimg.com/i/vWtix2TtWGe9kffqnwdaMw/mq1.jpg" alt="" >Rihanna</div>
+                                <div class="col-md-4 artist-next"><img src="http://i.ytimg.com/i/U6cE7pdJPc6DU2jSrKEsdQ/mq1.jpg" alt="" >Drake</div>
+                                <div class="col-md-4 artist-next"><img src="http://i.ytimg.com/i/2-zLDHEP2rEkqwgutb2ctA/mq1.jpg" alt="" >Tyga</div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">  
+            .mybtn{position:fixed; right:10px; bottom:20px; display:block; width:50px; height:50px;border-radius:50px; padding:0px; text-align:center; line-height:50px;}  
+              
+            .modal.left .modal-dialog,  
+            .modal.right .modal-dialog {  
+                position: fixed;  
+                margin: auto;  
+                width: 320px;  
+                height: 100%;  
+                -webkit-transform: translate3d(0%, 0, 0);  
+                    -ms-transform: translate3d(0%, 0, 0);  
+                     -o-transform: translate3d(0%, 0, 0);  
+                        transform: translate3d(0%, 0, 0);  
+            }  
+          
+            .modal.left .modal-content,  
+            .modal.right .modal-content {  
+                height: 100%;  
+                overflow-y: auto;  
+            }  
+              
+            .modal.left .modal-body,  
+            .modal.right .modal-body {  
+                padding: 15px 15px 80px;  
+            }  
+          
+            /*Left*/  
+            .modal.left.fade .modal-dialog{  
+                left: -320px;  
+                -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;  
+                   -moz-transition: opacity 0.3s linear, left 0.3s ease-out;  
+                     -o-transition: opacity 0.3s linear, left 0.3s ease-out;  
+                        transition: opacity 0.3s linear, left 0.3s ease-out;  
+            }  
+              
+            .modal.left.fade.in .modal-dialog{  
+                left: 0;  
+            }  
+                  
+            /*Right*/  
+            .modal.right.fade .modal-dialog {  
+                right: -320px;  
+                -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;  
+                   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;  
+                     -o-transition: opacity 0.3s linear, right 0.3s ease-out;  
+                        transition: opacity 0.3s linear, right 0.3s ease-out;  
+            }  
+              
+            .modal.right.fade.in .modal-dialog {  
+                right: 0;  
+            }  
+          
+            /* ----- MODAL STYLE ----- */  
+            .modal-content {  
+                border-radius: 0;  
+                border: none;  
+            }  
+          
+            .modal-header {  
+                border-bottom-color: #EEEEEE;  
+                background-color: #FAFAFA;  
+            }  
+  
+        </style>  
+        <!--点击右侧弹出-->  
+        <a href="javascript:;" class="btn btn-danger mybtn" data-toggle="modal" data-target="#myModal"><i class="fa fa-user"></i><span>客户</span></a>  
+        <!-- 弹出层 modal -->  
+        <div class="modal right fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  
+          <div class="modal-dialog">  
+            <div class="modal-content">  
+              <div class="modal-header">                  
+                <h4 class="modal-title" id="myModalLabel">客户管理</h4>  
+              </div>  
+              <div class="modal-body">  
+                    内容部分      
+              </div>  
+            </div>  
+          </div>  
+        </div>  
+        <!-- end 弹出层 moda -->  
+
+<!--<div class="triangle--problem">This is what happens when you add a box-shadow to a CSS3 triangle</div>
+
+<div class="triangle">This is a CSS3 triangle with a proper box-shadow!</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="list-unstyled">
+<img class="img-circle" style="float: left;height:70px;border:3px solid #fff" src="./images/avatar5.jpg" />
+<li style="width:100%">
+                        <div class="msj macro">
+                        <div class="avatar"><img class="img-circle" style="width:100%;" src="'+ me.avatar +'" /></div>
+                            <div class="text text-l">
+                                <p>'+ text +'</p>
+                                <p><small>'+date+'</small></p>
+                            </div>
+                        </div>
+                    </li>           
+
+
+</ul>
+
+
+<!--<div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Logo</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#" class="">Home</a></li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Departments <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
+                                </li>
+                                <li><a href="#">Add New</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Add New</a></li>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Managers <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Managers</a></li>
+                                <li><a href="#">Add New</a></li>
+                            </ul>
+                        </li>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Staff</a></li>
+                                <li><a href="#">Add New</a></li>
+                                <li><a href="#">Bulk Upload</a></li>
+                            </ul>
+                        </li>
+                        <li class=" down"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HR <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Change Time Entry</a></li>
+                                <li><a href="#">Report</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Change Password</a></li>
+                                <li><a href="#">My Profile</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="ticket-card">
+            <div class="cover">
+              <img src="http://s28.postimg.org/p916fev0t/week.jpg" alt="" />
+              <div class="info">
+                <div class="going">
+                  <i class="fa fa-group"></i> 4,234 Going
+                </div>
+                <div class="tickets-left">
+                  <i class="fa fa-ticket"></i> 240 Tickets Left
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              
+              <div class="artist">
+                <h6 class="info">Global Tour 2016</h6>
+                <h4 class="name">The Weeknd</h4>
+              </div>
+              <div class="price">
+                <div class="from">From</div>
+                <div class="value">
+                  <b>$</b>599
+                </div>
+              </div>
+              
+              <div class="clearfix"></div>
+              <div class="info">
+                <p class="location">
+                  <i class="fa fa-map-marker"></i> Barcelona, Spain
+                </p>
+                <p class="date">
+                  <i class="fa fa-calendar"></i> 30 Aug, 2016
+                </p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="collapse">
+              <ul class="list-unstyled">
+                <li>
+                  <div class="ticket">
+                    <h5>Basic Ticket<br>
+                      <small>25 Tickets left</small>
+                    </h5>
+                  </div>
+                  <div class="price">
+                    <div class="value"><b>$</b>599</div>
+                  </div>
+                  <a href="#" class="btn btn-info btn-sm btn-buy">Buy Now!</a>
+                </li>
+                <li>
+                  <div class="ticket">
+                    <h5>Regular Ticket<br>
+                    <small>15 Tickets left</small>
+                  </h5>
+                  </div>
+                  <div class="price">
+                    <div class="value"><b>$</b>799</div>
+                  </div>
+                  <a href="#" class="btn btn-info btn-sm btn-buy">Buy Now!</a>
+                </li>
+                <li>
+                  <div class="ticket">
+                    <h5>Premium Ticket<br>
+                    <small>62 Tickets left</small>
+                  </h5>
+                  </div>
+                  <div class="price">
+                    <div class="value"><b>$</b>1,299</div>
+                  </div>
+                  <a href="#" class="btn btn-info btn-sm btn-buy">Buy Now!</a>
+                </li>
+                <li>
+                  <div class="ticket">
+                    <h5>VIP Ticket<br>
+                    <small>6 Tickets left</small>
+                  </h5>
+                  </div>
+                  <div class="price">
+                    <div class="value"><b>$</b>1,799</div>
+                  </div>
+                  <a href="#" class="btn btn-info btn-sm btn-buy">Buy Now!</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer">
+              <button class="btn toggle-tickets">Show Tickets</button>
+            </div>
+          </div>
+        </div>
+
+        
+  </div>
+
+</div>
+</div>-->
+
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<script src="js/layer.min.js"></script>
+
+
+
+<script>
+$(document).ready(function(){
+    console.log('ready');
+    
+    $('.toggle-tickets').click(function() {
+  $tickets = $(this).parent().siblings('.collapse');
+ 
+  if ($tickets.hasClass('in')) {
+    $tickets.collapse('hide');
+    $(this).html('Show Tickets');
+    $(this).closest('.ticket-card').removeClass('active');
+  } else {
+    $tickets.collapse('show');
+    $(this).html('Hide Tickets');
+    $(this).closest('.ticket-card').addClass('active');
+  }
+});
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+-- 表的结构 `ls_addons`     插件信息统计表，没用
+
+-- 转存表中的数据 `ls_addons`     插件内容转存 （这是从别的数据库抄来的，没有删）
+
+-- 表的结构 `ls_application_slide`      这个我也不太清楚是什么，估计是图片幻灯片
+
+-- 表的结构 `ls_area`        地域信息表。顺序与下方转存数据对应
+
+-- 转存表中的数据 `ls_area`       地域转存数据
+
+-- 表的结构 `ls_atme`       @我表，记录谁@了谁，估计用不到
+
+-- 表的结构 `ls_blog`     博客表，很重要，发表的内容数据记在这里面
+
+-- 表的结构 `ls_blog_audio`      发表的音频博客内容信息表，建了个副表
+
+-- 表的结构 `ls_blog_bio`        发表的自传博客内容信息表，建了个副表
+
+-- 表的结构 `ls_blog_img`       发表的图片博客内容信息表，建了个副表
+
+-- 表的结构 `ls_blog_text`        发表的文字博客内容信息表，建了个副表
+
+-- 表的结构 `ls_blog_video`       发表的视频博客内容信息表，建了个副表
+
+-- 表的结构 `ls_blog_video_transfer`       视频转码信息表
+
+-- 表的结构 `ls_collection`          博客收藏信息统计
+
+-- 表的结构 `ls_comment`         博客评论信息表，很重要
+
+-- 表的结构 `ls_comment_digg`        digg叫掘客，这个不知道啥用途
+
+-- 表的结构 `ls_denounce`          举报信息表
+
+-- 表的结构 `ls_expression`        表情信息表 
+
+-- 转存表中的数据 `ls_expression`       表情信息表内容转存
+
+-- 表的结构 `ls_feedback`       反馈信息表
+
+-- 表的结构 `ls_feedback_type`        反馈类型，估计用不到
+
+-- 表的结构 `ls_find_password`        找回密码表 ，不大行
+
+-- 表的结构 `ls_follow`       关注统计表
+
+-- 表的结构 `ls_follow_group`       关注组，不做群组，估计用不到
+
+-- 表的结构 `ls_keyword`         关键词表，不知道啥用途
+
+-- 表的结构 `ls_lang`        语言表
+
+-- 转存表中的数据 `ls_lang`        语言表内容转存
+
+-- 表的结构 `ls_login`         登录信息表
+
+-- 转存表中的数据 `ls_login`     登录信息表转存
+
+-- 表的结构 `ls_login_logs`      登录信息记录
+
+-- 表的结构 `ls_login_record`           登录记录表
+
+-- 转存表中的数据 `ls_login_record`      登录记录转存
+
+-- 表的结构 `ls_message`       消息相关信息表
+
+-- 表的结构 `ls_message_content`        消息内容
+
+-- 表的结构 `ls_message_push`         消息推送统计表
+
+-- 表的结构 `ls_mobile_message`           移动消息，用不到，得删
+
+-- 表的结构 `ls_mobile_user`          移动用户信息表，用不到
+
+-- 表的结构 `ls_navi`          导航表，这是被抄方的东西，没用
+
+-- 转存表中的数据 `ls_navi`        同样没用，奇怪我怎么没删掉泥
+
+-- 表的结构 `ls_notify_email`           邮件提醒表，暂时用不到
+
+-- 表的结构 `ls_notify_message`         消息提醒表，可能会用到
+
+-- 表的结构 `ls_notify_node`          节点提醒，我也不知道啥用途
+
+-- 表的结构 `ls_online_logs`         在线用户统计表
+
+-- 转存表中的数据 `ls_online_logs`     在线转存信息，下面估计是我访问的信息，奇怪，我用了这么多次？怎么做到的
+
+-- 表的结构 `ls_online_status`        在线状态信息统计表
+
+-- 转存表中的数据 `ls_online_status`        在线统计表转存信息，也是我的活动记录
+
+-- 表的结构 `ls_pic_show`        图片展示表，用不到，没删
+
+-- 表的结构 `ls_schedule`        执行计划统计，不知道咋用
+
+-- 转存表中的数据 `ls_schedule`        转存计划统计数据
+
+-- 表的结构 `ls_search`         搜索统计表，不知道怎么用
+
+-- 表的结构 `ls_search_key`       搜索关键词信息统计
+
+-- 表的结构 `ls_search_select`       这个用不到
+
+-- 转存表中的数据 `ls_search_select`         搜索数据转存，没用
+
+-- 表的结构 `ls_sensitive_category`        敏感词类型
+
+-- 转存表中的数据 `ls_sensitive_category`       敏感词类型转存
+
+-- 表的结构 `ls_sensitive_word`       敏感词
+
+-- 表的结构 `ls_sitelist_site`         站点信息表
+
+-- 表的结构 `ls_sms`         验证码信息表
+
+-- 表的结构 `ls_survey`        调查统计表
+
+-- 表的结构 `ls_survey_answer`       调查结果统计，用不到
+
+-- 表的结构 `ls_survey_question`       调查问题统计，用不到
+
+-- 表的结构 `ls_survey_question_link`      调查问题联结，用不到
+
+-- 表的结构 `ls_tag`       标签统计表
+
+-- 表的结构 `ls_template`       模板统计表，用不到
+
+-- 表的结构 `ls_template_record`       模板使用记录，用不到
+
+-- 表的结构 `ls_tips`       这个不知道啥用途
+
+-- 表的结构 `ls_user`        关键的，用户信息表
+
+-- 转存表中的数据 `ls_user`        用户信息转存
+
+-- 表的结构 `ls_user_blacklist`       用户黑名单统计
+
+-- 表的结构 `ls_user_disable`      未激活用户统计
+
+-- 表的结构 `ls_user_official`          官方用户统计，有用吗？后续删掉
+
+-- 表的结构 `ls_user_official_category`       这个没用
+
+-- 转存表中的数据 `ls_user_official_category`      这个没用
+
+-- 表的结构 `ls_user_online`        在线用户信息
+
+-- 表的结构 `ls_user_profile`        用户简介信息，估计用不到
+
+-- 表的结构 `ls_user_profile_setting`         用户简介设置，估计用不到
+
+-- 转存表中的数据 `ls_user_profile_setting`       用户简历，不要这些
+
+-- 表的结构 `ls_user_style`            用户皮肤统计，暂时用不到
+
+-- 表的结构 `ls_w3g_slide_show`        这个没用，后续删掉
+
+-- 表的结构 `ls_webpage`        网页内容信息统计
+
+-- Indexes for dumped tables      下面的是数据库更改记录                                          
+--
+-- Indexes for table `ls_atme`    
+
+
+
+
+
+

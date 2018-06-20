@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册 | Lifestep</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="css/login.css" />
+	
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		[endif]-->
+  </head>
+  <body>
+  <div class="question-icon pull-right"><a title="Lifestep 是什么？" class="bind_hover_card" data-toggle="popover" data-trigger="hover" data-placement="left" data-content="答：Lifestep 是一个记录生活的平台，只要你愿意，它可以记录你去过哪些地方...... 想了解更多，请点击右侧按钮：)" href="http://guide.lifestep.cn/"><img src="images/question.png" id="question" class="img-responsive" /></a></div>
+  <form id="search-box" action="" method="post">
+	<input type="search" placeholder="搜索 Lifestep">
+  </form>
+    <div class="wrapper container-fluid">
+    <div class="row">
+    <div class="col-lg-12">&nbsp;</div>
+    <div class="col-lg-12">&nbsp;</div>
+     <div class="col-xs-4 col-xs-offset-4" align="center" id="ilogo"><img src="images/ilogo.png" class="img-responsive" /></div>
+       <div class="text-center col-xs-12">
+        <h3 style="color:#fff;">你来过，我记得</h3></div>
+			 <div class="col-lg-4 col-xs-offset-4">
+				<div class="panel col-xs-12 panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="login-form-link col-xs-4 col-xs-offset-2">
+								<a href="#" class="active" id="login-form-link">登录</a>
+							</div>
+							<div class="register-form-link col-xs-4">
+								<a href="#" id="register-form-link">注册</a>
+							</div>
+						</div>
+						<hr>
+					</div>				
+					<div class="panel-body">
+					  <div class="row">
+						<form id="login-form" action="" method="post" role="form" style="display:block;">
+						  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="用户名、邮箱或手机号" value="">
+						  <input type="password1" name="password" id="password" tabindex="2" class="form-control" placeholder="密码">
+						  <div class="input-group col-lg-12">
+                          <input type="text" class="form-control" id="validateCode" name="validateCode"placeholder="验证码">
+                          <img id="captcha" class="pull-right" src="./images/captcha.jpg" height="40" data-toggle="tooltip" data-placement="top" title="看不清楚？换一张" alt="验证码"></div>
+						  <label class="checkbox pull-left">
+                          <input type="checkbox" tabindex="4" class="" name="remember-me" id="remember-me" value="remember-me"><span class="remember">记住密码</span></label>	
+                          <button type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login"><span class="glyphicon glyphicon-arrow-right pull-left"></span><span class="text-login pull-right">登&nbsp;录</span></button>
+                          <a title="无法登录？" href="#" class="forgot-password pull-right">无法登录？</a>
+                          <div class="sns-buttons">
+                          其他帐号登录：&nbsp;
+                          <a title="微信登录" class="link-wechat" href="#"><image src="./images/wechaticon.png" /></a>&nbsp;&nbsp;
+                          <a title="微博登录" class="link-weibo" href="#"><image src="./images/weiboicon.png" /></a>&nbsp;&nbsp;
+                          <a title="QQ 登录" class="link-qq" href="#"><image src="./images/qqicon.png" /></a>
+                          </div>
+				       </form>
+					   <form id="register-form" action="#" method="post" role="form" style="display: none;">
+						  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="用户名" value="">
+						  <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="邮箱或手机号" value="">
+                          <input type="password1" name="password" id="password" tabindex="2" class="form-control" placeholder="密码">
+						  <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="确认密码">
+						  <button type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-reg"><span class="text-reg pull-left">注&nbsp;册</span><span class=" glyphicon glyphicon-arrow-up pull-right"></span></button>
+						  <a title="注册协议" href="#" class="agreement pull-left">注册协议</a>
+						  <a title="遇到问题？" href="#" class="need-help pull-right">遇到问题？</a><span class="clearfix"></span>
+					  </form>
+						</div>
+					</div>
+				</div>
+			 </div>
+			 
+		</div>
+		<div class="push"></div>
+	</div>
+<div class="log-footer text-center">
+    <p>&copy; 2017&nbsp;&middot;&nbsp;Lifestep &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a title="帮助" href="http://help.lifestep.cn/">帮助</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a title="关于我们" href="http://contact.lifestep.cn/">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a title="工作机会" href="http://jobs.lifestep.cn/">工作机会</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a title="法律" href="http://legal.lifestep.cn/">法律</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a title="隐私" href="http://privacy.lifestep.cn/">隐私</a></p>
+</div>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
+
+  </body>
+</html>

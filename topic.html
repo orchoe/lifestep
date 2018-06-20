@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="referrer" content="origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<meta name="apple-itunes-app" content="">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Lifestep">
+<meta name="apple-mobile-web-app-title" content="Lifestep">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="msapplication-tap-highlight" content="no">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11">
+<title>探索 | Lifestep</title>
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-modal.css" rel="stylesheet">
+<link href="css/photoswipe.css" rel="stylesheet">
+<link href="css/default-skin.css" rel="stylesheet">
+<link href="css/bootstrap-select.min.css" rel="stylesheet">
+<link href="css/explore.css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-top" role="navigation">
+  <div class="container-fluid top-bar back-top"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header back-top">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <button type="button" id="edit-btn2" data-title="text-edit" data-toggle="modal" data-target="#text-edit"><i class="iconfont">&#xe61b;</i></button>
+      <a class="navbar-brand navbar-brand-centered" href="javascript:;"></a>
+      </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse back-top" id="defaultNavbar1">
+    <form class="navbar-form navbar-left" id="sm-search" role="search">
+        <div class="input-group">
+        <span class="input-group-addon"><i class="iconfont" aria-hidden="true">&#xe7d1;</i></span>
+          <input type="search" class="form-control" placeholder="搜索 乐迹">
+        </div>
+      </form>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html" title="首页">首页</a></li>
+        <li><a href="location.html" title="位置">位置</a></li>
+        <li><a href="posts.html" title="发现">发现</a></li>
+        <li class="active"><a href="topic.html" id="topic-tgo" title="话题">话题<span class="sr-only">(current)</span></a></li>
+      </ul>
+      <div class="col-sm-8 col-md-8 back-top search-container">
+      <form class="navbar-form" role="search" id="bg-search">
+        <div class="input-group">
+        <span class="input-group-addon"><i class="iconfont" aria-hidden="true">&#xe7d1;</i></span>
+          <input type="search" class="form-control" placeholder="搜索 乐迹">
+        </div>
+      </form>
+      <a href="javascript:;" id="search-close"><i class="iconfont" aria-hidden="true">&#xe8e9;</i></a>
+      </div>
+      <ul class="nav navbar-nav navbar-right back-top">
+        <li class="search-nav"><a href="javascript:;" title="搜索"><i class="iconfont" aria-hidden="true">&#xe7d1;</i></a></li>
+        <li><a href="javascript:;" title="通知"><i class="iconfont" aria-hidden="true">&#xe907;</i><span class="nav-hide"> &nbsp;&nbsp;通知</span></a></li>
+        <li><a href="javascript:;" title="私信"><i class="iconfont" aria-hidden="true">&#xe649;</i><span class="nav-hide"> &nbsp;&nbsp;私信</span></a></li>
+        <li id="account" class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="ANTIPE"><img src="images/avatar13.jpg" class="img-circle" alt="avatar" width="36px" height="36px"><span class="nav-hide" id="caret-hide"> &nbsp;&nbsp;帐户&nbsp;<i class="glyphicon glyphicon-menu-down"></i></span></a>
+                                    <ul class="dropdown-menu" id="user-setting">
+                                        <li class="nav-show">
+                                        <div class="dropdown-header">
+                                                    <div class="row">
+                                                        <div class="col-xs-6" style="padding-top:5px"><b>我的帐户</b>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <a href="javascript:;" class="btn btn-sm pull-right"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>&nbsp;登出</a>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="dropdown-content">
+                                                    <div id="dd-img"><a class="btn" id="change-avatar">更改头像</a><img src="images/avatar13.jpg" alt="Alternate img"></div>
+                                                    <div class="dropdown-account">
+                                                        <span>ANTIPE</span>
+                                                        <p style="font-size: 12px;color:#666">
+                                                            antipe@outlook.com</p>
+                                                        <div class="divider">
+                                                        </div> 
+                                                        <a href="setting.html" id="account-setting" class="btn-default" title="设置"><i class="iconfont" aria-hidden="true">&#xe6a8;</i>&nbsp;&nbsp;设置</a>
+                                                    </div>
+                                            </div>                                            
+                                        </li>
+         <li class="high-line nav-hide"><a href="javascript:;"><i class="iconfont" aria-hidden="true">&#xe8d8;</i></i>&nbsp;&nbsp;登出</a></li>  
+        <li class="high-line nav-hide"><a href="setting.html" title="设置"><i class="iconfont" aria-hidden="true">&#xe6a8;</i>&nbsp;&nbsp;设置</a></li>
+        <div class="divider nav-hide" style="margin:8px 15px"></div>                                       
+        <li><a href="in-lifestep.html" class="dropdown-band nav-show" title="在乐迹"><b>在乐迹</b><span class="pull-right"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;查看</span></a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">21</span><i class="iconfont" aria-hidden="true">&#xe760;</i>&nbsp;&nbsp;喜欢</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">106</span><i class="iconfont" aria-hidden="true">&#xe69a;</i>&nbsp;&nbsp;关注</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">46</span><i class="iconfont" aria-hidden="true">&#xe698;</i>&nbsp;&nbsp;发布</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><i class="iconfont" aria-hidden="true">&#xe631;</i>&nbsp;&nbsp;话题</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">41</span><i class="iconfont" aria-hidden="true">&#xe503;</i>&nbsp;&nbsp;粉丝</a></li>
+        
+            
+                                    </ul>
+                                </li>
+      </ul>
+
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid -->
+  </nav>
+
+  <!-- topic- tab-bar-->
+  <div class="tab-wrapper top-bar back-top" id="topic-bar">
+<ul class="nav nav-tabs tab-top">
+          <li><a href="#hot-topic" aria-controls="hot-topic" role="tab" data-toggle="tab">热门</a></li>
+          <li class=""><a href="#local-topic" aria-controls="local-topic" role="tab" data-toggle="tab">附近</a></li>
+          <li class=""><a href="#latest-topic" aria-controls="latest-topic" role="tab" data-toggle="tab">最新</a></li>
+        </ul>
+        <a href="#apply-topic" class="apply-topic btn pull-right" aria-controls="apply-topic" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-edit"></i> 发起话题</a>
+        </div>
+
+  <!--Edit btn-->
+          <button class="edit-button" type="button" id="edit-btn1" title="编辑" data-title="text-edit" data-toggle="modal" data-target="#text-edit">  
+               <i class="iconfont">&#xe61b;</i>
+          </button>
+<div class="" id="mainbody">
+<!--Topic-->
+<div class="" id="topic">
+<div class="post-container">
+<div class="tab-content topic-tab">
+<div class="tab-pane active fade in" id="hot-topic">
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-1" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">Norway Landscape</h1>
+              <h2 class="sub_title">Nature beauty of Norway</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-2" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-3" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-4" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+
+<div class="col-md-12">话题展开</div>
+<div class="col-md-6 col-lg-4">
+<div class="topic-box">
+<div class="topic-header">
+<p class="topic-name"><i class="iconfont">&#xe631;</i>&nbsp; Norway Landscape</p>
+<a href="javascript:;" class="follow">&nbsp;<b>订阅</b></a>
+<span class="topic-time">6 天前</span>
+</div><!--topic-header-->
+<div class="topic-content">
+<img class="topic-bg" src="./images/content/content17.jpg">
+<h3 class="topic-sub">Nature beauty of Norway</h3>
+<div class="topic-description">
+<p>New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+<p>I made these adorable mini cactus brownie cakes for a party. These were so popular that they were gone in minutes! Everyone was impressed! Some people even thought they were real plants! O(∩_∩)O~﻿</p>
+<p>Researchers have identified gut microbiota that interact with brain regions associated with mood and behavior. This may be the first time that behavioral and neurobiological differences associated with microbial composition in healthy humans have been identified.﻿</p>
+</div>
+<button class="join-in">加入话题</button>
+</div><!--topic-content-->
+<div class="topic-footer">
+<a href="#" class="topic-member" id=""><i>参与&nbsp;<span>360</span></i></a>
+<i>浏览&nbsp;<span>11451</span></i>
+</div><!--topic-footer-->
+</div><!--topic-box-->
+</div>
+
+
+
+
+
+</div><!--Hot-topic-end-->
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="local-topic">
+<div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-4" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta"><i class="iconfont">&#xe6c5;</i> &nbsp;360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+</div><!--Local-topic-end-->
+
+<div class="tab-pane fade" id="latest-topic">
+<div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-cs-12">  
+          <div id="topic-2" class="topic-module"> 
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <button class="join btn" href="#0">加入</button>
+              <img src="./images/content/content17.jpg" class="img-responsive" alt=""></div>
+            <!-- Topic Content-->
+            <div class="topic-content">
+            <img class="member member-4 img-circle" src="./images/avatar8.jpg" alt="">
+              <img class="member member-3 img-circle" src="./images/avatar2.jpg" alt="">
+              <img class="member member-2 img-circle" src="./images/avatar6.jpg" alt="">
+              <img class="member member-1 img-circle" src="./images/avatar4.jpg" alt="">
+              <img class="founder img-circle" src="./images/avatar7.jpg" alt="">
+              <h1 class="title">乐在骑中</h1>
+              <h2 class="sub_title">骑行两万里</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+              <div class="topic-meta">360 人参与话题</div>
+            </div>
+          </div>
+      </div>
+</div><!--Latest-topic-end-->
+
+<div class="tab-pane fade" id="apply-topic">
+<h3 class="tab-title">发起话题</h3>
+</div><!--Apply-topic-end-->
+
+</div><!--Topic-tab-->
+</div><!--Post-container end-->
+</div><!--topic end-->
+
+
+</div><!--mainbody-end-->
+
+
+<!--Images Viewer Window -->
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="关闭 (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="全屏"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="放大/缩小"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader-active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="上一张">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="下一张">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+</div>
+
+
+
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-modalmanager.js"></script>
+<script src="js/photoswipe.min.js"></script>
+<script src="js/photoswipe-ui-default.min.js"></script>
+<script src="js/imageviewer.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/jquery-scrollLock.min.js"></script>
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+$(function () {
+  $('[data-toggle="popover"]').popover()
+});
+$('.comments-list, .navbar-collapse').scrollLock();
+
+//PhotoSwipe图片浏览
+initPhotoSwipeFromDOM('.images, .carousel-inner');
+//  hover资料卡 
+    $(".user-avatar,.user-name,.avatar-hide,.avatar-show,.user-head").popover({
+    trigger:"hover",  
+    placement:"bottom",
+    html:true,
+    animation: true,
+    delay: {show:700,hide: 300},
+    content:'<div class="card"><a href="#"><img class="card-img-top" src="./images/card1.jpg"></a><div class="dropdown card-option"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="iconfont">&#xe8c8;</i></a><ul class="dropdown-menu card-menu"><li><a href="javascript:;">发送消息</a></li><li><a href="javascript:;">举报滥用</a></li></ul></div><button class="btn btn-info">关注</button><div class="card-block"><figure class="profile"><a href="#"><img src="./images/card-avatar.gif" class="profile-avatar" alt=""></a></figure><a href="#"><h4 class="card-title">Tawshif Ahsan Khan</h4></a><div class="card-text">Tawshif is a web designer living in Bangladesh.</div></div><div class="card-footer"><div class="col-xs-4 card-latest"><a href="#"><img class="img-responsive" src="./images/card2.jpg" alt=""></a></div><div class="col-xs-4 card-latest"><a href="#"><img class="img-responsive" src="./images/card3.jpg" alt=""></a></div><div class="col-xs-4 card-latest"><a href="#"><img class="img-responsive" src="./images/card4.jpg" alt=""></a></div><br><span class="update">更新于 3 分钟前</span></div></div>'
+})
+    .on('shown.bs.popover', function (event) {
+        var that = this;
+        $(this).parent().find('div.popover').on('mouseenter', function () {
+            $(that).attr('in', true);
+        }).on('mouseleave', function () {
+            $(that).removeAttr('in');
+            $(that).popover('hide');
+        });
+    }).on('hide.bs.popover', function (event) {
+        if ($(this).attr('in')) {
+            event.preventDefault();
+        }
+    });
+
+</script>  
+
+<script type="text/javascript">
+$(document).ready(function () {
+console.log('ready');
+//Tab跳转
+ var hash = window.location.hash;
+   if (hash != "")
+       $('#topic-bar a[href="' + hash + '"]').tab('show');
+   else
+       $('#topic-bar a:first').tab('show');
+//modal背景锁定
+var scrollPos = 0;
+$('.modal')
+.on('shown', function (){
+scrollPos = $(document).scrollTop();
+$('body').css({
+overflow: 'hidden',
+position: 'fixed',
+top : -scrollPos,
+left : '0',
+right : '0'
+});
+})
+.on('hidden', function (){
+$('body').css({
+overflow: '',
+position: '',
+top : ''
+});
+$(document).scrollTop(scrollPos);
+});
+
+//编辑按钮动画
+$('.edit-button, .edit-box input').on('click', function () {
+      $('.edit-button').hide();
+  });
+$('#text-edit').on('hidden', function () {
+      $('.edit-button').fadeIn('fast');
+  });
+
+//navbar搜索框隐藏
+$('.search-nav').on("click", function () {
+  $('.navbar-nav').hide();
+    $('.search-container').fadeIn(300);
+});
+$(document).click(function (e) {
+    if (!$(e.target).parents().andSelf().is('#bg-search, .search-nav')) {
+    $('.search-container').hide();
+    $('.navbar-nav').fadeIn('fast');
+    }
+});
+
+//textarea自动增高
+$('textarea').each(function () {
+  setTimeout(function(){ $('#posts .post-container').masonry() }, 200);
+  this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:show;');
+  
+}).on('input', function () {
+  setTimeout(function(){ $('#posts .post-container').masonry() }, 200);
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px'; 
+});
+
+//*回到顶部*//
+  $('.top-bar').on('click',function(e){
+        if ($(e.target).hasClass('back-top')) {
+          $("html,body").animate({"scrollTop":"0px"},300);
+        }
+  });
+
+//*按钮禁用*//
+  $('.btn-submit').attr('disabled', true);
+$('.comment-edit textarea').on('keyup', function() {
+    var text_value = $(this).val();
+    if (!text_value.trim().length) {
+      $(this).parents('form').find('.btn-submit').attr('disabled', true);
+    } else {
+      $(this).parents('form').find('.btn-submit').attr('disabled', false);
+    }
+  });
+
+//Dropdown 箭头改变
+$('#account').on('show.bs.dropdown', function () {
+  $('#caret-hide').html(' &nbsp;&nbsp;帐户&nbsp;<i class="glyphicon glyphicon-menu-up"></i>');
+}).on('hide.bs.dropdown', function () {
+  $('#caret-hide').html(' &nbsp;&nbsp;帐户&nbsp;<i class="glyphicon glyphicon-menu-down"></i>');
+});
+
+});
+</script>
+
+
+</body>
+</html>

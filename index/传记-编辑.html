@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/bio-edit.css" rel="stylesheet">
+<link href="css/wangEditor.css" rel="stylesheet" type="text/css" >
+</head>
+<body>       
+<div class="container-fluid">
+    <div class="row">
+<div id="bio-edit" class="col-lg-10 col-lg-offset-1">
+<div id="bio-iamge">
+<a href="javascript:;" id="img-upload" class="col-lg-12"><input type="file" id="" name="" title="上传封面图片"></a></div>
+<input id="bio-title" placeholder="请填写传记标题" class="col-lg-12">
+<textarea id="bio-leads" placeholder="请填写导语（非必填）" class="col-lg-12"></textarea>
+<textarea id="edit-panel" class="col-lg-12" placeholder="请输入正文&hellip;">
+</textarea>
+<div id="bio-post" class="col-lg-12">
+<div class="btn-group" data-toggle="buttons">
+<label class="btn btn-success pull-left">
+                <input type="checkbox" autocomplete="off" checked>
+                <span class="glyphicon glyphicon-ok"></span>
+            </label><span id="priv" class="pull-left">不公开</span>
+<label class="btn btn-danger">
+                <input type="checkbox" autocomplete="off" checked>
+                <span class="glyphicon glyphicon-ok"></span>
+            </label><span id="location" class="glyphicon glyphicon-map-marker">限定位置</span>
+</div>
+<button id="post" class="btn btn-primary pull-right" >发布</button>
+<button id="save" class="btn btn-primary pull-right">仅保存</button>
+<button id="cancle" class="btn btn-primary pull-right">取消</button>
+
+</div>
+</div>        
+</div><!---row-->
+</div><!--container-->
+            
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>	
+<script src="js/wangEditor.js"></script>
+<script type="text/javascript">
+//textarea自动增高
+$('textarea').each(function () {
+  this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:show;');
+}).on('input', function () {
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px';
+});
+</script>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+//加载WangEdit
+  var editor = new wangEditor('edit-panel');
+    editor.create();   
+</script>
+
+</body>
+</html>

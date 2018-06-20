@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="referrer" content="origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<meta name="apple-itunes-app" content="">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Lifestep">
+<meta name="apple-mobile-web-app-title" content="Lifestep">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="msapplication-tap-highlight" content="no">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11">
+<title>探索 | Lifestep</title>
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-modal.css" rel="stylesheet">
+<link href="css/photoswipe.css" rel="stylesheet">
+<link href="css/default-skin.css" rel="stylesheet">
+<link href="css/bootstrap-select.min.css" rel="stylesheet">
+<link href="css/explore.css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-top" role="navigation">
+  <div class="container-fluid top-bar back-top"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header back-top">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <button type="button" id="edit-btn2" data-title="text-edit" data-toggle="modal" data-target="#text-edit"><i class="iconfont">&#xe61b;</i></button>
+      <a class="navbar-brand navbar-brand-centered" href="javascript:;"></a>
+      </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse back-top" id="defaultNavbar1">
+    <form class="navbar-form navbar-left" id="sm-search" role="search">
+        <div class="input-group">
+        <span class="input-group-addon"><i class="iconfont" aria-hidden="true">&#xe7d1;</i></span>
+          <input type="search" class="form-control" placeholder="搜索 乐迹">
+        </div>
+      </form>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html" title="首页">首页</a></li>
+        <li><a href="location.html" title="位置">位置</a></li>
+        <li><a href="posts.html" title="发现">发现</a></li>
+        <li><a href="topic.html" id="topic-tgo" title="话题">话题</a></li>
+        <li class="active"><a href="in-lifestep.html" title="在乐迹">在乐迹<span class="sr-only">(current)</span></a></li>
+      </ul>
+      <div class="col-sm-8 col-md-8 back-top search-container">
+      <form class="navbar-form" role="search" id="bg-search">
+        <div class="input-group">
+        <span class="input-group-addon"><i class="iconfont" aria-hidden="true">&#xe7d1;</i></span>
+          <input type="search" class="form-control" placeholder="搜索 乐迹">
+        </div>
+      </form>
+      <a href="javascript:;" id="search-close"><i class="iconfont" aria-hidden="true">&#xe8e9;</i></a>
+      </div>
+      <ul class="nav navbar-nav navbar-right back-top">
+        <li class="search-nav"><a href="javascript:;" title="搜索"><i class="iconfont" aria-hidden="true">&#xe7d1;</i></a></li>
+        <li><a href="javascript:;" title="通知"><i class="iconfont" aria-hidden="true">&#xe907;</i><span class="nav-hide"> &nbsp;&nbsp;通知</span></a></li>
+        <li><a href="javascript:;" title="私信"><i class="iconfont" aria-hidden="true">&#xe649;</i><span class="nav-hide"> &nbsp;&nbsp;私信</span></a></li>
+        <li id="account" class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="ANTIPE"><img src="images/avatar13.jpg" class="img-circle" alt="avatar" width="36px" height="36px"><span class="nav-hide" id="caret-hide"> &nbsp;&nbsp;帐户&nbsp;<i class="glyphicon glyphicon-menu-down"></i></span></a>
+                                    <ul class="dropdown-menu" id="user-setting">
+                                        <li class="nav-show">
+                                        <div class="dropdown-header">
+                                                    <div class="row">
+                                                        <div class="col-xs-6" style="padding-top:5px"><b>我的帐户</b>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <a href="javascript:;" class="btn btn-sm pull-right"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>&nbsp;登出</a>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="dropdown-content">
+                                                    <div id="dd-img"><a class="btn" id="change-avatar">更改头像</a><img src="images/avatar13.jpg" alt="Alternate img"></div>
+                                                    <div class="dropdown-account">
+                                                        <span>ANTIPE</span>
+                                                        <p style="font-size: 12px;color:#666">
+                                                            antipe@outlook.com</p>
+                                                        <div class="divider">
+                                                        </div> 
+                                                        <a href="setting.html" id="account-setting" class="btn-default" title="设置"><i class="iconfont" aria-hidden="true">&#xe6a8;</i>&nbsp;&nbsp;设置</a>
+                                                    </div>
+                                            </div>                                            
+                                        </li>
+         <li class="high-line nav-hide"><a href="javascript:;"><i class="iconfont" aria-hidden="true">&#xe8d8;</i></i>&nbsp;&nbsp;登出</a></li>  
+        <li class="high-line nav-hide"><a href="setting.html" title="设置"><i class="iconfont" aria-hidden="true">&#xe6a8;</i>&nbsp;&nbsp;设置</a></li>
+        <div class="divider nav-hide" style="margin:8px 15px"></div>                                       
+        <li><a href="in-lifestep.html" class="dropdown-band nav-show" title="在乐迹"><b>在乐迹</b><span class="pull-right"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;查看</span></a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">21</span><i class="iconfont" aria-hidden="true">&#xe760;</i>&nbsp;&nbsp;喜欢</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">106</span><i class="iconfont" aria-hidden="true">&#xe69a;</i>&nbsp;&nbsp;关注</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">46</span><i class="iconfont" aria-hidden="true">&#xe698;</i>&nbsp;&nbsp;发布</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">2</span><i class="iconfont" aria-hidden="true">&#xe631;</i>&nbsp;&nbsp;话题</a></li>
+        <li class="high-line"><a href="javascript:;"><span class="badge pull-right">41</span><i class="iconfont" aria-hidden="true">&#xe503;</i>&nbsp;&nbsp;粉丝</a></li>
+        
+            
+                                    </ul>
+                                </li>
+      </ul>
+
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid -->
+  </nav>
+
+  <!--Edit btn-->
+          <button class="edit-button" type="button" id="edit-btn1" title="编辑" data-title="text-edit" data-toggle="modal" data-target="#text-edit">  
+               <i class="iconfont">&#xe61b;</i>
+          </button>
+
+
+<div class="" id="mainbody">
+<!--In-Lifestep-->
+<div class="" id="in-lifestep">
+<div class="timeline-header">
+<div class="timeline-bg"></div>
+</div>
+      <div class="timeline-bar top-bar">
+      <div class="timeline-wrapper">
+      <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs top-bar timeline-avatar">
+      <a href="" class="profile-avatar"><img src="./images/avatar14.png"></a>
+      <a href="" class="profile-avatar-s"><img class="img-circle" width="38px" src="./images/avatar14.png">&nbsp;&nbsp;<strong>Agustin Ortiz</strong>&nbsp;<i class="iconfont">&#xe630;</i></a></div>
+<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 tabs-wrapper top-bar">
+<a href="" class="profile-avatar-s hidden-lg hidden-md hidden-sm"><img class="img-circle" width="38px" src="./images/avatar14.png"></a>
+<ul class="nav nav-tabs">
+          <li class="active"><a href="#timeline-posts" aria-controls="timeline-posts" role="tab" data-toggle="tab">发布<br><span class="small">2431</span></a></li>
+          <li class=""><a href="#timeline-like" aria-controls="timeline-like" role="tab" data-toggle="tab">喜欢<br><span class="small">623</span></a></li>
+          <li class=""><a href="#timeline-topic" aria-controls="timeline-topic" role="tab" data-toggle="tab">话题<br><span class="small">6</span></a></li>
+          <li class=""><a href="#timeline-map" aria-controls="timeline-map" role="tab" data-toggle="tab">乐图<br><span class="small">421</span></a></li>
+        </ul>
+        <button class="btn btn-info hidden-lg hidden-md pull-right"><i class="iconfont">&#xe8cb;</i>&nbsp;关注</button>
+        <div class="dropdown pull-right hidden-lg hidden-md timeline-option"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical"></i></a>
+                            <ul class="dropdown-menu timeline-menu">
+                            <li class="follow-hide"><a href="javascript:;">关注</a></li>
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            <li><a href="javascript:;">发送私信</a></li>
+                            <li><a href="javascript:;">屏蔽</a></li>
+                            </ul>
+              </div>
+</div>
+      <button class="btn btn-info hidden-sm hidden-xs pull-right"><i class="iconfont">&#xe8cb;</i>&nbsp;关注</button>
+      <div class="dropdown pull-right hidden-sm hidden-xs timeline-option"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical"></i></a>
+                            <ul class="dropdown-menu timeline-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            <li><a href="javascript:;">发送私信</a></li>
+                            <li><a href="javascript:;">屏蔽</a></li>
+                            </ul>
+              </div>
+      </div>
+ </div>
+<div class="timeline-container">
+<div class="col-lg-3 col-md-3 col-sm-4 hidden-xs">
+            <div class="panel panel-profile">
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-body">
+                        <h4 class="name"><strong>Agustin Ortiz</strong>&nbsp;<i class="iconfont">&#xe630;</i></h4>
+                            <h4 class="title">Lorem ipsum dolor sit amet</h4>
+                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus</p>
+                            
+                            <div class="col-xs-6">
+                            <h5>正在关注</h5>
+                            <h3><strong>66</strong></h3></div>
+                            <div class="col-xs-6">
+                            <h5>关注者</h5>
+                            <h3><strong>261</strong></h3>
+                            </div>
+                         <div class="profile-footer">
+                            
+                            
+                            <p><i class="iconfont">&#xe61c;</i>&nbsp;&nbsp;中国 北京</p>
+                            <p><i class="iconfont">&#xe694;</i>&nbsp;&nbsp;lifestep.cn</p>
+                            <p><i class="iconfont">&#xe8cf;</i>&nbsp;&nbsp;2017年9月加入乐迹</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<style type="text/css">
+.panel-profile{
+	background: transparent;
+	text-align: ;
+}
+.panel-body{
+	padding:14px 6px;
+}
+.description,
+.profile-footer{
+	text-align: left;
+}
+.name .iconfont{
+	color:#519DCC;
+}
+</style>
+
+
+  
+<div class="tab-content timeline-content col-lg-6 col-md-6 col-sm-8 col-xs-12">
+<div class="tab-pane active fade in" id="timeline-posts">
+<!---post-box-start-->          
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img  src="./images/avatar4.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <a href="javascript:;" class="user-name">Agustin Ortiz</a>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <span class="post-time">20 分钟前</span>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                            <br>
+                            <a href="javascript:;" class="activity"><b class="caret caret-right"></b>&nbsp;&nbsp;Norway Landscape</a>
+                            </div>
+                        </div>
+                        <div class="post-content col-lg-12">
+                            <div class="text"><b>没有婚礼不嫁女儿</b><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?我小时候很喜欢吃鱼，我妈就和市场上卖鱼的小贩混得很熟。有一天中午我放学回家，看我妈做的是排骨，却吵着要吃红烧鱼，我妈无奈就给小贩打电话。结果电话那头小贩说，不好意思啊大姐，陪我老婆过生日，所以今天不出摊。</p></div>
+            <div id="slide-2" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+          <div class="item active">
+            <figure><a href="./images/content/content3.jpg" itemprop="contentUrl" data-size="938x580"><img src="./images/content/content3.jpg" width="100%"/></a></figure></div>
+            <div class="item">
+            <figure><a href="./images/content/content9.jpg" itemprop="contentUrl" data-size="880x712"><img src="./images/content/content9.jpg" width="100%"/></a></figure></div>
+           <div class="item">
+            <figure><a href="./images/content/content10.jpg" itemprop="contentUrl" data-size="530x795"><img src="./images/content/content10.jpg" width="100%"/></a></figure></div>
+            
+            <badge class="img-badge">3</badge>
+          </div>
+          <a class="left carousel-control" href="#slide-2" role="button" data-slide="prev"><i class="iconfont">&#xf0343;</i></a>
+          <a class="right carousel-control" href="#slide-2" role="button" data-slide="next"><i class="iconfont">&#xf0344;</i></a>
+      </div>  
+            </div>
+                        <div class="post-footer">
+                        <p class="post-tags">#&nbsp;小吃 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;春秋 &nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;节气</p>
+                <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">美如画</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec45;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+
+                    <div id="" class="collapse comment-area">
+                    <ul class=" comments-list">
+                <li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>                       
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;1036</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                          <div class="images"><figure><a href="./images/content/content14.jpg" itemprop="contentUrl" data-size="1920x1200"><img src="./images/content/content14.jpg"/></a></figure></div>
+
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical"></i></button>
+                          <a href="#" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;102</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar5.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;18</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>     
+                    </li>
+<li>
+                     
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;24</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+       </div>
+          <div class="comment-edit">
+            <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+            <form>
+            <textarea class="col-xs-12" class="comment-edit-area" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide"><label>
+            <button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+            <input type="file" class="file-upload" id="" name="" title="添加图片">
+            </label>
+            <button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" disabled="value"> 发布</button></div>
+            </form>
+      </div>
+      </div><!---post-box-end-->        
+
+
+
+
+<!---post-box-start-->
+                    <div class="post-box">
+                        <div class="post-header">
+                        <a href="javascript:;" class="user-avatar"><img src="./images/avatar12.jpg" alt="avatar"></a>
+                        <div class="cell">
+                            <p class="user-name"><a href="javascript:;">Agustin Ortiz</a></p>
+                            <a href="javascript:;" class="follow">&nbsp;<b>关注</b></a>
+                            <span class="post-time">20 分钟前</span>
+                            <div class="dropdown post-option"><a href="javascript:;" class="dropdown-toggle panel-close" data-toggle="dropdown"><i class="iconfont">&#xe78d;</i></a>
+                            <ul class="dropdown-menu option-menu">
+                            <li><a href="javascript:;">举报滥用</a></li>
+                            </ul></div>
+                        </div>
+                        </div>
+                        <div class="post-content col-xs-12">
+                            <div class="text"><b>项羽本纪</b><br><p>项籍者，下相人也，字羽。初起时，年二十四。其季父项梁，梁父即楚将项燕，为秦将王翦所戮者也。项氏世世为楚将，封于项，故姓项氏。</p>
+                            <p>项籍少时，学书不成，去；学剑，又不成，项梁怒之。籍曰：“书足以记名姓而已。剑一人敌，不足学，学万人敌。”于是项梁乃教籍兵法，籍大喜，略知其意，又不肯竟学。项梁尝有栎阳逮，乃请蕲狱掾曹咎书抵栎阳狱掾司马欣，以故事得已。项梁杀人，与籍避仇于吴中，吴中贤士大夫皆出项梁下。每吴中有大徭役及丧，项梁常为主办，阴以兵法部勒宾客及子弟，以是知其能。秦始皇帝游会稽，渡浙江，梁与籍俱观。籍曰：“彼可取而代也。”梁掩其口，曰：“毋妄言，族矣！”梁以此奇籍。籍长八尺余，力能扛鼎，才气过人，虽吴中子弟，皆已惮籍矣。<a class="read-more pull-right" href="javascript:;" title="展开..."><i class="iconfont">&#xe7bc;</i></a></p>
+                            <div class="text-hide"><p>秦二世元年七月，陈涉等起大泽中。其九月，会稽守通谓梁曰：“江西皆反，此亦天亡秦之时也。吾闻先即制人，后则为人所制。吾欲发兵，使公及桓楚将。”是时桓楚亡在泽中。梁曰：“桓楚亡，人莫知其处，独籍知之耳。”梁乃出，诫籍持剑居外待。梁复入，与守坐，曰：“请召籍，使受命召桓楚。”守曰：“诺。”梁召籍入。须臾，梁瞬籍曰：“可行矣！”于是籍遂拔剑斩守头。项梁持守头，佩其印绶。门下大惊，扰乱，籍所击杀数十百人。一府中皆慑伏，莫敢起。梁乃召故所知豪吏，谕以所为起大事，遂举吴中兵。使人收下县，得精兵八千人。梁部署吴中豪杰为校尉、候、司马。有一人不得用，自言于梁。梁曰：“前时某丧使公主某事，不能办，以此不任用公。”众乃皆伏。于是梁为会稽守，籍为裨将，徇下县。</p>
+                            <p>广陵人召平于是为陈王徇广陵，未能下。闻陈王败走，秦兵又且至，乃渡江矫陈王命，拜梁为楚王上柱国。曰：“江东已定，急引兵西击秦。”项梁乃以八千人渡江而西。闻陈婴已下东阳，使使欲与连和俱西。陈婴者，故东阳令史，居县中，素信谨，称为长者。东阳少年杀其令，相聚数千人，欲置长，无适用，乃请陈婴。婴谢不能，遂强立婴为长，县中从者得二万人。少年欲立陈婴便为王，异军苍头特起。陈婴母谓婴曰：“自我为汝家妇，未尝闻汝先古之有贵者。今暴得大名，不祥。不如有所属，事成犹得封侯，事败易以亡，非世所指名也。”婴乃不敢为王。谓其军吏曰：“项氏世世将家，有名于楚。今欲举大事，将非其人，不可。我倚名族，亡秦必矣。”于是众从其言，以兵属项梁。项梁渡淮，黥布、蒲将军亦以兵属焉。凡六七万人，军下邳。</p>
+                            <p>当是时，秦嘉已立景驹为楚王，军彭城东，欲距项梁。项梁谓军吏曰：“陈王先首事，战不利，未闻所在。今秦嘉倍陈王而立景驹，逆无道。”乃进兵击秦嘉。秦嘉军败走，追之至胡陵。嘉还战一日，嘉死，军降。景驹走死梁地。项梁已并秦嘉军，军胡陵，将引军而西。章邯军至栗，项梁使别将朱鸡石、馀樊君与战。馀樊君死，朱鸡石军败，亡走胡陵。项梁乃引兵入薛，诛鸡石。项梁前使项羽别攻襄城，襄城坚守不下。已拔，皆坑之。还报项梁。项梁闻陈王定死，召诸别将会薛计事。此时，沛公亦起沛往焉。</p>
+                            <p>居巢人范增，年七十，素居家，好奇计，往说项梁曰：“陈胜败固当。夫秦灭六国，楚最无罪。自怀王入秦不反，楚人怜之至今，故楚南公曰：‘楚虽三户，亡秦必楚’也。今陈胜首事，不立楚后而自立，其势不长。今君起江东，楚蜂起之将皆争附君者，以君世世楚将，为能复立楚之后也。”于是项梁然其言，乃求楚怀王孙心民间，为人牧羊，立以为楚怀王，从民所望也。陈婴为楚上柱国，封五县，与怀王都盱台。项梁自号为武信君。</p>
+                            </div>
+                            </div>
+                        <div class="images">
+                            <figure><a href="./images/content/content17.jpg" itemprop="contentUrl" data-size="1050x755"><img src="./images/content/content17.jpg" width="100%"/></a></figure>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                        <a href="javascript:;" class="pull-left btn btn-default" title="喜欢"><i class="iconfont" aria-hidden="true">&#xe761;</i></a><span class="badge pull-left">6</span>
+                <a href="javascript:;" class="pull-left btn btn-default" title="收藏"><i class="iconfont" aria-hidden="true">&#xe733;</i></a><span class="badge pull-left">2</span>
+                <span class="badge pull-right">蠢哭了</span><a href="javascript:;" class="pull-right btn btn-default" title="点评" data-title="remark" data-toggle="modal" data-target="#remark"><i class="iconfont" aria-hidden="true">&#xec46;</i></a>
+
+                        <span class="badge pull-right">23</span><a href="javascript:;" id="comment-btn" class="pull-right btn btn-default rating" title="评论"><i class="iconfont" aria-hidden="true">&#xe763;</i></a>
+                        </div>
+            <div id="" class="collapse comment-area"> 
+                     <ul class=" comments-list">
+                <li>
+                        <a href="javascript:;" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar10.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;64</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">我的朋友颜酱，父母都是普通的工薪阶层。有一次妈妈想要去参加一个同学会，逛街的时候看上一件很贵的大衣，没有舍得买。爸爸却偷偷回去给她买下来，当作礼物送给妈妈，花掉他半年的积蓄。他很开心，看到妻子穿那件很贵的大衣去参加同学会，他觉得他应该给她那样的仪式感。...</p>
+                        </div>
+                    </li>
+<li>
+                      
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar9.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;35</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar.png" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;27</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+<li>
+                        <a href="#" class="pull-left">
+                          <img class="user-avatar" src="./images/avatar1.jpg" />
+                        </a>
+                        <div class="comment-body">
+                          <span class="comment-time pull-right">6小时前</span>
+                          <button id="comment-option1" class="popmenu btn btn-default"><i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i></button>
+                          <a href="javascript:;" id="comment-option2" title="赞"><i class="iconfont" aria-hidden="true">&#xe794;</i>&nbsp;16</a>
+                          <h4 class="title">
+                            <a href="javascript:;" class="comment-name">Lorem Impsum</a>
+                          </h4>
+                          <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                        </div>
+                    </li>
+       </ul>
+        </div>
+                
+                <div class="comment-edit">
+                <a href="javascript:;">
+                <img class="my-avatar pull-left" src="images/avatar13.jpg"></a>
+                <form>
+            <textarea class="col-xs-12" class="comment-edit-area" placeholder="发表你的看法&hellip;"></textarea>
+            <div class="comment-edit-hide">
+            <label><button class="btn btn-default add-image"><i class="iconfont">&#xe62b;</i></button>
+<input type="file" class="file-upload" id="" name="" title="添加图片"></label>
+<button title="添加链接" class="btn btn-default add-links"><i class="iconfont">&#xe694;</i></button>
+            <button type="submit" class="btn-submit" id="btn1" disabled="value"> 发布</button></div>
+            </form>
+            </div>
+        </div>  <!--Posts-box- end -->
+
+</div><!--Timeline-posts-end-->
+
+
+
+<div class="tab-pane fade" id="timeline-like">
+</div>
+
+
+<div class="tab-pane fade" id="timeline-topic">
+</div>
+
+
+
+<div class="tab-pane fade" id="timeline-map">
+</div>
+
+
+
+</div><!--Timeline-content-end-->
+
+
+
+
+
+
+<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+<!--Side-Recommendation-->  
+<div class="side-col">
+    <div class="col-title">&nbsp;推荐关注<a href="javascript:;" class="view-all pull-right">查看全部<i class="iconfont">&#xe775;</i></a></div>
+        <ul class="column-list">
+            <li class="alert recommend">
+                <a class="user-head" href="javascript:;">
+                    <img class="avatar" src="./images/avatar3.jpg" alt="avatar">星期天</a>
+                <br>
+                <span>二货大猩猩</span> 
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <a href="javascript:;" class="add-icon pull-right"><i class="iconfont">&#xe63d;</i></a> 
+                                                  
+            </li> 
+
+           <li class="alert recommend">
+                <a class="user-head" href="javascript:;">
+                    <img class="avatar" src="./images/avatar3.png" alt="avatar">Ryan Haywood</a>
+                <br>
+                <span>Relax my friend</span> 
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <a href="javascript:;" class="add-icon pull-right"><i class="iconfont">&#xe63d;</i></a> 
+                                                  
+            </li> 
+
+            <li class="alert recommend">
+                <a class="user-head" href="javascript:;">
+                    <img class="avatar" src="./images/avatar8.jpg" alt="avatar">大军</a>
+                <br>
+                <span>小动作</span> 
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <a href="javascript:;" class="add-icon pull-right"><i class="iconfont">&#xe63d;</i></a> 
+                                                  
+            </li> 
+
+            <li class="alert recommend">
+                <a class="user-head" href="javascript:;">
+                    <img class="avatar" src="./images/avatar6.jpg" alt="avatar">他大哥</a>
+                <br>
+                <span>一个勺子</span> 
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <a href="javascript:;" class="add-icon pull-right"><i class="iconfont">&#xe63d;</i></a> 
+                                                  
+            </li> 
+        </ul>
+        <div class="col-footer"><a href="#" class="find-friend"><i class="iconfont">&#xe8c9;</i>&nbsp;寻找好友</a></div>
+    </div><!--Side-Recommendation-end--> 
+</div>
+
+</div><!--Timeline-Container-End-->
+
+
+
+
+
+
+
+
+
+
+
+</div><!--In-Lifestep end-->
+
+
+
+
+
+</div><!--mainbody-end-->
+
+
+<!--Images Viewer Window -->
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="关闭 (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="全屏"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="放大/缩小"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader-active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="上一张">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="下一张">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+</div>
+
+
+
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-modalmanager.js"></script>
+<script src="js/photoswipe.min.js"></script>
+<script src="js/photoswipe-ui-default.min.js"></script>
+<script src="js/imageviewer.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/jquery-scrollLock.min.js"></script>
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+$(function () {
+  $('[data-toggle="popover"]').popover()
+});
+$('.comments-list, .navbar-collapse,.topic-col .col-content').scrollLock();
+
+//PhotoSwipe图片浏览
+initPhotoSwipeFromDOM('.images, .carousel-inner');
+//  hover资料卡 
+    $(".user-avatar,.user-name,.avatar-hide,.avatar-show,.user-head").popover({
+    trigger:"hover",  
+    placement:"bottom",
+    html:true,
+    animation: true,
+    delay: {show:700,hide: 300},
+    content:'<div class="card"><a href="#"><img class="card-img-top" src="./images/card1.jpg"></a><div class="dropdown card-option"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="iconfont">&#xe8c8;</i></a><ul class="dropdown-menu card-menu"><li><a href="javascript:;">发送消息</a></li><li><a href="javascript:;">举报滥用</a></li></ul></div><button class="btn btn-info">关注</button><div class="card-block"><figure class="profile"><a href="#"><img src="./images/card-avatar.gif" class="profile-avatar" alt=""></a></figure><a href="#"><h4 class="card-title">Tawshif Ahsan Khan</h4></a><div class="card-text">Tawshif is a web designer living in Bangladesh.</div></div><div class="card-footer"><div class="col-xs-4 card-latest"><a href="#"><img class="img-responsive" src="./images/card2.jpg" alt=""></a></div><div class="col-xs-4 card-latest"><a href="#"><img class="img-responsive" src="./images/card3.jpg" alt=""></a></div><div class="col-xs-4 card-latest"><a href="#"><img class="img-responsive" src="./images/card4.jpg" alt=""></a></div><br><span class="update">更新于 3 分钟前</span></div></div>'
+})
+    .on('shown.bs.popover', function (event) {
+        var that = this;
+        $(this).parent().find('div.popover').on('mouseenter', function () {
+            $(that).attr('in', true);
+        }).on('mouseleave', function () {
+            $(that).removeAttr('in');
+            $(that).popover('hide');
+        });
+    }).on('hide.bs.popover', function (event) {
+        if ($(this).attr('in')) {
+            event.preventDefault();
+        }
+    });
+
+//  评论选项
+ $(".popmenu").popover({
+    trigger:"click", 
+    placement:"left",
+    html:true,
+    content: '<ul id="pop-menu"><li><a href="javascript:;">为评论点赞</a></li><li><a href="javascript:;">回复</a></li><li><a href="javascript:;">举报评论</a></li><li><a href="javascript:;">查看对话</a></li></ul>'
+})
+ $(document).on('click', function (e) {
+    $('.popmenu').each(function () {
+        if (!$(this).is(e.target) && $(this).has(e.target).length === 0) {                
+            (($(this).popover('hide').data('bs.popover')||{}).inState||{}).click = false
+        }
+    });
+});   
+
+</script>  
+
+<script type="text/javascript">
+$(document).ready(function () {
+console.log('ready');
+ //*in-lifestep timeline-bar固定*//
+$('.timeline-avatar .profile-avatar-s').hide();
+$('a[data-toggle=tab]').each(function () {
+var bar=$('.timeline-bar'); 
+var win=$(window);
+var doc=$(document);
+var scr=document.body.clientWidth;
+win.scroll(function(){
+  if(doc.scrollTop()>=scr/4){
+    bar.addClass("fixed");
+    bar.addClass('back-top');
+    $('.profile-avatar').hide();
+    $('.timeline-avatar .profile-avatar-s').show();   
+    $('.timeline-avatar').addClass('back-top');
+    $('.tabs-wrapper').addClass('back-top');
+    $('#navbar-top').removeClass('nav-shadow');  
+  }else{
+   bar.removeClass("fixed");
+   bar.removeClass('back-top');
+   $('.profile-avatar').show();
+   $('.timeline-avatar .profile-avatar-s').hide();
+   $('.timeline-avatar').removeClass('back-top');
+   $('.tabs-wrapper').removeClass('back-top');
+   $('#navbar-top').addClass('nav-shadow');
+  }
+})  
+}); 
+
+//modal背景锁定
+var scrollPos = 0;
+$('.modal')
+.on('shown', function (){
+scrollPos = $(document).scrollTop();
+$('body').css({
+overflow: 'hidden',
+position: 'fixed',
+top : -scrollPos,
+left : '0',
+right : '0'
+});
+})
+.on('hidden', function (){
+$('body').css({
+overflow: '',
+position: '',
+top : ''
+});
+$(document).scrollTop(scrollPos);
+});
+
+//编辑按钮动画
+$('.edit-button, .edit-box input').on('click', function () {
+      $('.edit-button').hide();
+  });
+$('#text-edit').on('hidden', function () {
+      $('.edit-button').fadeIn('fast');
+  });
+
+//navbar搜索框隐藏
+$('.search-nav').on("click", function () {
+  $('.navbar-nav').hide();
+    $('.search-container').fadeIn(300);
+});
+$(document).click(function (e) {
+    if (!$(e.target).parents().andSelf().is('#bg-search, .search-nav')) {
+    $('.search-container').hide();
+    $('.navbar-nav').fadeIn('fast');
+    }
+});
+
+//textarea自动增高
+$('textarea').each(function () {
+  setTimeout(function(){ $('#posts .post-container').masonry() }, 200);
+  this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:show;');
+  
+}).on('input', function () {
+  setTimeout(function(){ $('#posts .post-container').masonry() }, 200);
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px';
+});
+
+//轮播
+$('.carousel').carousel({
+  interval: 4000
+});
+$(".carousel-control").hide();
+$(function(){
+//鼠标滑过，左右按钮进行显示和隐藏
+   $(".carousel").hover(function(){
+     $(".carousel-control").fadeIn('fast');
+   },function(){
+     $(".carousel-control").fadeOut('fast');
+   });
+   });
+
+//*回到顶部*//
+  $('.top-bar').on('click',function(e){
+        if ($(e.target).hasClass('back-top')) {
+          $("html,body").animate({"scrollTop":"0px"},300);
+        }
+  });
+
+//*按钮禁用*//
+  $('.btn-submit').attr('disabled', true);
+$('.comment-edit textarea').on('keyup', function() {
+    var text_value = $(this).val();
+    if (!text_value.trim().length) {
+      $(this).parents('form').find('.btn-submit').attr('disabled', true);
+    } else {
+      $(this).parents('form').find('.btn-submit').attr('disabled', false);
+    }
+  });
+
+//*评论输入框隐藏*//
+  $('.comment-edit textarea').on('click',function(){
+    $('.comment-edit textarea').not(this).css('height', '42px');
+    $('.comment-edit textarea').not(this).parents('.comment-edit').find('.comment-edit-hide').slideUp(200);
+    $(this).css('height', 'auto');
+    $(this).parents('.comment-edit').find('.comment-edit-hide').slideDown(200);
+  });
+$(document).click(function (e) {
+    if (!$(e.target).parents().andSelf().is('.comment-edit')) {
+        $('.comment-edit textarea').css('height', '42px');
+        $('.comment-edit-hide').slideUp(300);
+    }
+});
+
+//*评论展开*// 
+    $('.rating').click(function() {
+  $comments = $(this).parent().siblings('.collapse');
+  if ($comments.hasClass('in')) {
+    $comments.collapse('hide');
+  } else {
+    $comments.collapse('show');
+  }
+});
+
+//*文字过长隐藏*//
+ $(".text-hide").hide();
+  $('.read-more').on('click',function(){  
+    $(this).parents('.post-content').find('.text-hide').slideDown(400);
+    $(this).hide();
+    setTimeout(function(){ $('#posts .post-container').masonry() }, 450);
+  }); 
+
+//*Post-box动作*//
+  $('.post-box').on('click',function () {
+      $('.post-box').not(this).find('.collapse').collapse('hide');
+    $('.post-box').not(this).find('.text-hide').slideUp(400);
+      $('.post-box').not(this).find('.read-more').show(400);
+  });
+
+//Dropdown 箭头改变
+$('#account').on('show.bs.dropdown', function () {
+  $('#caret-hide').html(' &nbsp;&nbsp;帐户&nbsp;<i class="glyphicon glyphicon-menu-up"></i>');
+}).on('hide.bs.dropdown', function () {
+  $('#caret-hide').html(' &nbsp;&nbsp;帐户&nbsp;<i class="glyphicon glyphicon-menu-down"></i>');
+});
+
+});
+</script>
+
+<script>
+
+
+
+//*查看全部*//
+$('.loc-topic .view-all').click(function () {
+    $('#topic-tgo').tab('show');
+    $('#topic-bar li').removeClass('active');
+    $('#topic-bar li:nth-child(2)').addClass('active');
+});
+$('.topic-col .view-all').click(function () {
+    $('#topic-tgo').tab('show');
+    $('#topic-bar li').removeClass('active');
+    $('#topic-bar li:first-child').addClass('active');
+});
+$('.side-col .view-all').click(function () {
+    $('#search-btn').tab('show');
+});
+$('.side-col .find-friend').click(function () {
+    $('#search-btn').tab('show');
+    $('#search-bar li').removeClass('active');
+    $('#search-bar li:first-child').addClass('active');
+});
+</script>
+<script>
+//点评侧边栏展开
+$(document).ready(function(){
+    console.log('ready'); 
+    $('.toggle-remark').click(function() {
+  $remarks = $(this).parent().siblings('.collapse');
+  if ($remarks.hasClass('in')) {
+    $remarks.collapse('hide');
+    $(this).html('展开&nbsp;<span class="glyphicon glyphicon-triangle-bottom"></span>');
+  } else {
+    $remarks.collapse('show');
+    $(this).html('收起&nbsp;<span class="glyphicon glyphicon-triangle-top"></span>');
+  }
+});
+
+ 
+}); 
+</script>
+
+<script>
+
+</script>
+
+
+
+</body>
+</html>
